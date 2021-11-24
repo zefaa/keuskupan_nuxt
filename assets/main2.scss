@@ -1,0 +1,938 @@
+@import "./mq";
+
+#landing-page{
+    h2{
+        font-size: 3.5rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+        line-height: 110%;
+        @include phone {
+            font-size: 1.8em;
+            letter-spacing: -1px;
+            line-height: 120%;
+        }
+        @include phone-tablet {
+            font-size: 1.8em;
+            letter-spacing: -1px;
+            line-height: 120%;
+        }
+        @include portrait-tablet {
+            font-size: 2.5em;
+            letter-spacing: -1px;
+            line-height: 120%;
+        }
+    }
+
+    h5{
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+        line-height: 120%;
+        @include phone {
+            font-size: 1.5rem;
+        }
+    }
+
+    h6{
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+        line-height: 140%;
+        @include phone {
+            font-size: 1.3rem;
+        }
+    }
+
+    .b1{
+        font-size: 1rem;
+        font-weight: 400;
+        @include phone {
+            font-size: 0.8rem;
+        }
+    }
+
+    .b2{
+        font-size: 1.5rem;
+        @include phone {
+            font-size: 0.8rem;
+        }
+        @include portrait-tablet {
+            font-size: 1.3rem;
+        }
+    }
+
+    .b3{
+        font-size: 2.3rem;
+        @include phone {
+            font-size: 1rem;
+        }
+        @include portrait-tablet {
+            font-size: 1.5rem;
+        }
+    }
+
+    .hw4{
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .bw2{
+        font-size: 1.3rem;
+        @include phone {
+            font-size: 0.7em;
+        }
+        @include phone-tablet {
+            font-size: 1em;
+        }
+        @include portrait-tablet {
+            font-size: 1em;
+        }
+    }
+
+    .drawer-button{
+        font-weight: bold;
+        font-size: 1.5rem;
+        height: 1.6rem;
+        line-height: 1.6rem;
+    }
+
+    .btn-register{
+        width: 50%;
+        padding: 32px;
+        @include phone {
+            width: 80%;
+            font-size: 0.7rem;
+            padding: 18px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        @include phone-tablet {
+            font-size: 0.7rem;
+            padding: 18px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        @include portrait-tablet {
+            font-size: 0.95rem;
+            padding: 18px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+
+    .btn-register-2{
+        padding: 32px;
+        @include phone {
+            font-size: 0.6rem;
+            font-weight: 900;
+            padding: 25px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            height: 50px;
+        }
+        @include phone-tablet {
+            font-size: 1rem;
+            padding: 25px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            height: 50px;
+        }
+        @include portrait-tablet {
+            font-size: 1rem;
+            padding: 25px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            height: 50px;
+        }
+    }
+
+    .flex-sm-column{
+        @include phone {
+            flex-direction: column !important;
+        }
+        @include phone-tablet {
+            flex-direction: column !important;
+        }
+    }
+
+    .align-sm-center{
+        @include phone {
+            align-items: center !important;
+        }
+        @include phone-tablet {
+            align-items: center !important;
+        }
+    }
+
+    .footer-logo{
+        width: 20%;
+        height: 30px;
+    }
+
+    .branding-image{
+        margin-left: auto;
+        margin-right: auto;
+        @include phone {
+            width: 35%;
+        }
+        @include portrait-tablet {
+            width: 30%;
+        }
+        @include phone-tablet {
+            width: 50%;
+        }
+        @include tablet-2 {
+            width: 50%;
+        }
+    }
+
+    .banner-container{
+        max-height: 30%;
+    }
+
+    .banner1{
+        max-width: 100%;
+        height: 100%;
+    }
+
+    .img-container{
+        width: 15%;
+        margin-right: 5%;
+        @include phone {
+            width: 100%;
+            margin-top: 3%;
+            margin-right: 0%;
+        }
+        @include portrait-tablet {
+            width: 80%;
+            margin-top: 3%;
+            margin-right: 0%;
+        }
+        @include phone-tablet {
+            width: 40%;
+            margin-top: 3%;
+            margin-right: 0%;
+        }
+        @include tablet-2 {
+            width: 30%;
+        }
+    }
+
+    .img-container:last-child{
+        margin-right: 0%;
+    }
+
+    .intro-section{
+        .youtube-container{
+            margin-top: 13%;
+            margin-bottom: 13%;
+        }
+    }
+
+    .why-section{
+
+        margin-top: 13%;
+        margin-bottom: 13%;
+
+        h5{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bolder;
+            @include phone {
+                margin: 0px
+            }
+            @include portrait-tablet {
+                margin: 0px
+            }
+        }
+
+        p{
+            text-align: center;
+            @include phone {
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+    .about-section-2{
+        padding-top: 0%;
+        padding-bottom: 0%;
+    }
+
+    .about-section{
+        padding-top: 3%;
+        padding-bottom: 3%;
+        background-color: #00249d;
+        color: #fff;
+        @include phone {
+            margin-bottom: 0%;
+        }
+
+        .branding-image{
+            width: 80%;
+            height: 8rem;
+            margin-top: 5%;
+            .v-image__image--cover{
+                background-size: contain !important;  
+            }
+            @include phone {
+                width: 70%;
+            }
+            @include phone-tablet {
+                width: 80%;
+                height: 5rem;
+            }
+            @include portrait-tablet {
+                width: 80%;
+                height: 5rem;
+                margin-top: 5%;
+                margin-right: 0%;
+            }
+        }
+
+        .fits-you-image{
+            height: 20rem;
+            @include phone {
+                height: 7rem;
+            }
+            @include phone-tablet {
+                height: 7rem;
+            }
+            @include portrait-tablet {
+                height: 10rem;
+            }
+        }
+
+        p{
+            width: 50%;
+            margin-top: 3%;
+            @include phone {
+                margin-top: 5%;
+                width: 80%;
+            }
+            @include phone-tablet {
+                margin-top: 5%;
+                width: 80%;
+            }
+            @include portrait-tablet {
+                margin-top: 5%;
+                width: 80%;
+            }
+        }
+
+        .block-image{
+            width: 70%;
+            @include phone {
+                width: 100%;
+                height: 40%;
+            }
+            @include phone-tablet {
+                width: 100%;
+                height: 40%;
+            }
+            @include portrait-tablet {
+                width: 100%;
+                height: 40%;
+            }
+        }
+    }
+
+    .slideshow{
+        width: 60%;
+        z-index: 0;
+        margin-bottom: 2%;
+        @include phone {
+            width: 80%;
+        }
+        @include phone-tablet {
+            width: 80%;
+        }
+        @include portrait-tablet {
+            width: 80%;
+        }
+    }
+
+    .v-carousel{
+        @include phone {
+            height: 200px !important;
+        }
+        @include phone-tablet {
+            height: 200px !important;
+        }
+        @include portrait-tablet {
+            height: 300px !important;
+        }
+    }
+
+    .v-carousel__item{
+        .v-image__image{
+            background-size: contain;  
+        }
+        @include phone {
+            height: 200px !important;
+        }
+        @include phone-tablet {
+            height: 200px !important;
+        }
+        @include portrait-tablet {
+            height: 300px !important;
+        }
+    }
+
+    .product-section{
+        // padding-top: 3%;
+        padding-bottom: 3%;
+    }
+
+    .benefit-section{
+        padding-top: 3.5%;
+        padding-bottom: 3.5%;
+        @include phone {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        @include phone-tablet {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        @include portrait-tablet {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        h2{
+            @include phone {
+                margin-top: 0% !important;
+            }
+            @include phone-tablet {
+                margin-top: 0% !important;
+            }
+            @include portrait-tablet {
+                margin-top: 0% !important;
+            }
+        }
+
+        .row-container{
+            @include tablet-2 {
+                flex-direction: column !important;
+            }
+        }
+
+        h6{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bolder;
+            @include phone {
+                width: 65%;
+                margin: 0px;
+                margin-left: auto;
+                margin-right: auto;
+                letter-spacing: -1px;
+                line-height: 120%;
+            }
+        }
+
+        p{
+            text-align: center;
+            @include phone {
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .img-container{
+            @include desktop {
+                align-self: flex-start !important;
+            }
+            @include phone-tablet {
+                width: 70%;
+            }
+            @include tablet-2 {
+                width: 50%;
+            }
+        }
+
+        .branding-image{
+            @include phone {
+                width: 60%;
+            }
+            @include phone-tablet {
+                width: 70%;
+            }
+            @include portrait-tablet {
+                width: 70%;
+            }
+        }
+    }
+
+    .steps-section{
+        padding-top: 1%;
+        padding-bottom: 1.5%;
+        @include phone {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        @include phone-tablet {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        @include portrait-tablet {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        h2{
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            @include phone {
+                margin-top: 0% !important;
+            }
+            @include phone-tablet {
+                margin-top: 0% !important;
+            }
+            @include portrait-tablet {
+                margin-top: 0% !important;
+            }
+        }
+
+        h4{
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bolder;
+            @include phone {
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        p{
+            text-align: center;
+        }
+
+        .branding-image{
+            @include phone {
+                width: 40%;
+            }
+            @include phone-tablet {
+                width: 80%;
+            }
+        }
+    }
+
+    .testimony-section{
+        padding-top: 1%;
+        padding-bottom: 1.5%;
+
+        @include phone {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        @include phone-tablet {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        @include portrait-tablet {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        h2{
+            @include phone {
+                margin-top: 0% !important;
+            }
+            @include phone-tablet {
+                margin-top: 0% !important;
+            }
+            @include portrait-tablet {
+                margin-top: 0% !important;
+            }
+        }
+
+        .quote{
+            width: 50%;
+            text-align: center;
+            font-weight: bolder;
+            @include phone {
+                width: 90%;
+            }
+            @include portrait-tablet {
+                width: 90%;
+            }
+        }
+
+        .branding-image{
+            @include phone {
+                width: 5%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    
+        .testimony-card{
+            width: 250px;
+            height: 50%;
+            margin: 32px;
+        }
+
+        .slideshow-person{
+            @include phone {
+                width: 80%;
+                height: 400px !important;
+            }
+            @include tablet-2 {
+                width: 80%;
+                height: 400px !important;
+            }
+            @include phone-tablet {
+                width: 70%;
+                height: 400px !important;
+            }
+            @include portrait-tablet {
+                width: 70%;
+                height: 400px !important;
+            }
+            p{
+                @include phone {
+                    width: 60%;
+                }
+                @include tablet-2 {
+                    width: 60%;
+                }
+                @include phone-tablet {
+                    width: 60%;
+                }
+                @include portrait-tablet {
+                    width: 60%;
+                }
+            }
+
+            // .v-carousel{
+            //     @include phone {
+            //         height: 400px !important;
+            //     }
+            //     @include tablet-2 {
+            //         height: 400px !important;
+            //     }
+            //     @include phone-tablet {
+            //         height: 400px !important;
+            //     }
+            //     @include portrait-tablet {
+            //         height: 400px !important;
+            //     }
+            // }
+    
+            .v-carousel__item{
+                @include phone {
+                    height: 100% !important;
+                }
+                @include tablet-2 {
+                    height: 100% !important;
+                }
+                @include phone-tablet {
+                    height: 100% !important;
+                }
+                @include portrait-tablet {
+                    height: 100% !important;
+                }
+            }
+
+            .v-window__prev, .v-window__next{
+                background: transparent;
+            }
+        }
+
+        .testimony-image{
+            @include phone {
+                width: 150px;
+                height: 150px;
+            }
+            @include tablet-2 {
+                width: 150px;
+                height: 150px;
+            }
+            @include phone-tablet {
+                width: 150px;
+                height: 150px;
+            }
+            @include portrait-tablet {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        .testimonial-slideshow{
+            width: 80%;
+            @include phone {
+                width: 100%;
+            }
+        }
+
+        p{
+            text-align: center;
+        }
+    }
+
+    .faq-section{
+
+        padding-top: 3%;
+        padding-bottom: 5%;
+
+        @include phone {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        @include phone-tablet {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        @include portrait-tablet {
+            padding-top: 30px;
+            padding-bottom: 170px;
+        }
+
+        h2{
+            @include phone {
+                margin-top: 0% !important;
+            }
+            @include phone-tablet {
+                margin-top: 0% !important;
+            } 
+            @include portrait-tablet {
+                margin-top: 0% !important;
+            }
+        }
+
+        .faq-list{
+            max-width: 80%;
+            z-index: 0;
+            // bisa diganti dengan max-width: 80%;
+            // @include phone {
+            //     width: 80%;
+            // }
+            // @include phone-tablet {
+            //     width: 80%;
+            // }
+            // @include portrait-tablet {
+            //     width: 80%;
+            // }
+        }
+
+        .b2{
+            font-weight: 700;
+        }
+
+        p{
+            width: 80%;
+        }
+    }
+
+    .v-footer{
+        z-index: 0;
+    }
+
+    .top-fab{
+        z-index: 1;
+    }
+
+    .contact-section{
+
+        padding-top: 2%;
+
+        @include phone {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        @include phone-tablet {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        @include portrait-tablet {
+            padding-top: 50px;
+            // padding-bottom: 50px;
+        }
+
+        h2{
+            @include phone {
+                margin-top: 0% !important;
+            }
+            @include phone-tablet {
+                margin-top: 0% !important;
+            }
+            @include portrait-tablet {
+                margin-top: 0% !important;
+            }
+        }
+
+        .contact-form{
+            width: 30%;
+        }
+
+        .btn-message{
+            font-weight: 700;
+            font-size: 1.3rem;
+            padding: 32px;
+            padding-left: 64px;
+            padding-right: 64px;
+        }
+
+        .b1{
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .whatsapp-button{
+            @include desktop {
+                width: 250px;
+                height: 60px;
+            }
+        }
+    }
+
+    .link-container{
+        width: 50%;
+        a{
+            color: #fff;
+            text-decoration: none;
+        }
+        @include phone {
+            width: 100%;
+        }
+        @include phone-tablet {
+            width: 80%;
+        }
+        @include portrait-tablet {
+            width: 80%;
+        }
+        @include tablet-2 {
+            width: 80%;
+        }
+    }
+
+    .footer-button{
+        color: #fff;
+        text-align: center;
+        @include phone {
+            font-size: 0.8rem;
+        }
+    }
+
+    .footer-separator{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .copyright-text{
+        @include phone {
+            font-size: 0.5rem;
+        }
+    }
+
+    .nav-btn{
+        font-size: 1rem;
+        text-transform: none;
+        @include phone {
+            display: none;
+        }
+        @include portrait-tablet {
+            display: none;
+        }
+        @include phone-tablet {
+            display: none;
+        }
+        @include tablet-2 {
+            display: none;
+        }
+    }
+
+    .nav-drawer{
+        // jika height appbarnya adalah 100px maka topnya juga 100px
+        // baru ketahuan saat pakai stateless di drawenya
+        top: 60px !important;
+        height: auto !important;
+        width: 100% !important;
+        transform: translateY(-100%) !important;
+    }
+
+    .v-navigation-drawer--is-mobile{
+        z-index: 3;
+        max-height: 100% !important;
+    }
+
+    .nav-drawer-clicked{
+        // jika height appbarnya adalah 100px maka topnya juga 100px
+        // baru ketahuan saat pakai stateless di drawenya
+        top: 60px !important;
+        height: auto !important;
+        width: 100% !important;
+        transform: translateY(0%) !important;
+        z-index: 2;
+    }
+
+    .whatsapp-icon{
+        font-size: 1.8rem;
+        @include phone {
+            font-size: 1.8rem;
+        }
+    }
+
+    .youtube-embed{
+        width: 80%;
+        height: 100%;
+    }
+
+    .nav-register-btn{
+        height: 0.3rem;
+        color: #00249d;
+        padding: 10px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        margin-right: 0.5%;
+        font-weight: bold;
+        @include portrait-tablet {
+            margin-right: 2%;
+        }
+        @include tablet-2 {
+            margin-right: 0.5%;
+        }
+    }
+
+    .btn-whatsapp{
+        // min-width: 30px;
+        // padding: 0px;
+        padding-right: 10px;
+    }
+
+    .sidebar-toggle{
+        @include desktop {
+            display: none;
+        } 
+        @include portrait-tablet {
+            margin-left: 3px;
+            display: inline;
+        }
+    }
+
+    .sidebar-toggle i{
+        font-size: 2rem;
+    }
+
+    .nav-container{
+        @include phone {
+            max-width: 100%;
+        }
+    }
+
+    .main-container{
+        width: 100%;
+    }
+
+}

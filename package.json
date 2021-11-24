@@ -1,0 +1,32 @@
+{
+  "name": "keuskupan-nuxt",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@contentful/rich-text-html-renderer": "^14.1.2",
+    "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "core-js": "^3.9.1",
+    "netlify": "^8.0.4",
+    "netlify-cli": "^7.1.0",
+    "nuxt": "^2.15.8",
+    "nuxt-sass-resources-loader": "^2.0.5",
+    "stringify": "^5.2.0",
+    "vue-gallery-slideshow": "^1.5.2",
+    "vue-masonry": "^0.13.0",
+    "vue-no-ssr": "^1.1.1",
+    "vue-underscore": "^0.1.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^6.0.0",
+    "@nuxtjs/vuetify": "^1.11.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.22.0"
+  }
+}
