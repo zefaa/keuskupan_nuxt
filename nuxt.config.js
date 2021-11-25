@@ -3,14 +3,9 @@ import dotenv from 'dotenv'
 const axios = require('axios')
 dotenv.config()
 
-const env = {
-  CTF_SPACE_ID: process.env.CTF_SPACE_ID,
-  CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN
-}
+const useLocal = process.env.USE_LOCAL
 
-export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  env,
+const setting = {
   head: {
     titleTemplate: 'Keuskupan Surabaya',
     title: 'Keuskupan Surabaya',
@@ -42,6 +37,7 @@ export default {
       }
     ]
   },
+  // Global page headers: https://go.nuxtjs.dev/config-head
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -104,5 +100,20 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  target: 'static',
+  generate: {
+
   }
 }
+let baseURL
+if (useLocal === 'true') {
+  baseURL = 'http://localhost:8888'
+} else {
+  baseURL = ''
+}
+setting.axios = {
+  baseURL
+}
+
+export default setting

@@ -57,11 +57,9 @@ export default {
 
   // ambil data dari API
   async fetch () {
-    console.log('disini')
     let payload = this.$nuxt.context.payload
     if (!payload) {
-      console.log('masuk')
-      payload = await this.$axios.$get('/.netlify/functions/get-list', {
+      payload = await this.$axios.$post('/.netlify/functions/get-list', {
         type: 'articles'
       })
     }
