@@ -14,7 +14,7 @@
         <NewsCard1
           v-for="(item, i) in dataList"
           :key="i"
-          :data="item"
+          :item="item"
         />
       </div>
     </section>
@@ -63,7 +63,7 @@ export default {
         type: 'articles'
       })
     }
-    // console.log(payload)
+    console.log(payload)
     this.dataList = payload
   }
 
