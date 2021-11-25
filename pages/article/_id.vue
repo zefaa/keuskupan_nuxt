@@ -2,22 +2,22 @@
   <div class="main-container mx-auto article-detail">
     <v-breadcrumbs :items="items" />
     <h1 class="text-center page-title mx-auto">
-      {{ detailContent.fields.title }}
+      {{ detailContent.title }}
     </h1>
-    <LabelContainer :data="detailContent" />
+    <LabelContainer :item="detailContent" />
     <section class="image-section">
       <v-img
-        v-if="detailContent.fields.image"
+        v-if="detailContent.image"
         width="270"
         height="270"
         class="mx-auto news-image"
-        :src="detailContent.fields.image.fields.file.url"
+        :src="detailContent.image.file.url"
       />
     </section>
     <section class="content-section mt-5">
       <div class="post-content mx-auto" v-html="content" />
     </section>
-    <ShareSection :data="detailContent" />
+    <ShareSection :item="detailContent" />
   </div>
 </template>
 
@@ -46,6 +46,7 @@ export default {
   }),
 
   async fetch () {
+    console.log('masuk')
     let payload = this.$nuxt.context.payload
     if (!payload) {
       payload = await this.$axios.$post('/.netlify/functions/get-detail', {
@@ -53,6 +54,7 @@ export default {
         code: this.$nuxt.context.params.id
       })
     }
+
     this.detailContent = payload
   }
 }

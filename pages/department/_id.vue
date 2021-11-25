@@ -1,7 +1,7 @@
 <template>
   <div class="main-container grey lighten-4 mx-auto">
     <h1 class="text-center page-title mx-auto mt-10">
-      {{ detailContent.fields.title }}
+      {{ detailContent.title }}
     </h1>
     <section class="content-section mt-5">
       <div class="mx-5" v-html="content" />
@@ -10,7 +10,7 @@
       <div class="d-flex flex-md-row flex-sm-column w-90 mx-auto">
         <div v-if="newsList.length > 0" class="d-flex flex-sm-column w-60 news-column">
           <h1>News</h1>
-          <NewsCard1 v-for="(item, i) in newsList" :key="i" :data="item" />
+          <NewsCard1 v-for="(item, i) in newsList" :key="i" :item="item" />
         </div>
         <!-- <div class="d-flex flex-sm-column w-30 ml-md-10 flex-grow-1 news-column">
           <h1>Events</h1>
@@ -22,16 +22,16 @@
           <v-card
             v-for="(item, i) in documentList"
             :key="i"
-            :href="'/article/' + item.fields.slug"
+            :href="'/article/' + item.slug"
             class="news-card mx-auto my-5"
           >
             <div class="d-flex primary--border--bottom">
               <span
-                v-for="(item, j) in item.fields.categories"
+                v-for="(item, j) in item.categories"
                 :key="j"
                 class="primary white--text font-italic px-3 py-1 ma-2 caption"
               >
-                {{ item.fields.label }}
+                {{ item.label }}
               </span>
               <span class="ml-auto primary--text darken-2 align-self-center mr-5 caption">
                 {{ convertDate(item.sys.createdAt) }}
@@ -41,7 +41,7 @@
             <div class="d-flex flex-row mt-2 ml-2 mt-7">
               <div class="d-flex flex-column align-self-center ml-3 card-content">
                 <h3 class="card-title primary--text">
-                  {{ item.fields.title }}
+                  {{ item.title }}
                 </h3>
 
                 <v-btn
@@ -58,7 +58,7 @@
         </div>
         <div v-if="articleList.length > 0" class="d-flex flex-sm-column w-60 ml-md-10 flex-grow-1 news-column">
           <h1>Articles</h1>
-          <NewsCard1 v-for="(item, i) in articleList" :key="i" :data="item" />
+          <NewsCard1 v-for="(item, i) in articleList" :key="i" :item="item" />
         </div>
       </div>
     </section>
@@ -97,22 +97,22 @@ export default {
     this.newsList = payload.newsList
     this.documentList = payload.documentList
     this.articleList = payload.articleList
-  },
-
-  mounted () {
-    this.items.push({
-      text: this.detailContent.fields.title,
-      disabled: true,
-      href: ''
-    })
-  },
-  methods: {
-    convertDate (date) {
-      date = new Date(date)
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return date.toLocaleDateString('id-ID', options)
-    }
   }
+
+  // mounted () {
+  //   this.items.push({
+  //     text: this.detailContent.fields.title,
+  //     disabled: true,
+  //     href: ''
+  //   })
+  // },
+  // methods: {
+  //   convertDate (date) {
+  //     date = new Date(date)
+  //     const options = { year: 'numeric', month: 'long', day: 'numeric' }
+  //     return date.toLocaleDateString('id-ID', options)
+  //   }
+  // }
 }
 
 // async asyncData ({ store, env, params, error }) {

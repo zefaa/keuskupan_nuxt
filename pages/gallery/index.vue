@@ -17,18 +17,18 @@
             class="card-column"
           >
             <v-card
-              :href="'/gallery/' + item.fields.slug"
+              :href="'/gallery/' + item.slug"
               class="post-card mx-5"
             >
               <v-img
                 class="post-image"
-                :src="item.fields.images[0].fields.file.url"
+                :src="item.images[0].file.url"
               />
 
-              <LabelContainerCard :data="item" />
+              <LabelContainerCard :item="item" />
 
               <v-card-title class="card-title primary--text">
-                {{ item.fields.title }}
+                {{ item.title }}
               </v-card-title>
             </v-card>
           </v-col>
@@ -37,7 +37,7 @@
     </section>
     <v-pagination
       v-model="page"
-      :length="pages"
+
       :total-visible="6"
       class="content-pagination mt-5 ml-auto"
       @input="next"
@@ -74,34 +74,34 @@ export default {
       })
     }
     this.dataList = payload
-  },
-
-  mounted () {
-    const dataList = this.$store.state.users.tempItems.dataList
-    dataList.forEach((element) => {
-      this.mainList.push(element)
-    })
-    this.pages = Math.ceil(this.mainList.length / this.pageSize)
-    this.fillPages()
-  },
-  methods: {
-    next (page) {
-      this.page = page
-      this.dataList = []
-      this.fillPages()
-    },
-    fillPages () {
-      const startIndex = (this.page - 1) * this.pageSize
-      const endIndex = Math.min(
-        startIndex + this.pageSize - 1,
-        this.mainList.length - 1
-      )
-      for (let index = startIndex; index <= endIndex; index++) {
-        const element = this.mainList[index]
-        this.dataList.push(element)
-      }
-    }
   }
+
+  // mounted () {
+  //   const dataList = this.$store.state.users.tempItems.dataList
+  //   dataList.forEach((element) => {
+  //     this.mainList.push(element)
+  //   })
+  //   this.pages = Math.ceil(this.mainList.length / this.pageSize)
+  //   this.fillPages()
+  // },
+  // methods: {
+  //   next (page) {
+  //     this.page = page
+  //     this.dataList = []
+  //     this.fillPages()
+  //   },
+  //   fillPages () {
+  //     const startIndex = (this.page - 1) * this.pageSize
+  //     const endIndex = Math.min(
+  //       startIndex + this.pageSize - 1,
+  //       this.mainList.length - 1
+  //     )
+  //     for (let index = startIndex; index <= endIndex; index++) {
+  //       const element = this.mainList[index]
+  //       this.dataList.push(element)
+  //     }
+  //   }
+  // }
 }
 // async asyncData ({ store, env, params }) {
 //   try {

@@ -4,7 +4,7 @@
       :items="items"
     />
     <h1 class="text-center page-title mx-auto">
-      {{ categoryDetail.fields.label }}
+      {{ categoryDetail.label }}
     </h1>
     <!-- <div class="d-flex flex-md-row flex-sm-column justify-md-space-around mt-5 search-container">
       <div class="d-flex flex-row flex-grow-1 search-select-container">
@@ -42,7 +42,7 @@
         v-if="contentType !== 'document'"
         class="d-flex flex-column mx-auto card-container"
       >
-        <NewsCard1 v-for="(item, i) in dataList" :key="i" :data="item" />
+        <NewsCard1 v-for="(item, i) in dataList" :key="i" :item="item" />
       </div>
       <div
         v-if="contentType === 'document'"
@@ -51,12 +51,12 @@
         <v-card
           v-for="(item, i) in dataList"
           :key="i"
-          :href="'/document/' + item.fields.slug"
+          :href="'/document/' + item.slug"
           class="news-card mx-auto mt-6"
         >
-          <LabelContainerCard :data="item" />
+          <LabelContainerCard :item="item" />
           <div class="d-flex flex-row ml-2 my-2 font-italic document-title">
-            {{ item.fields.title }}
+            {{ item.title }}
           </div>
         </v-card>
       </div>
@@ -101,37 +101,37 @@ export default {
       })
     }
     this.dataList = payload
-  },
-
-  mounted () {
-    this.items.push({
-      text: this.categoryDetail.fields.label,
-      disabled: true,
-      href: ''
-    })
-    const dataList = this.$store.state.users.tempItems.dataList
-    dataList.forEach((element) => {
-      this.mainList.push(element)
-    })
-    this.pages = Math.ceil(this.mainList.length / this.pageSize)
-    this.fillPages()
-  },
-
-  methods: {
-    next (page) {
-      this.page = page
-      this.dataList = []
-      this.fillPages()
-    },
-    fillPages () {
-      const startIndex = (this.page - 1) * this.pageSize
-      const endIndex = Math.min(startIndex + this.pageSize - 1, this.mainList.length - 1)
-      for (let index = startIndex; index <= endIndex; index++) {
-        const element = this.mainList[index]
-        this.dataList.push(element)
-      }
-    }
   }
+
+  // mounted () {
+  //   this.items.push({
+  //     text: this.categoryDetail.fields.label,
+  //     disabled: true,
+  //     href: ''
+  //   })
+  //   const dataList = this.$store.state.users.tempItems.dataList
+  //   dataList.forEach((element) => {
+  //     this.mainList.push(element)
+  //   })
+  //   this.pages = Math.ceil(this.mainList.length / this.pageSize)
+  //   this.fillPages()
+  // },
+
+  // methods: {
+  //   next (page) {
+  //     this.page = page
+  //     this.dataList = []
+  //     this.fillPages()
+  //   },
+  //   fillPages () {
+  //     const startIndex = (this.page - 1) * this.pageSize
+  //     const endIndex = Math.min(startIndex + this.pageSize - 1, this.mainList.length - 1)
+  //     for (let index = startIndex; index <= endIndex; index++) {
+  //       const element = this.mainList[index]
+  //       this.dataList.push(element)
+  //     }
+  //   }
+  // }
 }
 // async asyncData ({ store, env, params, error }) {
 //   try {

@@ -1,16 +1,16 @@
 <template>
   <v-card
     class="news-card mx-auto mt-5"
-    :href="'/news/' + data.fields.slug"
+    :href="'/news/' + item.slug"
   >
     <div class="primary d-flex label-container">
       <div class="d-flex label-inner flex-sm-shrink-0 ma-2">
         <span
-          v-for="(item, i) in data.fields.categories"
+          v-for="(item, i) in item.categories"
           :key="i"
           class="white primary--text px-3 py-1 caption"
         >
-          {{ item.fields.label }}
+          {{ item.label }}
         </span>
       </div>
       <span class="white blue--text ml-auto px-3 py-1 ma-2 caption">
@@ -20,27 +20,27 @@
 
     <div class="d-flex flex-row mt-2 ml-2">
       <img
-        v-if="data.fields.image !== undefined"
+        v-if="item.image !== undefined"
         class="news-image-small"
-        :src="data.fields.image.fields.file.url"
+        :src="item.image.file.url"
       >
       <img
-        v-if="data.fields.youtube !== undefined && data.fields.image === undefined"
+        v-if="item.youtube !== undefined && item.image === undefined"
         class="news-image-small"
-        :src="'https://img.youtube.com/vi/' + data.fields.youtube + '/maxresdefault.jpg'"
+        :src="'https://img.youtube.com/vi/' + item.youtube + '/maxresdefault.jpg'"
       >
       <img
-        v-if="data.fields.image === undefined && data.fields.youtube === undefined"
+        v-if="item.image === undefined && item.youtube === undefined"
         class="news-image-small"
         :src="defaultThumbnail"
       >
       <div class="d-flex flex-column align-self-center ml-3 card-content">
         <p class="card-title mb-0">
-          {{ data.fields.title }}
+          {{ item.title }}
         </p>
 
         <p class="card-subtitle mb-0 grey--text lighten-4">
-          {{ data.fields.subtitle }}
+          {{ item.subtitle }}
         </p>
 
         <v-btn
@@ -57,7 +57,12 @@
 <script>
 export default {
   props: {
-    data: Object
+    item: {
+      type: Object,
+      default () {
+        return {}
+      }
+    }
   },
   data: () => ({
     defaultThumbnail: require('~/assets/images/default-card-thumbnail.svg')

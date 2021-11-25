@@ -1,10 +1,10 @@
 <template>
   <v-card
     class="news-card mx-auto my-5"
+    :href="'/article/'+item.slug"
   >
-    <!-- href="'/' + data.sys.contentType.sys.id + '/' + data.fields.slug " -->
     <LabelContainerCard :item="item" />
-
+    <!-- mengisi card dengan data dari item yang diberikan oleh pages yang menggunakan card ini  -->
     <div class="d-flex flex-row ml-2 py-5 card-inner">
       <img
         v-if="item.image !== undefined"

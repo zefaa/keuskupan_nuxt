@@ -9,7 +9,7 @@
         <IndexCard2
           v-for="(item, i) in newsContent"
           :key="i"
-          :data="item"
+          :item="item"
         />
         <v-btn class="primary white--text mt-5 mb-15">
           Tampilkan lebih banyak
@@ -25,9 +25,9 @@
             :key="i"
             class="d-flex flex-row download-item pa-3"
           >
-            <span>{{ item.fields.label }}</span>
+            <span>{{ item.label }}</span>
             <a
-              :href="item.fields.file.fields.file.url"
+              :href="item.file.file.url"
               class="primary--text text-bold d-flex ml-auto"
             >Download</a>
           </div>
@@ -39,9 +39,9 @@
             :key="i"
             class="d-flex flex-row download-item pa-3"
           >
-            <span>{{ item.fields.label }}</span>
+            <span>{{ item.label }}</span>
             <a
-              :href="item.fields.file.fields.file.url"
+              :href="item.file.file.url"
               class="primary--text text-bold d-flex ml-auto"
             >Download</a>
           </div>
@@ -60,7 +60,7 @@
           v-for="(item, i) in omkContent"
           :key="i"
           class="news-card mx-auto mt-5"
-          :href="item.fields.link"
+          :href="item.link"
         >
           <div
             class="d-flex flex-md-row flex-sm-column"
@@ -69,11 +69,11 @@
               height="100"
               width="200"
               class="card-image"
-              :src="item.fields.thumbnail"
+              :src="item.thumbnail"
             />
             <div class="d-flex flex-column align-self-center ml-md-3">
               <p class="card-title mb-0">
-                {{ item.fields.label }}
+                {{ item.label }}
               </p>
 
               <p class="card-subtitle mb-0">
@@ -95,17 +95,17 @@
         <v-card
           v-for="(item, i) in articleContent"
           :key="i"
-          :href="'/article/' + item.fields.slug"
+          :href="'/article/' + item.slug"
           class="news-card mx-auto mt-5"
         >
           <div class="secondary d-flex label-container">
             <div class="d-flex label-inner flex-sm-shrink-0 ma-2">
               <span
-                v-for="(data, j) in item.fields.categories"
+                v-for="(item, j) in item.categories"
                 :key="j"
                 class="primary white--text px-3 py-1 text-subtitle-2"
               >
-                {{ data.fields.label }}
+                {{ item.label }}
               </span>
             </div>
             <span class="info white--text ml-auto px-3 py-1 ma-2 text-subtitle-2 font-weight-bold">
@@ -117,7 +117,7 @@
             <img
               v-if="item.fields.image !== undefined"
               class="news-image-small"
-              :src="item.fields.image.fields.file.url"
+              :src="item.image.file.url"
             >
             <img
               v-if="item.fields.image === undefined"
@@ -126,11 +126,11 @@
             >
             <div class="d-flex flex-column align-self-center ml-3">
               <p class="card-title mb-0">
-                {{ item.fields.title }}
+                {{ item.title }}
               </p>
 
               <p class="card-subtitle mb-0 grey--text lighten-4">
-                {{ item.fields.subtitle }}
+                {{ item.subtitle }}
               </p>
             </div>
           </div>

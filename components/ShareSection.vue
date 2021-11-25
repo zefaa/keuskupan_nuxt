@@ -11,7 +11,7 @@
         icon
         large
         color="primary"
-        :href="'https://www.facebook.com/sharer.php?u=www.keuskupansurabaya.org/' + data.sys.contentType.sys.id + '/' + data.fields.slug"
+        :href="'https://www.facebook.com/sharer.php?u=www.keuskupansurabaya.org/' + data.sys.contentType.sys.id + '/' + data.slug"
         target="_blank"
       >
         <v-icon x-large>
@@ -23,7 +23,7 @@
         icon
         large
         color="primary"
-        :href="'mailto:?subject=' + data.fields.title + '&body=www.keuskupansurabaya.org/' + data.sys.contentType.sys.id + '/' + data.fields.slug"
+        :href="'mailto:?subject=' + item.title + '&body=www.keuskupansurabaya.org/' + data.sys.contentType.sys.id + '/' + data.slug"
         target="_blank"
       >
         <v-icon x-large>
@@ -35,9 +35,9 @@
         icon
         large
         color="primary"
-        :href="'https://wa.me/?text=' + data.fields.title + '%0A%0A'
+        :href="'https://wa.me/?text=' + item.title + '%0A%0A'
           + 'www.keuskupansurabaya.org/' + data.sys.contentType.sys.id + '/'
-          + data.fields.slug"
+          + data.slug"
         target="_blank"
       >
         <v-icon x-large>
@@ -50,7 +50,12 @@
 <script>
 export default {
   props: {
-    data: Object
+    item: {
+      type: Object,
+      default () {
+        return {}
+      }
+    }
   }
 }
 </script>

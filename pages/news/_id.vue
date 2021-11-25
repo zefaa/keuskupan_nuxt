@@ -4,7 +4,7 @@
     <h1 class="text-center page-title mx-auto">
       {{ newsDetail.fields.title }}
     </h1>
-    <LabelContainer :data="newsDetail" />
+    <LabelContainer :item="newsDetail" />
     <section class="image-section">
       <v-img
         v-if="newsDetail.fields.image"
@@ -34,7 +34,7 @@
         />
       </v-responsive>
     </section>
-    <ShareSection :data="newsDetail" />
+    <ShareSection :item="newsDetail" />
   </div>
 </template>
 

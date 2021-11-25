@@ -1,7 +1,7 @@
 <template>
   <div class="main-container mx-auto">
     <h1 class="text-center page-title mx-auto">
-      {{ detailContent.fields.title }}
+      {{ detailContent.title }}
     </h1>
     <section class="content-section mt-5">
       <div class="post-content mx-auto" v-html="content" />
@@ -18,7 +18,7 @@
 export default {
   data: () => ({
     detailContent: {},
-    type: 'pages'
+    type: 'articles'
   }),
 
   async fetch () {

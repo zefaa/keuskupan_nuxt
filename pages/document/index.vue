@@ -11,16 +11,16 @@
     /> -->
     <section class="news-section grey lighten-4">
       <div class="d-flex flex-column mx-auto card-container py-5">
-        <DocumentCard v-for="(item, i) in dataList" :key="i" :data="item" />
+        <DocumentCard v-for="(item, i) in dataList" :key="i" :item="item" />
       </div>
     </section>
-    <v-pagination
+    <!-- <v-pagination
       v-model="page"
       :length="pages"
       :total-visible="6"
       class="content-pagination mt-5 ml-auto"
       @input="next"
-    />
+    /> -->
   </div>
 </template>
 
@@ -53,23 +53,23 @@ export default {
       })
     }
     this.dataList = payload
-  },
-
-  methods: {
-    next (page) {
-      this.page = page
-      this.dataList = []
-      this.fillPages()
-    },
-    fillPages () {
-      const startIndex = (this.page - 1) * this.pageSize
-      const endIndex = Math.min(startIndex + this.pageSize - 1, this.mainList.length - 1)
-      for (let index = startIndex; index <= endIndex; index++) {
-        const element = this.mainList[index]
-        this.dataList.push(element)
-      }
-    }
   }
+
+  // methods: {
+  //   next (page) {
+  //     this.page = page
+  //     this.dataList = []
+  //     this.fillPages()
+  //   },
+  //   fillPages () {
+  //     const startIndex = (this.page - 1) * this.pageSize
+  //     const endIndex = Math.min(startIndex + this.pageSize - 1, this.mainList.length - 1)
+  //     for (let index = startIndex; index <= endIndex; index++) {
+  //       const element = this.mainList[index]
+  //       this.dataList.push(element)
+  //     }
+  //   }
+  // }
 }
 
 // async asyncData ({ store, env, params }) {

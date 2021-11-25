@@ -55,7 +55,7 @@ export default {
     ]
   }),
 
-  // ambil data dari API
+  // load data dari API
   async fetch () {
     let payload = this.$nuxt.context.payload
     if (!payload) {
@@ -63,7 +63,7 @@ export default {
         type: 'articles'
       })
     }
-    console.log(payload)
+    // console.log(payload)
     this.dataList = payload
   }
 

@@ -2,18 +2,18 @@
   <div class="main-container mx-auto">
     <v-breadcrumbs :items="items" />
     <h1 class="text-center page-title mx-auto">
-      {{ detailContent.fields.title }}
+      {{ detailContent.title }}
     </h1>
-    <LabelContainer :data="detailContent" />
+    <LabelContainer :item="detailContent" />
     <section
       v-if="detailContent.fields.description"
       class="content-section mt-5"
     >
       <div class="post-content mx-auto">
-        {{ detailContent.fields.description }}
+        {{ detailContent.description }}
       </div>
     </section>
-    <section v-if="detailContent.fields.youtube" class="section-post-video">
+    <section v-if="detailContent.youtube" class="section-post-video">
       <v-responsive
         class="ml-auto mr-auto mx-16 text-center"
         :aspect-ratio="16 / 9"
@@ -23,7 +23,7 @@
         <iframe
           id="testimony-embed"
           class="youtube-embed"
-          :src="'https://www.youtube.com/embed/' + newsDetail.fields.youtube"
+          :src="'https://www.youtube.com/embed/' + newsDetail.youtube"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -35,14 +35,14 @@
         <v-container>
           <v-row id="gallery-masonry" v-masonry>
             <v-col
-              v-for="(item, i) in detailContent.fields.images"
+              v-for="(item, i) in detailContent.images"
               :key="i"
               v-masonry-tile
               cols="12"
               sm="4"
             >
               <v-card height="100%" class="pt-1 pb-1">
-                <v-img :src="item.fields.file.url" @click="index = i" />
+                <v-img :src="item.file.url" @click="index = i" />
               </v-card>
             </v-col>
           </v-row>
@@ -53,7 +53,7 @@
         <vgs :images="images" :index="index" @close="index = null" />
       </client-only>
     </section>
-    <ShareSection :data="detailContent" />
+    <ShareSection :item="detailContent" />
   </div>
 </template>
 

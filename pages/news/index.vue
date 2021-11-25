@@ -11,16 +11,20 @@
     /> -->
     <section class="news-section grey lighten-4">
       <div class="d-flex flex-column mx-auto card-container">
-        <NewsCard1 v-for="(item, i) in dataList" :key="i" :data="item" />
+        <NewsCard1
+          v-for="(item, i) in dataList"
+          :key="i"
+          :item="item"
+        />
       </div>
     </section>
-    <v-pagination
+
+    <!-- <v-pagination
       v-model="page"
-      :length="pages"
       :total-visible="6"
       class="content-pagination mt-5 ml-auto"
       @input="next"
-    />
+    /> -->
   </div>
 </template>
 
@@ -46,38 +50,41 @@ export default {
   }),
 
   async fetch () {
-    let payload = this.$nuxt.$context.payload
+    console.log('masuk')
+    let payload = this.$nuxt.context.payload
+    console.log('disini')
     if (!payload) {
       payload = await this.$axios.$post('/.netlify/functions/get-list', {
         type: 'news'
       })
     }
+    console.log(payload)
     this.dataList = payload
-  },
-
-  mounted () {
-    const dataList = this.$store.state.users.tempItems.dataList
-    dataList.forEach((element) => {
-      this.mainList.push(element)
-    })
-    this.pages = Math.ceil(this.mainList.length / this.pageSize)
-    this.fillPages()
-  },
-  methods: {
-    next (page) {
-      this.page = page
-      this.dataList = []
-      this.fillPages()
-    },
-    fillPages () {
-      const startIndex = (this.page - 1) * this.pageSize
-      const endIndex = Math.min(startIndex + this.pageSize - 1, this.mainList.length - 1)
-      for (let index = startIndex; index <= endIndex; index++) {
-        const element = this.mainList[index]
-        this.dataList.push(element)
-      }
-    }
   }
+
+  // mounted () {
+  //   const dataList = this.$store.state.users.tempItems.dataList
+  //   dataList.forEach((element) => {
+  //     this.mainList.push(element)
+  //   })
+  //   this.pages = Math.ceil(this.mainList.length / this.pageSize)
+  //   this.fillPages()
+  // },
+  // methods: {
+  //   next (page) {
+  //     this.page = page
+  //     this.dataList = []
+  //     this.fillPages()
+  //   },
+  //   fillPages () {
+  //     const startIndex = (this.page - 1) * this.pageSize
+  //     const endIndex = Math.min(startIndex + this.pageSize - 1, this.mainList.length - 1)
+  //     for (let index = startIndex; index <= endIndex; index++) {
+  //       const element = this.mainList[index]
+  //       this.dataList.push(element)
+  //     }
+  //   }
+  // }
 }
 
 // keuskupan

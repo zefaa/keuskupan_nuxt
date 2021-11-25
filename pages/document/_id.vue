@@ -4,14 +4,14 @@
       :items="items"
     />
     <h1 class="text-center page-title mx-auto">
-      {{ detailContent.fields.title }}
+      {{ detailContent.title }}
     </h1>
-    <LabelContainer :data="detailContent" />
+    <LabelContainer :item="detailContent" />
     <section class="download-section text-center">
       <v-btn
         color="primary"
         class="ma-2 white--text"
-        :href="detailContent.fields.file.fields.file.url"
+        :href="detailContent.file.file.url"
         x-large
       >
         <v-icon
@@ -26,7 +26,7 @@
     <section class="content-section mt-5">
       <div class="post-content mx-auto" v-html="content" />
     </section>
-    <ShareSection :data="detailContent" />
+    <ShareSection :item="detailContent" />
   </div>
 </template>
 
