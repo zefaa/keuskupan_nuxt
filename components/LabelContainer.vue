@@ -16,26 +16,28 @@
       </span>
     </div>
     <span class="ml-auto grey--text darken-2 align-self-center mr-5 caption">
-      {{ convertDate(data.sys.createdAt) }}
+      {{ $moment(date).locale('id').format('DD MMMM YYYY') }}
+      <!-- {{ convertDate(data.sys.createdAt) }} -->
     </span>
   </div>
 </template>
 <script>
 export default {
   props: {
+    date: String,
     item: {
       type: Object,
       default () {
         return {}
       }
     }
-  },
-  methods: {
-    convertDate (date) {
-      date = new Date(date)
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return date.toLocaleDateString('id-ID', options)
-    }
   }
+  // methods: {
+  //   convertDate (date) {
+  //     date = new Date(date)
+  //     const options = { year: 'numeric', month: 'long', day: 'numeric' }
+  //     return date.toLocaleDateString('id-ID', options)
+  //   }
+  // }
 }
 </script>

@@ -203,6 +203,7 @@
                 <h3>Dokumen</h3>
                 <small class="white--text font-italic">Documents (Download)</small>
               </div>
+
               <div class="komisi-menu-footer mt-2">
                 <div
                   v-for="(item, i) in documents"
@@ -214,6 +215,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="block-title mt-16">
                 <h3>Artikel</h3>
                 <small class="white--text font-italic">Articles</small>
@@ -225,7 +227,7 @@
                   class="font-weight-light"
                 >
                   <div class="font-weight-light mt-2 menu-item">
-                    <!-- <a :href="item.link">{{ item.name }}</a> -->
+                    <a :href="item.link">{{ item.name }}</a>
                   </div>
                 </div>
               </div>
@@ -265,6 +267,7 @@
                     <v-icon class="mr-3">
                       mdi-instagram
                     </v-icon>
+                    <a href="">puspas</a>
                     <!-- {{ instagram.fields.value2 }} -->
                   </v-btn>
                 </p>
@@ -280,7 +283,11 @@
                     <v-icon class="mr-3">
                       mdi-facebook
                     </v-icon>
-                    <!-- {{ facebook.fields.value2 }} -->
+                    <a href="">
+                      puspas
+
+                      <!-- {{ facebook.fields.value2 }} -->
+                    </a>
                   </v-btn>
                 </p>
               </div>
@@ -410,6 +417,7 @@ export default {
         ]
       }
     ],
+
     missions: [
       {
         name: 'Sejarah',
@@ -424,24 +432,28 @@ export default {
         link: '/page/mupas-ii-2qdan'
       }
     ],
+
     news: [
       {
         name: 'Semua Berita',
         link: '/news'
       }
     ],
+
     documents: [
       {
         name: 'Semua Dokumen',
         link: '/document'
       }
     ],
+
     articles: [
       {
         name: 'Semua Artikel',
         link: '/article'
       }
     ],
+
     navItems: [
       {
         name: 'Profil',
@@ -481,6 +493,7 @@ export default {
           }
         ]
       },
+
       {
         name: 'Arah Dasar',
         alt: 'Mission',
@@ -610,12 +623,12 @@ export default {
     const featuredDocument = this.featuredDocument
     featuredDocument.forEach((element) => {
       this.navItems[4].list.push({
-        name: element.fields.label,
-        link: '/category/' + element.fields.slug
+        name: element.label,
+        link: '/category/' + element.slug
       })
       this.documents.push({
-        name: element.fields.label,
-        link: '/category/' + element.fields.slug
+        name: element.label,
+        link: '/category/' + element.slug
       })
     })
     this.navItems[4].list.push(
@@ -627,8 +640,8 @@ export default {
     const featuredNews = this.featuredNews
     featuredNews.forEach((element) => {
       this.news.push({
-        name: element.fields.label,
-        link: '/category/' + element.fields.slug
+        name: element.label,
+        link: '/category/' + element.slug
       })
     })
     this.news.push(
@@ -640,8 +653,8 @@ export default {
     const featuredArticle = this.featuredArticle
     featuredArticle.forEach((element) => {
       this.articles.push({
-        name: element.fields.label,
-        link: '/category/' + element.fields.slug
+        name: element.label,
+        link: '/category/' + element.slug
       })
     })
   },

@@ -3,21 +3,27 @@
     <v-breadcrumbs
       :items="items"
     />
-    <h1 class="text-center page-title mx-auto">
-      News
-    </h1>
-    <!-- <SearchContainer
+    <FetchStateHandler
+      v-if="$fetchState.pending || $fetchState.error"
+      :fetch-state="$fetchState"
+      :fetch-function="$fetch"
+    />
+    <div v-else>
+      <h1 class="text-center page-title mx-auto">
+        News
+      </h1>
+      <!-- <SearchContainer
       :data="categoryList"
     /> -->
-    <section class="news-section grey lighten-4">
-      <div class="d-flex flex-column mx-auto card-container">
-        <NewsCard1
-          v-for="(item, i) in dataList"
-          :key="i"
-          :item="item"
-        />
-      </div>
-    </section>
+      <section class="news-section grey lighten-4">
+        <div class="d-flex flex-column mx-auto card-container">
+          <NewsCard1
+            v-for="(item, i) in dataList"
+            :key="i"
+            :item="item"
+          />
+        </div>
+      </section>
 
     <!-- <v-pagination
       v-model="page"
@@ -25,6 +31,7 @@
       class="content-pagination mt-5 ml-auto"
       @input="next"
     /> -->
+    </div>
   </div>
 </template>
 

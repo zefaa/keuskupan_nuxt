@@ -15,7 +15,7 @@
       />
     </section>
     <section class="content-section mt-5">
-      <div class="post-content mx-auto" v-html="content" />
+      <div class="post-content mx-auto" v-html="detailContent.content" />
     </section>
     <ShareSection :item="detailContent" />
   </div>
@@ -51,11 +51,13 @@ export default {
     if (!payload) {
       payload = await this.$axios.$post('/.netlify/functions/get-detail', {
         type: this.type,
-        code: this.$nuxt.context.params.id
+        code: 'id'
+        // code: this.$nuxt.context.params.id
       })
     }
 
     this.detailContent = payload
+    console.log(payload)
   }
 }
 

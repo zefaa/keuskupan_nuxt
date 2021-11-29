@@ -4,7 +4,7 @@
       {{ detailContent.title }}
     </h1>
     <section class="content-section mt-5">
-      <div class="post-content mx-auto" v-html="content" />
+      <div class="post-content mx-auto" v-html="detailContent.content" />
     </section>
   </div>
 </template>
@@ -18,7 +18,7 @@
 export default {
   data: () => ({
     detailContent: {},
-    type: 'articles'
+    type: 'pages'
   }),
 
   async fetch () {

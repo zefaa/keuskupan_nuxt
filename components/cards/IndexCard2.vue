@@ -14,7 +14,7 @@
         </span>
       </div>
       <span class="white blue--text ml-auto px-3 py-1 ma-2 caption">
-        {{ convertDate(data.sys.createdAt) }}
+        {{ $moment(date).locale('id').format('DD MMMM YYYY') }}
       </span>
     </div>
 
@@ -57,6 +57,7 @@
 <script>
 export default {
   props: {
+    date: String,
     item: {
       type: Object,
       default () {
@@ -66,13 +67,13 @@ export default {
   },
   data: () => ({
     defaultThumbnail: require('~/assets/images/default-card-thumbnail.svg')
-  }),
-  methods: {
-    convertDate (date) {
-      date = new Date(date)
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return date.toLocaleDateString('id-ID', options)
-    }
-  }
+  })
+  // methods: {
+  //   convertDate (date) {
+  //     date = new Date(date)
+  //     const options = { year: 'numeric', month: 'long', day: 'numeric' }
+  //     return date.toLocaleDateString('id-ID', options)
+  //   }
+  // }
 }
 </script>

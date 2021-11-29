@@ -3,13 +3,13 @@
     class="news-card mx-auto my-5"
     :href="'/article/'+item.slug"
   >
-    <LabelContainerCard :item="item" />
+    <!-- <LabelContainerCard :item="item" /> -->
     <!-- mengisi card dengan data dari item yang diberikan oleh pages yang menggunakan card ini  -->
     <div class="d-flex flex-row ml-2 py-5 card-inner">
       <img
         v-if="item.image !== undefined"
         class="news-image-small"
-        :src="item.image.file.url"
+        :src="item.imageLink"
       >
       <img
         v-if="item.image === undefined"

@@ -4,7 +4,7 @@
       {{ detailContent.title }}
     </h1>
     <section class="content-section mt-5">
-      <div class="mx-5" v-html="content" />
+      <div class="mx-5" v-html="detailContent.content" />
     </section>
     <section class="news-section">
       <div class="d-flex flex-md-row flex-sm-column w-90 mx-auto">
@@ -34,7 +34,7 @@
                 {{ item.label }}
               </span>
               <span class="ml-auto primary--text darken-2 align-self-center mr-5 caption">
-                {{ convertDate(item.sys.createdAt) }}
+                {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
               </span>
             </div>
 

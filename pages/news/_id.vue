@@ -2,22 +2,22 @@
   <div class="main-container mx-auto">
     <v-breadcrumbs :items="items" />
     <h1 class="text-center page-title mx-auto">
-      {{ newsDetail.fields.title }}
+      {{ newsDetail.title }}
     </h1>
     <LabelContainer :item="newsDetail" />
     <section class="image-section">
       <v-img
-        v-if="newsDetail.fields.image"
+        v-if="newsDetail.image"
         width="270"
         height="270"
         class="mx-auto news-image"
-        :src="newsDetail.fields.image.fields.file.url"
+        :src="newsDetail.image.file.url"
       />
     </section>
     <section class="content-section mt-5">
-      <div class="post-content mx-auto" v-html="newsContent" />
+      <div class="post-content mx-auto" v-html="newsDetail.content" />
     </section>
-    <section v-if="newsDetail.fields.youtube" class="section-post-video">
+    <section v-if="newsDetail.youtube" class="section-post-video">
       <v-responsive
         class="ml-auto mr-auto mx-16 text-center"
         :aspect-ratio="16 / 9"
@@ -27,7 +27,7 @@
         <iframe
           id="testimony-embed"
           class="youtube-embed"
-          :src="'https://www.youtube.com/embed/' + newsDetail.fields.youtube"
+          :src="'https://www.youtube.com/embed/' + newsDetail.youtube"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen

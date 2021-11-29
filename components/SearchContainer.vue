@@ -4,8 +4,8 @@
       <div class="d-flex flex-column flex-grow-1">
         <label>Kategori</label>
         <v-select
-          item-text="fields.label"
-          item-value="fields.slug"
+          item-text="label"
+          item-value="slug"
           :items="data"
           label=""
           dense

@@ -1,23 +1,30 @@
 <template>
   <div class="main-container mx-auto">
     <v-breadcrumbs :items="items" />
-    <h1 class="text-center page-title mx-auto">
-      Daftar Artikel
-    </h1>
-    <!-- <SearchContainer
+    <FetchStateHandler
+      v-if="$fetchState.pending || $fetchState.error"
+      :fetch-state="$fetchState"
+      :fetch-function="$fetch"
+    />
+
+    <div v-else>
+      <h1 class="text-center page-title mx-auto">
+        Daftar Artikel
+      </h1>
+      <!-- <SearchContainer
       :data="categoryList"
     /> -->
 
-    <section class="news-section grey lighten-4">
-      <div class="d-flex flex-column mx-auto card-container">
-        <!--ambil data yang ada di dataList-->
-        <NewsCard1
-          v-for="(item, i) in dataList"
-          :key="i"
-          :item="item"
-        />
-      </div>
-    </section>
+      <section class="news-section grey lighten-4">
+        <div class="d-flex flex-column mx-auto card-container">
+          <!--ambil data yang ada di dataList-->
+          <NewsCard1
+            v-for="(item, i) in dataList"
+            :key="i"
+            :item="item"
+          />
+        </div>
+      </section>
 
     <!-- <v-pagination
       v-model="page"
@@ -29,6 +36,7 @@
     <!-- {{ changeCategory(selectedCategory) }}
     {{ changeSort(selectedSort) }}
     {{ changeSearch(searchQuery) }} -->
+    </div>
   </div>
 </template>
 

@@ -6,7 +6,7 @@
     </h1>
     <LabelContainer :item="detailContent" />
     <section
-      v-if="detailContent.fields.description"
+      v-if="detailContent.description"
       class="content-section mt-5"
     >
       <div class="post-content mx-auto">

@@ -1,149 +1,158 @@
 <template>
   <div class="main-container mx-auto">
-    <section class="news-section grey lighten-4">
-      <h1 class="mb-3 pt-5 mx-auto">
-        Berita Terkini
-      </h1>
-      <div class="d-flex flex-column mx-auto card-container">
-        <!-- <IndexCard1 /> -->
-        <IndexCard2
-          v-for="(item, i) in newsContent"
-          :key="i"
-          :item="item"
-        />
-        <v-btn class="primary white--text mt-5 mb-15">
-          Tampilkan lebih banyak
-        </v-btn>
-      </div>
-    </section>
-    <section class="download-section mt-15">
-      <div class="d-flex jubi-rehan-column">
-        <div class="d-flex flex-column mr-md-10">
-          <img :src="jubileum" class="download-banner">
-          <div
-            v-for="(item, i) in jubileumContent"
+    <FetchStateHandler
+      v-if="$fetchState.pending || $fetchState.error"
+      :fetch-state="$fetchState"
+      :fetch-function="$fetch"
+    />
+    <div v-else>
+      <section class="news-section grey lighten-4">
+        <h1 class="mb-3 pt-5 mx-auto">
+          Berita Terkini
+        </h1>
+        <div class="d-flex flex-column mx-auto card-container">
+          <!-- <IndexCard1 /> -->
+          <IndexCard2
+            v-for="(item, i) in newsContent"
             :key="i"
-            class="d-flex flex-row download-item pa-3"
-          >
-            <span>{{ item.label }}</span>
-            <a
-              :href="item.file.file.url"
-              class="primary--text text-bold d-flex ml-auto"
-            >Download</a>
-          </div>
+            :item="item"
+          />
+          <v-btn class="primary white--text mt-5 mb-15">
+            Tampilkan lebih banyak
+          </v-btn>
         </div>
-        <div class="d-flex flex-column second">
-          <img :src="rehan" class="download-banner">
-          <div
-            v-for="(item, i) in rehanContent"
-            :key="i"
-            class="d-flex flex-row download-item pa-3"
-          >
-            <span>{{ item.label }}</span>
-            <a
-              :href="item.file.file.url"
-              class="primary--text text-bold d-flex ml-auto"
-            >Download</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="omk-section mt-15 mx-auto">
-      <div class="d-flex flex-column">
-        <v-img
-          height="100"
-          width="200"
-          :src="omk"
-          class="mx-auto omk-banner"
-        />
-        <v-card
-          v-for="(item, i) in omkContent"
-          :key="i"
-          class="news-card mx-auto mt-5"
-          :href="item.link"
-        >
-          <div
-            class="d-flex flex-md-row flex-sm-column"
-          >
-            <v-img
-              height="100"
-              width="200"
-              class="card-image"
-              :src="item.thumbnail"
-            />
-            <div class="d-flex flex-column align-self-center ml-md-3">
-              <p class="card-title mb-0">
-                {{ item.label }}
-              </p>
+      </section>
 
-              <p class="card-subtitle mb-0">
-                {{ convertDate(item.sys.createdAt) }}
-              </p>
+      <section class="download-section mt-15">
+        <div class="d-flex jubi-rehan-column">
+          <div class="d-flex flex-column mr-md-10">
+            <img :src="jubileum" class="download-banner">
+            <div
+              v-for="(item, i) in jubileumContent"
+              :key="i"
+              class="d-flex flex-row download-item pa-3"
+            >
+              <span>{{ item.label }}</span>
+              <a
+                :href="item.file.file.url"
+                class="primary--text text-bold d-flex ml-auto"
+              >Download</a>
             </div>
           </div>
-        </v-card>
-      </div>
-    </section>
+          <div class="d-flex flex-column second">
+            <img :src="rehan" class="download-banner">
+            <div
+              v-for="(item, i) in rehanContent"
+              :key="i"
+              class="d-flex flex-row download-item pa-3"
+            >
+              <span>{{ item.label }}</span>
+              <a
+                :href="item.file.file.url"
+                class="primary--text text-bold d-flex ml-auto"
+              >Download</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <section
-      class="article-section mt-16"
-    >
-      <h1 class="mb-3 pt-5 mx-auto">
-        Artikel
-      </h1>
-      <div class="d-flex flex-column mx-auto card-container">
-        <v-card
-          v-for="(item, i) in articleContent"
-          :key="i"
-          :href="'/article/' + item.slug"
-          class="news-card mx-auto mt-5"
-        >
-          <div class="secondary d-flex label-container">
-            <div class="d-flex label-inner flex-sm-shrink-0 ma-2">
-              <span
-                v-for="(item, j) in item.categories"
-                :key="j"
-                class="primary white--text px-3 py-1 text-subtitle-2"
-              >
-                {{ item.label }}
+      <section class="omk-section mt-15 mx-auto">
+        <div class="d-flex flex-column">
+          <v-img
+            height="100"
+            width="200"
+            :src="omk"
+            class="mx-auto omk-banner"
+          />
+          <v-card
+            v-for="(item, i) in omkContent"
+            :key="i"
+            class="news-card mx-auto mt-5"
+            :href="item.link"
+          >
+            <div
+              class="d-flex flex-md-row flex-sm-column"
+            >
+              <v-img
+                height="100"
+                width="200"
+                class="card-image"
+                :src="item.thumbnail"
+              />
+              <div class="d-flex flex-column align-self-center ml-md-3">
+                <p class="card-title mb-0">
+                  {{ item.label }}
+                </p>
+
+                <p class="card-subtitle mb-0">
+                  {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
+                </p>
+              </div>
+            </div>
+          </v-card>
+        </div>
+      </section>
+
+      <section
+        class="article-section mt-16"
+      >
+        <h1 class="mb-3 pt-5 mx-auto">
+          Artikel
+        </h1>
+        <div class="d-flex flex-column mx-auto card-container">
+          <v-card
+            v-for="(item, i) in articleContent"
+            :key="i"
+            :href="'/article/' + item.slug"
+            class="news-card mx-auto mt-5"
+          >
+            <div class="secondary d-flex label-container">
+              <div class="d-flex label-inner flex-sm-shrink-0 ma-2">
+                <span
+                  v-for="(item, j) in item.categories"
+                  :key="j"
+                  class="primary white--text px-3 py-1 text-subtitle-2"
+                >
+                  {{ item.label }}
+                </span>
+              </div>
+              <span class="info white--text ml-auto px-3 py-1 ma-2 text-subtitle-2 font-weight-bold">
+                {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
               </span>
             </div>
-            <span class="info white--text ml-auto px-3 py-1 ma-2 text-subtitle-2 font-weight-bold">
-              {{ convertDate(item.sys.createdAt) }}
-            </span>
-          </div>
 
-          <div class="d-flex flex-row mt-2 ml-2">
-            <img
-              v-if="item.fields.image !== undefined"
-              class="news-image-small"
-              :src="item.image.file.url"
-            >
-            <img
-              v-if="item.fields.image === undefined"
-              class="news-image-small"
-              :src="defaultThumbnail"
-            >
-            <div class="d-flex flex-column align-self-center ml-3">
-              <p class="card-title mb-0">
-                {{ item.title }}
-              </p>
+            <div class="d-flex flex-row mt-2 ml-2">
+              <img
+                v-if="item.image !== undefined"
+                class="news-image-small"
+                :src="item.image.file.url"
+              >
+              <img
+                v-if="item.image === undefined"
+                class="news-image-small"
+                :src="defaultThumbnail"
+              >
+              <div class="d-flex flex-column align-self-center ml-3">
+                <p class="card-title mb-0">
+                  {{ item.title }}
+                </p>
 
-              <p class="card-subtitle mb-0 grey--text lighten-4">
-                {{ item.subtitle }}
-              </p>
+                <p class="card-subtitle mb-0 grey--text lighten-4">
+                  {{ item.subtitle }}
+                </p>
+              </div>
             </div>
-          </div>
 
-          <v-btn
-            text
-            class="open-button primary--text d-flex ml-auto"
-          >
-            <i>Lihat</i>
-          </v-btn>
-        </v-card>
-      </div>
-    </section>
+            <v-btn
+              text
+              class="open-button primary--text d-flex ml-auto"
+            >
+              <i>Lihat</i>
+            </v-btn>
+          </v-card>
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
