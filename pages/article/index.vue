@@ -71,7 +71,7 @@ export default {
         type: 'articles'
       })
     }
-    // console.log(payload)
+    console.log(payload)
     this.dataList = payload
   }
 
