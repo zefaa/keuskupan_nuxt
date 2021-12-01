@@ -51,8 +51,8 @@ export default {
     if (!payload) {
       payload = await this.$axios.$post('/.netlify/functions/get-detail', {
         type: this.type,
-        code: 'id'
-        // code: this.$nuxt.context.params.id
+        // code: 'id'
+        code: this.$nuxt.context.params.id
       })
     }
 
