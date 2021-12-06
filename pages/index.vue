@@ -1,112 +1,92 @@
 <template>
   <div class="main-container mx-auto">
-    <FetchStateHandler
+    <!-- <FetchStateHandler
       v-if="$fetchState.pending || $fetchState.error"
       :fetch-state="$fetchState"
       :fetch-function="$fetch"
-    />
-    <div v-else>
-      <section class="news-section grey lighten-4">
-        <h1 class="mb-3 pt-5 mx-auto">
-          Berita Terkini
-        </h1>
-        <div class="d-flex flex-column mx-auto card-container">
-          <!-- <IndexCard1 /> -->
-          <IndexCard2
+    /> -->
+    <!-- <div v-else> -->
+    <!-- berita start -->
+    <section class="news-section grey lighten-4 mt-16">
+      <h1 class="mb-3 pt-5 mx-auto">
+        Berita Utama
+      </h1>
+      <div class="d-flex flex-column mx-auto card-container">
+        <!-- api -->
+        <!-- <IndexCard2
             v-for="(item, i) in newsContent"
             :key="i"
             :item="item"
-          />
-          <v-btn class="primary white--text mt-5 mb-15">
+          /> -->
+        <!-- <v-btn class="primary white--text mt-5 mb-15">
             Tampilkan lebih banyak
-          </v-btn>
-        </div>
-      </section>
+          </v-btn> -->
 
-      <section class="download-section mt-15">
-        <div class="d-flex jubi-rehan-column">
-          <div class="d-flex flex-column mr-md-10">
-            <img :src="jubileum" class="download-banner">
-            <div
-              v-for="(item, i) in jubileumContent"
-              :key="i"
-              class="d-flex flex-row download-item pa-3"
-            >
-              <span>{{ item.label }}</span>
-              <a
-                :href="item.file.file.url"
-                class="primary--text text-bold d-flex ml-auto"
-              >Download</a>
-            </div>
-          </div>
-          <div class="d-flex flex-column second">
-            <img :src="rehan" class="download-banner">
-            <div
-              v-for="(item, i) in rehanContent"
-              :key="i"
-              class="d-flex flex-row download-item pa-3"
-            >
-              <span>{{ item.label }}</span>
-              <a
-                :href="item.file.file.url"
-                class="primary--text text-bold d-flex ml-auto"
-              >Download</a>
-            </div>
-          </div>
-        </div>
-      </section>
+        <!-- static -->
+        <IndexCard2
+          v-for="(item, i) of newsContent"
+          :key="i"
+          :item="item"
+        />
+      </div>
+    </section>
+    <!-- berita end -->
 
-      <section class="omk-section mt-15 mx-auto">
-        <div class="d-flex flex-column">
-          <v-img
-            height="100"
-            width="200"
-            :src="omk"
-            class="mx-auto omk-banner"
-          />
-          <v-card
-            v-for="(item, i) in omkContent"
-            :key="i"
-            class="news-card mx-auto mt-5"
-            :href="item.link"
+    <!-- <section class="omk-section mt-15 mx-auto">
+      <div class="d-flex flex-column">
+        <v-img
+          height="100"
+          width="200"
+          :src="omk"
+          class="mx-auto omk-banner"
+        />
+        <v-card
+          v-for="(item, i) in omkContent"
+          :key="i"
+          class="news-card mx-auto mt-5"
+          :href="item.link"
+        >
+          <div
+            class="d-flex flex-md-row flex-sm-column"
           >
-            <div
-              class="d-flex flex-md-row flex-sm-column"
-            >
-              <v-img
-                height="100"
-                width="200"
-                class="card-image"
-                :src="item.thumbnail"
-              />
-              <div class="d-flex flex-column align-self-center ml-md-3">
-                <p class="card-title mb-0">
-                  {{ item.label }}
-                </p>
+            <v-img
+              height="100"
+              width="200"
+              class="card-image"
+              :src="item.thumbnail"
+            />
+            <div class="d-flex flex-column align-self-center ml-md-3">
+              <p class="card-title mb-0">
+                {{ item.label }}
+              </p>
 
-                <p class="card-subtitle mb-0">
-                  {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
-                </p>
-              </div>
+              <p class="card-subtitle mb-0">
+                {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
+              </p>
             </div>
-          </v-card>
-        </div>
-      </section>
+          </div>
+        </v-card>
+      </div>
+    </section> -->
 
-      <section
-        class="article-section mt-16"
-      >
-        <h1 class="mb-3 pt-5 mx-auto">
-          Artikel
-        </h1>
-        <div class="d-flex flex-column mx-auto card-container">
-          <v-card
+    <!-- artikel start -->
+    <section
+      class="article-section grey lighten-4 mt-16"
+    >
+      <h1 class="mb-3 pt-5 mx-auto">
+        Artikel Utama
+      </h1>
+      <!-- static -->
+
+      <div class="d-flex flex-column mx-auto card-container">
+        <!-- api -->
+        <!-- <v-card
             v-for="(item, i) in articleContent"
             :key="i"
             :href="'/article/' + item.slug"
             class="news-card mx-auto mt-5"
-          >
-            <div class="secondary d-flex label-container">
+          > -->
+        <!-- <div class="secondary d-flex label-container">
               <div class="d-flex label-inner flex-sm-shrink-0 ma-2">
                 <span
                   v-for="(item, j) in item.categories"
@@ -119,9 +99,9 @@
               <span class="info white--text ml-auto px-3 py-1 ma-2 text-subtitle-2 font-weight-bold">
                 {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
               </span>
-            </div>
+            </div> -->
 
-            <div class="d-flex flex-row mt-2 ml-2">
+        <!-- <div class="d-flex flex-row mt-2 ml-2">
               <img
                 v-if="item.image !== undefined"
                 class="news-image-small"
@@ -141,42 +121,168 @@
                   {{ item.subtitle }}
                 </p>
               </div>
-            </div>
+            </div> -->
 
-            <v-btn
-              text
-              class="open-button primary--text d-flex ml-auto"
+        <!-- static -->
+        <IndexCard2
+          v-for="(item, i) of articleContent"
+          :key="i"
+          :item="item"
+        />
+        <!-- <v-btn
+          text
+          class="open-button primary--text d-flex ml-auto"
+        >
+          <i>Lihat</i>
+        </v-btn> -->
+        <!-- </v-card> -->
+      </div>
+    </section>
+    <!-- artikel end -->
+    <!-- </div> -->
+
+    <!-- jubi rehan start -->
+    <!-- api -->
+    <!-- <section class="download-section mt-15">
+        <div class="d-flex jubi-rehan-column"> -->
+    <!-- jubileum start -->
+    <!-- <div class="d-flex flex-column mr-md-10">
+            <img :src="jubileum" class="download-banner">
+            <div
+              v-for="(item, i) in jubileumContent"
+              :key="i"
+              class="d-flex flex-row download-item pa-3"
             >
-              <i>Lihat</i>
-            </v-btn>
-          </v-card>
+              <span>{{ item.label }}</span>
+              <a
+                :href="item.file.file.url"
+                class="primary--text text-bold d-flex ml-auto"
+              >Download</a>
+            </div>
+          </div> -->
+    <!-- jubileum end -->
+
+    <!-- rehan start -->
+    <!-- <div class="d-flex flex-column second">
+            <img :src="rehan" class="download-banner">
+            <div
+              v-for="(item, i) in rehanContent"
+              :key="i"
+              class="d-flex flex-row download-item pa-3"
+            >
+              <span>{{ item.label }}</span>
+              <a
+                :href="item.file.file.url"
+                class="primary--text text-bold d-flex ml-auto"
+              >Download</a>
+            </div>
+          </div> -->
+    <!-- </div> -->
+    <!-- rehan end -->
+    <!-- </section> -->
+
+    <!-- static -->
+    <!-- jubi rehan start -->
+    <section class="download-section grey lighten-4 mt-16">
+      <div class="d-flex jubi-rehan-column mx-10">
+        <!-- jubileum start -->
+        <div class="d-flex flex-column mr-md-10 ml-md-5">
+          <h1 class="mb-3 pt-5 mx-auto text-center">
+            Jubileum
+          </h1>
+          <div class="d-flex flex-column mr-md-10 ml-md-5 card-container">
+            <img src="@/assets/images/rehan.jpg" class="download-banner">
+            <a
+              class="primary--text text-bold d-flex ml-auto"
+            >Download</a>
+          <!-- </div> -->
+          </div>
         </div>
-      </section>
-    </div>
+        <!-- jubileum end -->
+
+        <!-- rehan start -->
+        <div class="d-flex flex-column second  ml-md-5">
+          <h1 class="mb-3 pt-5 mx-auto text-center">
+            Rehan
+          </h1>
+          <div class="d-flex flex-column mr-md-5 ml-md-5 card-container">
+            <img src="@/assets/images/rehan.jpg" class="download-banner">
+            <a
+              class="primary--text text-bold d-flex ml-auto"
+            >Download</a>
+          </div>
+        </div>
+      </div>
+
+    <!-- rehan end -->
+    </section>
+    <!-- jubi rehan end -->
   </div>
 </template>
 
 <script>
 export default {
   data: () => ({
-    newsContent: [],
-    jubileumContent: [],
-    rehanContent: [],
-    omkContent: [],
-    articleContent: []
+    // api
+    // newsContent: [],
+    // jubileumContent: [],
+    // rehanContent: [],
+    // omkContent: [],
+    // articleContent: []
+
+    // static
+    newsContent: [
+      {
+        label: 'Komisi Hak',
+        title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
+        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
+      },
+
+      {
+        label: 'Komisi Hak',
+        title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
+        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
+      },
+
+      {
+        label: 'Komisi Hak',
+        title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
+        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
+      }
+    ],
+
+    articleContent: [
+      {
+        label: 'Komisi Liturgi',
+        title: 'Melindungi Keluarga Memulihkan Masyarakat',
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
+      },
+
+      {
+        label: 'Komisi Liturgi',
+        title: 'Melindungi Keluarga Memulihkan Masyarakat',
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
+      },
+
+      {
+        label: 'Komisi Liturgi',
+        title: 'Melindungi Keluarga Memulihkan Masyarakat',
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
+      }
+    ]
   }),
 
-  async fetch () {
-    let payload = this.$nuxt.context.payload
-    if (!payload) {
-      payload = await this.$axios.$post('/.netlify/functions/landing', {})
-    }
-    this.newsContent = payload.newsContent
-    this.jubileumContent = payload.jubileumContent
-    this.rehanContent = payload.rehanContent
-    this.omkContent = payload.omkContent
-    this.articleContent = payload.articleContent
-  },
+  // async fetch () {
+  //   let payload = this.$nuxt.context.payload
+  //   if (!payload) {
+  //     payload = await this.$axios.$post('/.netlify/functions/landing', {})
+  //   }
+  //   this.newsContent = payload.newsContent
+  //   this.jubileumContent = payload.jubileumContent
+  //   this.rehanContent = payload.rehanContent
+  //   this.omkContent = payload.omkContent
+  //   this.articleContent = payload.articleContent
+  // },
 
   methods: {
     convertDate (date) {

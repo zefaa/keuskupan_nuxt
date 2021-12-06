@@ -1,12 +1,12 @@
 <template>
   <v-card
-    class="news-card mx-auto my-5"
-    :href="'/article/'+item.slug"
+    class="news-card mx-auto mt-5 mb-5"
   >
-    <!-- <LabelContainerCard :item="item" /> -->
+    <!-- :href="'/article/'+item.slug" -->
+    <LabelContainerCard :item="item" />
     <!-- mengisi card dengan data dari item yang diberikan oleh pages yang menggunakan card ini  -->
-    <div class="d-flex flex-row ml-2 py-5 card-inner">
-      <img
+    <div class="d-flex flex-row ml-2 py-5 card-inner white primary--text px-3 py-1 caption">
+      <!-- <img
         v-if="item.image !== undefined"
         class="news-image-small"
         :src="item.imageLink"
@@ -15,7 +15,7 @@
         v-if="item.image === undefined"
         class="news-image-small"
         :src="defaultThumbnail"
-      >
+      > -->
       <div class="d-flex flex-column align-self-center ml-3 card-content">
         <h3 class="card-title ">
           {{ item.title }}
@@ -24,7 +24,6 @@
         <p class="card-subtitle mb-0 mt-2 caption grey--text lighten-4">
           {{ item.subtitle }}
         </p>
-
         <v-btn
           text
           plain
@@ -39,17 +38,28 @@
 </template>
 <script>
 export default {
-  props: {
+  // static
+  props:
+  {
     item: {
       type: Object,
       default () {
         return {}
       }
     }
-  },
-  data: () => ({
-    defaultThumbnail: require('~/assets/images/default-card-thumbnail.svg')
+  }
+  // api
+  // props: {
+  //   item: {
+  //     type: Object,
+  //     default () {
+  //       return {}
+  //     }
+  //   }
+  // },
+  // data: () => ({
+  //   defaultThumbnail: require('~/assets/images/default-card-thumbnail.svg')
 
-  })
+  // })
 }
 </script>

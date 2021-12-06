@@ -1,16 +1,17 @@
 <template>
-  <div class="d-flex label-container primary--border--bottom">
-    <div class="d-flex label-inner flex-sm-shrink-0 ma-2">
-      <span
+  <div class="primary d-flex label-container ">
+    <div class="d-flex label-inner flex-sm-shrink-0 ma-2 white primary--text px-3 py-1 caption">
+      <!-- <span
         v-for="(item, i) in item.categories"
         :key="i"
         class="primary white--text font-italic px-3 py-1 caption"
-      >
-        {{ item.label }}
-      </span>
+      > -->
+      {{ item.label }}
+      <!-- </span> -->
     </div>
-    <span class="ml-auto grey--text darken-2 align-self-center mr-5 my-3 caption">
-      {{ convertDate(item.createdAt) }}
+    <span class="white blue--text ml-auto px-3 py-1 ma-2 caption">
+      {{ $moment(date).locale('id').format('DD MMMM YYYY') }}
+      <!-- {{ convertDate(item.createdAt) }} -->
     </span>
   </div>
 </template>

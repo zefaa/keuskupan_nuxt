@@ -1,5 +1,32 @@
 <template>
+  <!-- static -->
   <div class="main-container mx-auto">
+    <h1 class="text-center page-title mx-auto">
+      Daftar Berita
+    </h1>
+    <!-- <SearchContainer
+      :data="categoryList"
+    /> -->
+    <section class="news-section grey lighten-4">
+      <div class="d-flex flex-column mx-auto card-container">
+        <NewsCard1
+          v-for="(item, i) in dataList"
+          :key="i"
+          :item="item"
+        />
+      </div>
+    </section>
+
+    <!-- <v-pagination
+      v-model="page"
+      :total-visible="6"
+      class="content-pagination mt-5 ml-auto"
+      @input="next"
+    /> -->
+  </div>
+
+  <!-- api -->
+<!-- <div class="main-container mx-auto">
     <v-breadcrumbs
       :items="items"
     />
@@ -11,11 +38,11 @@
     <div v-else>
       <h1 class="text-center page-title mx-auto">
         News
-      </h1>
-      <!-- <SearchContainer
+      </h1> -->
+  <!-- <SearchContainer
       :data="categoryList"
     /> -->
-      <section class="news-section grey lighten-4">
+  <!-- <section class="news-section grey lighten-4">
         <div class="d-flex flex-column mx-auto card-container">
           <NewsCard1
             v-for="(item, i) in dataList"
@@ -23,16 +50,16 @@
             :item="item"
           />
         </div>
-      </section>
+      </section> -->
 
-    <!-- <v-pagination
+  <!-- <v-pagination
       v-model="page"
       :total-visible="6"
       class="content-pagination mt-5 ml-auto"
       @input="next"
     /> -->
-    </div>
-  </div>
+  <!-- </div>
+  </div> -->
 </template>
 
 <script>
@@ -40,8 +67,25 @@
 
 // const client = createClient()
 export default {
+  // static
   data: () => ({
-    dataList: [],
+    dataList: [
+      {
+        label: 'Komisi Hak',
+        title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
+        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
+      },
+      {
+        label: 'Komisi Hak',
+        title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
+        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
+      },
+      {
+        label: 'Komisi Hak',
+        title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
+        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
+      }
+    ],
     items: [
       {
         text: 'Beranda',
@@ -54,20 +98,37 @@ export default {
         href: ''
       }
     ]
-  }),
+  })
 
-  async fetch () {
-    console.log('masuk')
-    let payload = this.$nuxt.context.payload
-    console.log('disini')
-    if (!payload) {
-      payload = await this.$axios.$post('/.netlify/functions/get-list', {
-        type: 'news'
-      })
-    }
-    console.log(payload)
-    this.dataList = payload
-  }
+  // api
+  // data: () => ({
+  //   dataList: [],
+  //   items: [
+  //     {
+  //       text: 'Beranda',
+  //       disabled: false,
+  //       href: '/'
+  //     },
+  //     {
+  //       text: 'News',
+  //       disabled: true,
+  //       href: ''
+  //     }
+  //   ]
+  // }),
+
+  // async fetch () {
+  //   console.log('masuk')
+  //   let payload = this.$nuxt.context.payload
+  //   console.log('disini')
+  //   if (!payload) {
+  //     payload = await this.$axios.$post('/.netlify/functions/get-list', {
+  //       type: 'news'
+  //     })
+  //   }
+  //   console.log(payload)
+  //   this.dataList = payload
+  // }
 
   // mounted () {
   //   const dataList = this.$store.state.users.tempItems.dataList

@@ -1,54 +1,48 @@
 <template>
   <div class="main-container mx-auto">
-    <v-breadcrumbs :items="items" />
-    <FetchStateHandler
-      v-if="$fetchState.pending || $fetchState.error"
-      :fetch-state="$fetchState"
-      :fetch-function="$fetch"
-    />
-    <div v-else>
-      <h1 class="text-center page-title mx-auto">
-        Galeria
-      </h1>
-      <!-- <SearchContainer
+    <!-- static -->
+
+    <h1 class="text-center page-title mx-auto">
+      Galeria
+    </h1>
+    <!-- <SearchContainer
       :data="categoryList"
     /> -->
-      <section class="gallery-section grey lighten-4">
-        <div class="mx-auto card-container py-5 mt-5">
-          <v-row no-gutters class="inner-container">
-            <v-col
-              v-for="(item, i) in dataList"
-              :key="i"
-              cols="4"
-              class="card-column"
+    <section class="gallery-section grey lighten-4">
+      <div class="mx-auto card-container py-5 mt-5">
+        <v-row no-gutters class="inner-container">
+          <v-col
+            v-for="(item, i) in dataList"
+            :key="i"
+            cols="4"
+            class="card-column"
+          >
+            <v-card
+              :href="'/gallery/' + item.slug"
+              class="post-card mx-5"
             >
-              <v-card
-                :href="'/gallery/' + item.slug"
-                class="post-card mx-5"
-              >
-                <v-img
-                  class="post-image"
-                  :src="item.images[0].file.url"
-                />
+              <v-img
+                class="post-image"
+                :src="item.images[0].file.url"
+              />
 
-                <LabelContainerCard :item="item" />
+              <LabelContainerCard :item="item" />
 
-                <v-card-title class="card-title primary--text">
-                  {{ item.title }}
-                </v-card-title>
-              </v-card>
-            </v-col>
-          </v-row>
-        </div>
-      </section>
-      <v-pagination
-        v-model="page"
+              <v-card-title class="card-title primary--text">
+                {{ item.title }}
+              </v-card-title>
+            </v-card>
+          </v-col>
+        </v-row>
+      </div>
+    </section>
+    <v-pagination
+      v-model="page"
 
-        :total-visible="6"
-        class="content-pagination mt-5 ml-auto"
-        @input="next"
-      />
-    </div>
+      :total-visible="6"
+      class="content-pagination mt-5 ml-auto"
+      @input="next"
+    />
   </div>
 </template>
 

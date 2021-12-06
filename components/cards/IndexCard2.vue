@@ -1,17 +1,17 @@
 <template>
   <v-card
-    class="news-card mx-auto mt-5"
-    :href="'/news/' + item.slug"
+    class="news-card mx-auto mt-5 mb-5"
   >
+    <!-- :href="'/news/' + item.slug" -->
     <div class="primary d-flex label-container">
-      <div class="d-flex label-inner flex-sm-shrink-0 ma-2">
-        <span
+      <div class="d-flex label-inner flex-sm-shrink-0 ma-2 white primary--text px-3 py-1 caption">
+        <!-- <span
           v-for="(item, i) in item.categories"
           :key="i"
           class="white primary--text px-3 py-1 caption"
-        >
-          {{ item.label }}
-        </span>
+        > -->
+        {{ item.label }}
+        <!-- </span> -->
       </div>
       <span class="white blue--text ml-auto px-3 py-1 ma-2 caption">
         {{ $moment(date).locale('id').format('DD MMMM YYYY') }}
@@ -19,7 +19,7 @@
     </div>
 
     <div class="d-flex flex-row mt-2 ml-2">
-      <img
+      <!-- <img
         v-if="item.image !== undefined"
         class="news-image-small"
         :src="item.image.file.url"
@@ -33,7 +33,7 @@
         v-if="item.image === undefined && item.youtube === undefined"
         class="news-image-small"
         :src="defaultThumbnail"
-      >
+      > -->
       <div class="d-flex flex-column align-self-center ml-3 card-content">
         <p class="card-title mb-0">
           {{ item.title }}
@@ -56,18 +56,30 @@
 </template>
 <script>
 export default {
-  props: {
-    date: String,
+  // api
+  // props: {
+  //   date: String,
+  //   item: {
+  //     type: Object,
+  //     default () {
+  //       return {}
+  //     }
+  //   }
+  // }
+
+  // static
+  props:
+  {
     item: {
       type: Object,
       default () {
         return {}
       }
     }
-  },
-  data: () => ({
-    defaultThumbnail: require('~/assets/images/default-card-thumbnail.svg')
-  })
+  }
+  // data: () => ({
+  //   defaultThumbnail: require('~/assets/images/default-card-thumbnail.svg')
+  // })
   // methods: {
   //   convertDate (date) {
   //     date = new Date(date)

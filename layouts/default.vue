@@ -1,7 +1,10 @@
 <template>
-  <v-app dark>
+  <v-app
+    dark
+  >
     <v-main>
       <v-container
+        class="background"
         fluid
         ma-0
         pa-0
@@ -138,159 +141,139 @@
           </div>
         </section>
         <nuxt />
+
+        <!-- footer -->
         <section class="footer-container pt-16 mt-16">
           <div class="d-flex flex-md-row flex-sm-column secondary--text column-container mx-auto">
-            <div class="d-flex flex-column mx-md-5 pa-5">
-              <div class="block-title">
-                <h3>Karya Pastoral</h3>
-                <small class="white--text font-italic">Pastoral Ministries</small>
-              </div>
-              <div class="komisi-menu-footer mt-2">
-                <div
-                  v-for="(item, i) in pastorals"
-                  :key="i"
-                  class="komisi-item komisi-formatio font-weight-light"
-                >
-                  <div class="text-h6 font-italic font-weight-light secondary--text">
-                    {{ item.name }}
-                  </div>
-                  <div class="menu-list">
-                    <div
-                      v-for="(item2, j) in item.list"
-                      :key="j"
-                      :class="getClass(j)"
-                    >
-                      <a :href="item2.link">{{ item2.name }}</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-column mx-md-5 pa-5">
-              <div class="block-title">
-                <h3>Ardas Keuskupan</h3>
-                <small class="white--text font-italic">Mission</small>
-              </div>
-              <div class="komisi-menu-footer mt-2">
-                <div
-                  v-for="(item, i) in missions"
-                  :key="i"
-                  class="font-weight-light"
-                >
-                  <div class="font-weight-light mt-2 menu-item">
-                    <a :href="item.link">{{ item.name }}</a>
-                  </div>
-                </div>
-              </div>
-              <div class="block-title mt-16">
-                <h3>Berita</h3>
-                <small class="white--text font-italic">News</small>
-              </div>
-              <div class="komisi-menu-footer mt-2">
-                <div
-                  v-for="(item, i) in news"
-                  :key="i"
-                  class="font-weight-light"
-                >
-                  <div class="font-weight-light mt-2 menu-item">
-                    <a :href="item.link">{{ item.name }}</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-column mx-md-5 pa-5">
-              <div class="block-title">
-                <h3>Dokumen</h3>
-                <small class="white--text font-italic">Documents (Download)</small>
-              </div>
-
-              <div class="komisi-menu-footer mt-2">
-                <div
-                  v-for="(item, i) in documents"
-                  :key="i"
-                  class="font-weight-light"
-                >
-                  <div class="font-weight-light mt-2 menu-item">
-                    <a :href="item.link">{{ item.name }}</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="block-title mt-16">
-                <h3>Artikel</h3>
-                <small class="white--text font-italic">Articles</small>
-              </div>
-              <div class="komisi-menu-footer mt-2">
-                <div
-                  v-for="(item, i) in articles"
-                  :key="i"
-                  class="font-weight-light"
-                >
-                  <div class="font-weight-light mt-2 menu-item">
-                    <a :href="item.link">{{ item.name }}</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-column mx-md-5 pa-5">
+            <div class="d-flex flex-column mx-md-10 pa-5">
               <div class="block-title">
                 <h3>Hubungi Kami</h3>
                 <small class="white--text font-italic">Contact Us</small>
-              </div>
-              <div class="block-title">
-                <span class="d-flex">Alamat</span>
-                <small class="white--text font-italic">Address</small>
-              </div>
-              <div class="secondary--text">
-                <!-- {{ address.fields.value }} -->
-              </div>
-              <div class="phone">
-                <h4 class="font-weight-regular secondary--text">
-                  Telepon
-                </h4>
-                <p class="menu-item">
-                  <!-- <a :href="'tel:' + phone.fields.value">{{ phone.fields.value }}</a> -->
+                <p class="mb-2 mt-4">
+                  <v-btn
+                    class="px-0"
+                    text
+                    small
+                    color="transparent"
+                    target="_blank"
+                    href="https://www.google.com/maps/dir/-7.2710447,112.807572/Jl.+Mojopahit+No.17,+Keputran,+Kec.+Tegalsari,+Kota+SBY,+Jawa+Timur+60265/@-7.279524,112.7406534,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2dd7fbc3d76f97e5:0x67fd38514d4e1095!2m2!1d112.74272!2d-7.281811"
+                  >
+                    <v-icon class="mr-3">
+                      mdi-map-marker-check-outline
+                    </v-icon>
+                    Jl. Mojopahit 17, Surabaya, Jawa Timur
+                  </v-btn>
+                </p>
+
+                <p class="mb-2 mt-4">
+                  <v-btn
+                    class="px-0"
+                    text
+                    small
+                    color="transparent"
+                    target="_blank"
+                    href="https://wa.wizard.id/560167"
+                  >
+                    <v-icon class="mr-3">
+                      mdi-whatsapp
+                    </v-icon>
+                    0812-8877-0017
+                  </v-btn>
+                </p>
+
+                <p class="mb-2 mt-4">
+                  <v-btn
+                    class="px-0"
+                    text
+                    small
+                    color="transparent"
+                    target="_blank"
+                    href="accounts.google.com"
+                  >
+                    <v-icon class="mr-3">
+                      mdi-email
+                    </v-icon>
+                    puspassurabaya@gmail.com
+                  </v-btn>
                 </p>
               </div>
-              <div class="block-title mt-16">
+            </div>
+
+            <div class="d-flex flex-column mx-md-10 pa-5">
+              <!-- medsos -->
+              <div class="block-title mx-auto">
                 <h3>Media Sosial</h3>
                 <small class="white--text font-italic">Social Media</small>
-                <p class="mb-2">
-                  <v-btn
-                    class="px-0"
-                    text
-                    small
-                    color="transparent"
-                    target="_blank"
-                  >
-                    <!-- href="instagram.fields.value" -->
-                    <v-icon class="mr-3">
-                      mdi-instagram
-                    </v-icon>
-                    <a href="">puspas</a>
-                    <!-- {{ instagram.fields.value2 }} -->
-                  </v-btn>
-                </p>
-                <p class="mb-0">
-                  <v-btn
-                    class="px-0"
-                    text
-                    small
-                    color="transparent"
-                    target="_blank"
-                  >
-                    <!-- href="facebook.fields.value" -->
-                    <v-icon class="mr-3">
-                      mdi-facebook
-                    </v-icon>
-                    <a href="">
-                      puspas
+                <div class="d-flex flex-md-row flex-sm-column secondary--text column-container ">
+                  <div class="d-flex flex-column secondary--text column-container ">
+                    <p class="mb-2 mt-4">
+                      <v-btn
+                        class="px-0"
+                        text
+                        small
+                        color="transparent"
+                        target="_blank"
+                        href="https://www.instagram.com/puspasks/"
+                      >
+                        <v-icon class="mr-3">
+                          mdi-instagram
+                        </v-icon>
+                        @puspasks
+                      </v-btn>
+                    </p>
+                    <p class="mb-2 mt-4">
+                      <v-btn
+                        class="px-0"
+                        text
+                        small
+                        color="transparent"
+                        target="_blank"
+                        href="https://www.youtube.com/channel/UCj5X9XA7iIWUiRfp56Du0XQ"
+                      >
+                        <v-icon class="mr-3">
+                          mdi-youtube
+                        </v-icon>
+                        Pusat Pastoral Keuskupan Surabaya
+                      </v-btn>
+                    </p>
+                  </div>
 
-                      <!-- {{ facebook.fields.value2 }} -->
-                    </a>
-                  </v-btn>
-                </p>
+                  <div class="d-flex flex-column mr-16 pr-16">
+                    <p class="mb-2 mt-4">
+                      <v-btn
+                        class="px-0"
+                        text
+                        small
+                        color="transparent"
+                        target="_blank"
+                        href="https://www.facebook.com/keuskupan.surabaya/"
+                      >
+                        <v-icon class="mr-3">
+                          mdi-facebook
+                        </v-icon>
+                        facebook.com/keuskupan.surabaya/
+                      </v-btn>
+                    </p>
+
+                    <p class="mb-2 mt-4">
+                      <v-btn
+                        class="px-0"
+                        text
+                        small
+                        color="transparent"
+                        target="_blank"
+                        href="https://www.keuskupansurabaya.org/page/jubileum/"
+                      >
+                        <v-icon class="mr-3">
+                          mdi-book-open-page-variant-outline
+                        </v-icon>
+                        keuskupansurabaya.org/page/jubileum
+                      </v-btn>
+                    </p>
+                  </div>
+                </div>
               </div>
+              <!-- medsos end -->
             </div>
           </div>
           <div class="d-flex flex-md-row flex-sm-column copyright-container mx-auto pt-5">
@@ -329,6 +312,7 @@
             </div>
           </div>
         </section>
+        <!-- footer end -->
       </v-container>
     </v-main>
   </v-app>
@@ -607,8 +591,8 @@ export default {
       [1, 3],
       [0, 2, 4]
     ],
-    logo: require('~/assets/images/logo.jpg'),
-    logoMupas: require('~/assets/images/logo-mupas.jpg')
+    logo: require('~/assets/images/logo.png'),
+    logoMupas: require('~/assets/images/logo-mupas.png')
   }),
   computed: {
     ...mapState(['featuredDocument']),
@@ -673,5 +657,11 @@ export default {
   * {
     font-family: Cormorant,Georgia,serif;
     color: #444;
+  }
+
+  .background{
+    background-image : url('@/assets/background/background_.jpeg');
+    background-size: cover;
+    height: 100%;
   }
 </style>

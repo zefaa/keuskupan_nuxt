@@ -84,6 +84,7 @@ h1, h2, h3 {
 
 .main-container {
     width: 60%;
+    
     @include phone {
         width: 100%;
     }
@@ -304,11 +305,11 @@ h1, h2, h3 {
     }
 
     .header-logo{
-        width: 170px;
-        height: 170px;
+        width: 130px;
+        height: 160px;
         @include phone {
-            width: 80px;
-            height: 80px;
+            width: 50px;
+            height: 70px;
             margin-top: 10px;
         }
         @include portrait-tablet {
@@ -384,7 +385,7 @@ a{
 }
 
 .news-section{
-
+    
     h1{
         width: 90%;
         font-weight: 400;
@@ -434,12 +435,14 @@ a{
     .news-card{
         // font-family: "Cormorant", Georgia, serif;
         width: 100%;
-
+        border: solid 2px #ffe100 !important;
+        
         .col{
             padding: 0px !important;
         }
     
         .card-title{
+            font-size: 1.5rem;
             font-weight: bold;
             text-transform: none !important;
             line-height: normal !important;
@@ -538,6 +541,21 @@ a{
 }
 
 .download-section{
+
+    h1{
+        width: 90%;
+        font-weight: 400;
+        font-size: 2rem;
+        @include phone {
+            width: 90%;
+            font-size: 1.5rem;
+        }
+        @include         portrait-tablet {
+            width: 90%;
+            font-size: 1.5rem;
+        }
+    }
+
     .download-banner{
         width: 100%;
         @include phone {
@@ -568,6 +586,10 @@ a{
     .download-item{
         font-weight: 700;
         border-bottom: solid 1px #eee;
+    }
+
+    .card-container{
+        width: 90%;
     }
 }
 
@@ -642,6 +664,10 @@ a{
         }
     }
 
+    h3{
+        font-family: Cormorant,Georgia,serif;
+    }
+
     .news-image{
         height: 200px;
     }
@@ -655,9 +681,21 @@ a{
         width: 90%;
     }
 
+    .news-column{
+        @include phone {
+            margin: 0px !important;
+            width: 100% !important;
+        }
+        @include         portrait-tablet {
+            margin: 0px !important;
+            width: 100% !important;
+        }
+    }
+
     .news-card{
         width: 100%;
         border: solid 2px #ffe100 !important;
+        height: 100%;
 
         h3{
             font-family: Cormorant,Georgia,serif !important;
@@ -673,7 +711,12 @@ a{
             text-transform: none !important;
             line-height: normal !important;
             word-break: normal !important;
-            margin-bottom: 28px;
+            @include phone {
+                margin-bottom: 0px;
+            }
+            @include         portrait-tablet {
+                margin-bottom: 0px;
+            }
         }
     
         .card-subtitle{
@@ -684,13 +727,18 @@ a{
     
         .label-container{
             // font-family: Montserrat,Helvetica,serif;
-            font-size: 0.8rem;
+            font-size: 1 rem;
             font-weight: bold;
             font-style: italic;
+            padding-bottom: 0px !important;
         }
     
         .open-button{
             text-transform: none !important;
+        }
+
+        .card-content{
+            width: 100%;
         }
     }
 }

@@ -1,30 +1,24 @@
 <template>
+  <!-- static -->
   <div class="main-container mx-auto">
-    <v-breadcrumbs :items="items" />
-    <FetchStateHandler
-      v-if="$fetchState.pending || $fetchState.error"
-      :fetch-state="$fetchState"
-      :fetch-function="$fetch"
-    />
-
-    <div v-else>
-      <h1 class="text-center page-title mx-auto">
-        Daftar Artikel
-      </h1>
-      <!-- <SearchContainer
+    <!-- static -->
+    <h1 class="text-center page-title mx-auto">
+      Daftar Artikel
+    </h1>
+    <!-- <SearchContainer
       :data="categoryList"
     /> -->
 
-      <section class="news-section grey lighten-4">
-        <div class="d-flex flex-column mx-auto card-container">
-          <!--ambil data yang ada di dataList-->
-          <NewsCard1
-            v-for="(item, i) in dataList"
-            :key="i"
-            :item="item"
-          />
-        </div>
-      </section>
+    <section class="news-section grey lighten-4">
+      <div class="d-flex flex-column mx-auto card-container">
+        <!--ambil data yang ada di dataList-->
+        <NewsCard1
+          v-for="(item, i) in dataList"
+          :key="i"
+          :item="item"
+        />
+      </div>
+    </section>
 
     <!-- <v-pagination
       v-model="page"
@@ -36,8 +30,48 @@
     <!-- {{ changeCategory(selectedCategory) }}
     {{ changeSort(selectedSort) }}
     {{ changeSearch(searchQuery) }} -->
-    </div>
   </div>
+
+  <!-- api -->
+  <!-- <div class="main-container mx-auto"> -->
+  <!-- <v-breadcrumbs :items="items" />
+    <FetchStateHandler
+      v-if="$fetchState.pending || $fetchState.error"
+      :fetch-state="$fetchState"
+      :fetch-function="$fetch"
+    /> -->
+
+  <!-- <div v-else>
+      <h1 class="text-center page-title mx-auto">
+        Daftar Artikel
+      </h1> -->
+  <!-- <SearchContainer
+      :data="categoryList"
+    /> -->
+
+  <!-- <section class="news-section grey lighten-4">
+        <div class="d-flex flex-column mx-auto card-container"> -->
+  <!--ambil data yang ada di dataList-->
+  <!-- <NewsCard1
+            v-for="(item, i) in dataList"
+            :key="i"
+            :item="item"
+          />
+        </div>
+      </section> -->
+
+  <!-- <v-pagination
+      v-model="page"
+
+      :total-visible="6"
+      class="content-pagination mt-5 ml-auto"
+      @input="next"
+    /> -->
+  <!-- {{ changeCategory(selectedCategory) }}
+    {{ changeSort(selectedSort) }}
+    {{ changeSearch(searchQuery) }} -->
+  <!-- </div>
+  </div> -->
 </template>
 
 <script>
@@ -47,8 +81,27 @@
 export default {
   // imavi
   // data yang mau diambil
+
+  // script
   data: () => ({
-    dataList: [],
+    dataList: [
+      {
+        label: 'Komisi Liturgi',
+        title: 'Melindungi Keluarga Memulihkan Masyarakat',
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
+      },
+      {
+        label: 'Komisi Liturgi',
+        title: 'Melindungi Keluarga Memulihkan Masyarakat',
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
+      },
+      {
+        label: 'Komisi Liturgi',
+        title: 'Melindungi Keluarga Memulihkan Masyarakat',
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
+      }
+    ],
+
     items: [
       {
         text: 'Beranda',
@@ -61,19 +114,35 @@ export default {
         href: ''
       }
     ]
-  }),
+  })
+  // api
+  // data: () => ({
+  //   dataList: [],
+  //   items: [
+  //     {
+  //       text: 'Beranda',
+  //       disabled: false,
+  //       href: '/'
+  //     },
+  //     {
+  //       text: 'Artikel',
+  //       disabled: true,
+  //       href: ''
+  //     }
+  //   ]
+  // }),
 
   // load data dari API
-  async fetch () {
-    let payload = this.$nuxt.context.payload
-    if (!payload) {
-      payload = await this.$axios.$post('/.netlify/functions/get-list', {
-        type: 'articles'
-      })
-    }
-    console.log(payload)
-    this.dataList = payload
-  }
+  // async fetch () {
+  //   let payload = this.$nuxt.context.payload
+  //   if (!payload) {
+  //     payload = await this.$axios.$post('/.netlify/functions/get-list', {
+  //       type: 'articles'
+  //     })
+  //   }
+  //   console.log(payload)
+  //   this.dataList = payload
+  // }
 
   // keuskupan
   // async asyncData({ store, env, params }) {
