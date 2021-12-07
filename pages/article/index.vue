@@ -2,33 +2,42 @@
   <!-- static -->
   <div class="main-container mx-auto">
     <!-- static -->
-    <h1 class="text-center page-title mx-auto">
-      Daftar Artikel
-    </h1>
+
     <!-- <SearchContainer
       :data="categoryList"
     /> -->
 
-    <section class="news-section grey lighten-4">
-      <div class="d-flex flex-column mx-auto card-container">
-        <!--ambil data yang ada di dataList-->
-        <NewsCard1
-          v-for="(item, i) in dataList"
-          :key="i"
-          :item="item"
-        />
+    <section class="news-section grey lighten-4 mt-6">
+      <h1 class="text-center page-title mx-auto">
+        Daftar Artikel
+      </h1>
+      <div class="d-flex flex-column mx-auto card-container mt-6">
+        <v-row no-gutters class="inner-contain">
+          <v-col
+            v-for="(item, i) in dataList"
+            :key="i"
+            cols="4"
+            class="card-column mx-10"
+          >
+            <!--ambil data yang ada di dataList-->
+            <NewsCard1
+              :item="item"
+              class="dflex mx-auto"
+            />
+          </v-col>
+        </v-row>
       </div>
     </section>
 
-    <!-- <v-pagination
+    <v-pagination
       v-model="page"
 
       :total-visible="6"
       class="content-pagination mt-5 ml-auto"
       @input="next"
-    /> -->
+    />
     <!-- {{ changeCategory(selectedCategory) }}
-    {{ changeSort(selectedSort) }}
+    {{ changeSort(selectedSort) }} Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021
     {{ changeSearch(searchQuery) }} -->
   </div>
 
@@ -94,12 +103,8 @@ export default {
         label: 'Komisi Liturgi',
         title: 'Melindungi Keluarga Memulihkan Masyarakat',
         subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
-      },
-      {
-        label: 'Komisi Liturgi',
-        title: 'Melindungi Keluarga Memulihkan Masyarakat',
-        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
       }
+
     ],
 
     items: [

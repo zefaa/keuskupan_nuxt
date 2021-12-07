@@ -7,11 +7,18 @@
     /> -->
     <!-- <div v-else> -->
     <!-- berita start -->
-    <section class="news-section grey lighten-4 mt-16">
-      <h1 class="mb-3 pt-5 mx-auto">
+    <section class="news-section  mt-16">
+      <h1 class="mb-3 pt-5 mx-auto text-center">
         Berita Utama
       </h1>
       <div class="d-flex flex-column mx-auto card-container">
+        <div class="d-flex flex-column mx-auto card-container">
+          <IndexMain
+            v-for="(item, i) in newsMain"
+            :key="i"
+            :item="item"
+          />
+        </div>
         <!-- api -->
         <!-- <IndexCard2
             v-for="(item, i) in newsContent"
@@ -23,11 +30,19 @@
           </v-btn> -->
 
         <!-- static -->
-        <IndexCard2
-          v-for="(item, i) of newsContent"
-          :key="i"
-          :item="item"
-        />
+        <v-row no-gutters class="inner-contain">
+          <v-col
+            v-for="(item, i) in newsContent"
+            :key="i"
+            cols="4"
+            class="card-column mx-10"
+          >
+            <IndexCard2
+              :item="item"
+              class="dflex mx-auto"
+            />
+          </v-col>
+        </v-row>
       </div>
     </section>
     <!-- berita end -->
@@ -71,14 +86,14 @@
 
     <!-- artikel start -->
     <section
-      class="article-section grey lighten-4 mt-16"
+      class="article-section  mt-16"
     >
-      <h1 class="mb-3 pt-5 mx-auto">
+      <h1 class="mb-3 pt-5 mx-auto text-center">
         Artikel Utama
       </h1>
       <!-- static -->
 
-      <div class="d-flex flex-column mx-auto card-container">
+      <div class="d-flex flex-column mr-md-5 ml-md-5 card-container">
         <!-- api -->
         <!-- <v-card
             v-for="(item, i) in articleContent"
@@ -124,18 +139,26 @@
             </div> -->
 
         <!-- static -->
-        <IndexCard2
-          v-for="(item, i) of articleContent"
-          :key="i"
-          :item="item"
-        />
-        <!-- <v-btn
+        <v-row no-gutters class="inner-contain">
+          <v-col
+            v-for="(item, i) in articleContent"
+            :key="i"
+            cols="4"
+            class="card-column mx-10"
+          >
+            <IndexCard2
+              :item="item"
+              class="dflex mx-auto"
+            />
+            <!-- <v-btn
           text
           class="open-button primary--text d-flex ml-auto"
         >
           <i>Lihat</i>
         </v-btn> -->
-        <!-- </v-card> -->
+            <!-- </v-card> -->
+          </v-col>
+        </v-row>
       </div>
     </section>
     <!-- artikel end -->
@@ -183,7 +206,7 @@
 
     <!-- static -->
     <!-- jubi rehan start -->
-    <section class="download-section grey lighten-4 mt-16">
+    <section class="download-section  mt-16">
       <div class="d-flex jubi-rehan-column mx-10">
         <!-- jubileum start -->
         <div class="d-flex flex-column mr-md-10 ml-md-5">
@@ -236,12 +259,7 @@ export default {
         label: 'Komisi Hak',
         title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
         subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
-      },
 
-      {
-        label: 'Komisi Hak',
-        title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
-        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
       },
 
       {
@@ -251,13 +269,16 @@ export default {
       }
     ],
 
-    articleContent: [
+    newsMain: [
       {
-        label: 'Komisi Liturgi',
-        title: 'Melindungi Keluarga Memulihkan Masyarakat',
-        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
-      },
+        label: 'Komisi Komunikasi Sosial',
+        title: 'Temu Tim Media Keuskupan Surabaya',
+        subtitle: 'Temu Tim Media Keuskupan Surabaya',
+        url: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+      }
+    ],
 
+    articleContent: [
       {
         label: 'Komisi Liturgi',
         title: 'Melindungi Keluarga Memulihkan Masyarakat',

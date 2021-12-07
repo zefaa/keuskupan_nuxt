@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="news-card mx-auto mt-5 mb-5"
+    class="news-card-newest mx-auto mt-5 mb-5"
   >
     <!-- :href="'/news/' + item.slug" -->
     <div class="primary d-flex label-container">
@@ -34,12 +34,16 @@
         class="news-image-small"
         :src="defaultThumbnail"
       > -->
-      <div class="d-flex flex-column align-self-center ml-3 card-content">
+      <div class="d-flex flex-column align-self-center ml-3  card-content">
+        <img
+          class="news-image-big mr-3"
+          :src="item.url"
+        >
         <p class="card-title mb-0">
           {{ item.title }}
         </p>
 
-        <p class="card-subtitle mb-0 mt-2 grey--text lighten-4">
+        <p class="card-subtitle mb-0 grey--text lighten-4">
           {{ item.subtitle }}
         </p>
 

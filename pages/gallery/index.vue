@@ -5,45 +5,94 @@
     <h1 class="text-center page-title mx-auto">
       Galeria
     </h1>
-    <!-- <SearchContainer
-      :data="categoryList"
-    /> -->
     <section class="gallery-section grey lighten-4">
       <div class="mx-auto card-container py-5 mt-5">
-        <v-row no-gutters class="inner-container">
+        <v-row no-gutters class="inner-contain">
           <v-col
             v-for="(item, i) in dataList"
             :key="i"
             cols="4"
-            class="card-column"
+            class="card-column mx-10"
           >
-            <v-card
-              :href="'/gallery/' + item.slug"
-              class="post-card mx-5"
-            >
-              <v-img
-                class="post-image"
-                :src="item.images[0].file.url"
-              />
+            <v-img
+              v-for="(item, i) in images"
+              :key="i"
+              :src="item.src"
+              class="post-image"
+            />
 
-              <LabelContainerCard :item="item" />
+            <LabelContainerCard
+              :item="item"
+              class="dflex mx-auto"
+            />
 
-              <v-card-title class="card-title primary--text">
-                {{ item.title }}
-              </v-card-title>
-            </v-card>
+            <v-card-title class="card-title primary--text">
+              {{ item.title }}
+            </v-card-title>
           </v-col>
         </v-row>
       </div>
     </section>
     <v-pagination
       v-model="page"
-
       :total-visible="6"
       class="content-pagination mt-5 ml-auto"
       @input="next"
     />
   </div>
+
+  <!-- api -->
+  <!-- <div class="main-container mx-auto">
+    <v-breadcrumbs :items="items" />
+    <FetchStateHandler
+      v-if="$fetchState.pending || $fetchState.error"
+      :fetch-state="$fetchState"
+      :fetch-function="$fetch"
+    />
+    <div v-else>
+      <h1 class="text-center page-title mx-auto">
+        Galeria
+      </h1> -->
+  <!-- <SearchContainer
+      :data="categoryList"
+    /> -->
+  <!-- <section class="gallery-section grey lighten-4">
+        <div class="mx-auto card-container py-5 mt-5">
+          <v-row no-gutters class="inner-container">
+            <v-col
+              v-for="(item, i) in dataList"
+              :key="i"
+              cols="4"
+              class="card-column"
+            >
+              <v-card
+                :href="'/gallery/' + item.slug"
+                class="post-card mx-5"
+              >
+                <v-img
+                  class="post-image"
+                  :src="item.images[0].file.url"
+                />
+
+                <LabelContainerCard :item="item" />
+
+                <v-card-title class="card-title primary--text">
+                  {{ item.title }}
+                </v-card-title>
+              </v-card>
+            </v-col>
+          </v-row>
+        </div>
+      </section>
+      <v-pagination
+        v-model="page"
+
+        :total-visible="6"
+        class="content-pagination mt-5 ml-auto"
+        @input="next"
+      />
+    </div>
+  </div> -->
 </template>
 
 <script>
@@ -51,8 +100,54 @@
 
 // const client = createClient()
 export default {
+  // api
+  // data: () => ({
+  //   dataList: [],
+  //   items: [
+  //     {
+  //       text: 'Beranda',
+  //       disabled: false,
+  //       href: '/'
+  //     },
+  //     {
+  //       text: 'Galleria',
+  //       disabled: true,
+  //       href: ''
+  //     }
+  //   ]
+  // }),
+
+  // async fetch () {
+  //   let payload = this.$nuxt.context.payload
+  //   if (!payload) {
+  //     payload = await this.$axios.$post('/.netlify/functions/get-list', {
+  //       type: 'gallery'
+  //     })
+  //   }
+  //   this.dataList = payload
+  // }
+
+  // static
   data: () => ({
-    dataList: [],
+    dataList: [
+      {
+        title: 'Renungan Harian Anak 2021',
+        label: 'Komisi Anak'
+      },
+      {
+        title: 'Contoh 1',
+        label: 'Komisi 1'
+      },
+      {
+        title: 'Contoh 1',
+        label: 'Komisi 1'
+      },
+      {
+        title: 'Contoh 1',
+        label: 'Komisi 1'
+      }
+
+    ],
     items: [
       {
         text: 'Beranda',
@@ -64,19 +159,15 @@ export default {
         disabled: true,
         href: ''
       }
+    ],
+    images: [
+      {
+        src: require('@/assets/images/rehan.jpg')
+      }
+
     ]
-  }),
 
-  async fetch () {
-    let payload = this.$nuxt.context.payload
-    if (!payload) {
-      payload = await this.$axios.$post('/.netlify/functions/get-list', {
-        type: 'gallery'
-      })
-    }
-    this.dataList = payload
-  }
-
+  })
   // mounted () {
   //   const dataList = this.$store.state.users.tempItems.dataList
   //   dataList.forEach((element) => {

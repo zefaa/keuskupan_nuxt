@@ -140,12 +140,13 @@
             </div>
           </div>
         </section>
+
         <nuxt />
 
         <!-- footer -->
         <section class="footer-container pt-16 mt-16">
           <div class="d-flex flex-md-row flex-sm-column secondary--text column-container mx-auto">
-            <div class="d-flex flex-column mx-md-10 pa-5">
+            <div class="d-flex flex-md-row flex-sm-column mx-auto pt-5">
               <div class="block-title">
                 <h3>Hubungi Kami</h3>
                 <small class="white--text font-italic">Contact Us</small>
@@ -199,90 +200,81 @@
               </div>
             </div>
 
-            <div class="d-flex flex-column mx-md-10 pa-5">
+            <div class="d-flex flex-md-row flex-sm-column mx-auto pt-5">
               <!-- medsos -->
-              <div class="block-title mx-auto">
+              <div class="block-title">
                 <h3>Media Sosial</h3>
                 <small class="white--text font-italic">Social Media</small>
-                <div class="d-flex flex-md-row flex-sm-column secondary--text column-container ">
-                  <div class="d-flex flex-column secondary--text column-container ">
-                    <p class="mb-2 mt-4">
-                      <v-btn
-                        class="px-0"
-                        text
-                        small
-                        color="transparent"
-                        target="_blank"
-                        href="https://www.instagram.com/puspasks/"
-                      >
-                        <v-icon class="mr-3">
-                          mdi-instagram
-                        </v-icon>
-                        @puspasks
-                      </v-btn>
-                    </p>
-                    <p class="mb-2 mt-4">
-                      <v-btn
-                        class="px-0"
-                        text
-                        small
-                        color="transparent"
-                        target="_blank"
-                        href="https://www.youtube.com/channel/UCj5X9XA7iIWUiRfp56Du0XQ"
-                      >
-                        <v-icon class="mr-3">
-                          mdi-youtube
-                        </v-icon>
-                        Pusat Pastoral Keuskupan Surabaya
-                      </v-btn>
-                    </p>
-                  </div>
+                <div class="d-flex flex-column keuskupan-text column-container ">
+                  <p class="mb-2 mt-4">
+                    <v-btn
+                      class="px-0"
+                      text
+                      small
+                      color="transparent"
+                      target="_blank"
+                      href="https://www.instagram.com/puspasks/"
+                    >
+                      <v-icon class="mr-3">
+                        mdi-instagram
+                      </v-icon>
+                      @puspasks
+                    </v-btn>
+                  </p>
+                  <p class="mb-2 mt-4">
+                    <v-btn
+                      class="px-0"
+                      text
+                      small
+                      color="transparent"
+                      target="_blank"
+                      href="https://www.youtube.com/channel/UCj5X9XA7iIWUiRfp56Du0XQ"
+                    >
+                      <v-icon class="mr-3">
+                        mdi-youtube
+                      </v-icon>
+                      Pusat Pastoral Keuskupan Surabaya
+                    </v-btn>
+                  </p>
+                  <p class="mb-2 mt-4">
+                    <v-btn
+                      class="px-0"
+                      text
+                      small
+                      color="transparent"
+                      target="_blank"
+                      href="https://www.facebook.com/keuskupan.surabaya/"
+                    >
+                      <v-icon class="mr-3">
+                        mdi-facebook
+                      </v-icon>
+                      facebook.com/keuskupan.surabaya/
+                    </v-btn>
+                  </p>
 
-                  <div class="d-flex flex-column mr-16 pr-16">
-                    <p class="mb-2 mt-4">
-                      <v-btn
-                        class="px-0"
-                        text
-                        small
-                        color="transparent"
-                        target="_blank"
-                        href="https://www.facebook.com/keuskupan.surabaya/"
-                      >
-                        <v-icon class="mr-3">
-                          mdi-facebook
-                        </v-icon>
-                        facebook.com/keuskupan.surabaya/
-                      </v-btn>
-                    </p>
-
-                    <p class="mb-2 mt-4">
-                      <v-btn
-                        class="px-0"
-                        text
-                        small
-                        color="transparent"
-                        target="_blank"
-                        href="https://www.keuskupansurabaya.org/page/jubileum/"
-                      >
-                        <v-icon class="mr-3">
-                          mdi-book-open-page-variant-outline
-                        </v-icon>
-                        keuskupansurabaya.org/page/jubileum
-                      </v-btn>
-                    </p>
-                  </div>
+                  <p class="mb-2 mt-4 ">
+                    <v-btn
+                      class="px-0 "
+                      text
+                      small
+                      color="transparent"
+                      target="_blank"
+                      href="https://www.keuskupansurabaya.org/page/jubileum/"
+                    >
+                      <v-icon class="mr-3">
+                        mdi-book-open-page-variant-outline
+                      </v-icon>
+                      keuskupansurabaya.org/page/jubileum
+                    </v-btn>
+                  </p>
                 </div>
               </div>
               <!-- medsos end -->
             </div>
           </div>
+
           <div class="d-flex flex-md-row flex-sm-column copyright-container mx-auto pt-5">
-            <div class="d-flex flex-column">
-              <div
-                class="menu-item mt-2"
-              >
-                <a href="">Hubungi Kami</a>
-              </div>
+            <div class="d-flex flex-column keuskupan-text">
               <div
                 class="menu-item mt-2"
               >
@@ -294,6 +286,7 @@
                 <a href="">Syarat Penggunaan</a>
               </div>
             </div>
+
             <div class="d-flex flex-column flex-grow-1 keuskupan-text">
               <div
                 class="menu-item ml-auto mt-auto"
@@ -660,8 +653,12 @@ export default {
   }
 
   .background{
-    background-image : url('@/assets/background/background_.jpeg');
+    /* background: url('@/assets/background/background_.jpeg'); */
+     box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.6);
     background-size: cover;
     height: 100%;
   }
+  /* .container {
+
+  } */
 </style>

@@ -1,28 +1,36 @@
 <template>
   <!-- static -->
   <div class="main-container mx-auto">
-    <h1 class="text-center page-title mx-auto">
-      Daftar Berita
-    </h1>
     <!-- <SearchContainer
       :data="categoryList"
     /> -->
-    <section class="news-section grey lighten-4">
-      <div class="d-flex flex-column mx-auto card-container">
-        <NewsCard1
-          v-for="(item, i) in dataList"
-          :key="i"
-          :item="item"
-        />
+    <section class="news-section grey lighten-4 mt-6">
+      <h1 class="text-center page-title mx-auto">
+        Daftar Berita
+      </h1>
+      <div class="d-flex flex-column mx-auto card-container mt-6">
+        <v-row no-gutters class="inner-contain">
+          <v-col
+            v-for="(item, i) in dataList"
+            :key="i"
+            cols="4"
+            class="card-column mx-10"
+          >
+            <NewsCard1
+              :item="item"
+              class="dflex mx-auto"
+            />
+          </v-col>
+        </v-row>
       </div>
     </section>
 
-    <!-- <v-pagination
+    <v-pagination
       v-model="page"
       :total-visible="6"
       class="content-pagination mt-5 ml-auto"
       @input="next"
-    /> -->
+    />
   </div>
 
   <!-- api -->
@@ -79,12 +87,8 @@ export default {
         label: 'Komisi Hak',
         title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
         subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
-      },
-      {
-        label: 'Komisi Hak',
-        title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
-        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
       }
+
     ],
     items: [
       {

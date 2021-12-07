@@ -25,7 +25,7 @@ h1, h2, h3 {
 }
 
 .v-breadcrumbs li {
-    font-size: 12px !important;
+    font-size: 1px !important;
 }
 
 .page-title{
@@ -84,7 +84,6 @@ h1, h2, h3 {
 
 .main-container {
     width: 60%;
-    
     @include phone {
         width: 100%;
     }
@@ -412,6 +411,11 @@ a{
         height: 200px;
     }
 
+    .news-image-big{
+        height: auto;
+        width: auto;
+    }
+
     .news-image-small{
         width: 60px;
         height: 60px;
@@ -419,6 +423,7 @@ a{
 
     .card-container{
         width: 90%;
+        
     }
 
     .news-column{
@@ -457,6 +462,7 @@ a{
 
         .card-inner{
             margin-top: 1%;
+
             @include phone {
                 margin-top: 0%;
             }
@@ -472,6 +478,59 @@ a{
     
         .card-subtitle{
             font-size: 1rem;
+            font-style: italic;
+            padding-bottom: 0px !important;
+        }
+    
+        .open-button{
+            text-transform: none !important;
+        }
+
+        .card-content{
+            width: 100%;
+        }
+    }
+
+    .news-card-newest {
+        width: 100%;
+        border: solid 2px #ffee00 !important;
+        
+        .col{
+            padding: 0px !important;
+        }
+    
+        .card-title{
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: none !important;
+            line-height: normal !important;
+            word-break: normal !important;
+            @include phone {
+                margin-bottom: 0px;
+            }
+            @include         portrait-tablet {
+                margin-bottom: 0px;
+            }
+        }
+
+        .card-inner{
+            margin-top: 1%;
+
+            @include phone {
+                margin-top: 0%;
+            }
+            @include         portrait-tablet {
+                margin-top: 0%;
+            }
+        }
+
+        .document-title{
+            font-weight: bold;
+            color: #666;
+        }
+    
+        .card-subtitle{
+            font-size: 2rem;
             font-style: italic;
             padding-bottom: 0px !important;
         }
@@ -695,7 +754,7 @@ a{
     .news-card{
         width: 100%;
         border: solid 2px #ffe100 !important;
-        height: 100%;
+        
 
         h3{
             font-family: Cormorant,Georgia,serif !important;
@@ -869,8 +928,9 @@ a{
 
 .footer-container{
     width: 100%;
-    background-image: url('https://www.keuskupansurabaya.org/static/front/img/bg/bg5.jpg');
-    background-color: rgba(0,0,0,.6);
+    // background-image: url('https://www.keuskupansurabaya.org/static/front/img/bg/bg5.jpg');
+    // background-color: rgba(0,0,0,.6);
+    background-color: #78121c;
     background-size: cover;
     background-attachment: fixed;
     background-position: top center;
@@ -897,6 +957,13 @@ a{
             width: 100%;
         }
     }
+    .keuskupan-text{
+        font-family: Cormorant,Georgia,serif;
+        text-align: left;
+        @include phone {
+            margin-top: 5%;
+        }
+    }
 
     @include phone {
         width: 100%;
@@ -914,7 +981,7 @@ a{
 
     .keuskupan-text{
         font-family: Cormorant,Georgia,serif;
-        text-align: right;
+        text-align: center;
         @include phone {
             margin-top: 10%;
         }
@@ -1036,3 +1103,12 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
 .table-scroll table {
 	width: auto;
 }
+
+
+    
+
+
+
+
+
+
