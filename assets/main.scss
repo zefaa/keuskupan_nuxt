@@ -383,12 +383,193 @@ a{
     }
 }
 
+.body-section{
+    
+    h1{
+        width: 90%;
+        font-weight: 400;
+        font-size: 2.5rem;
+        @include phone {
+            width: 90%;
+            font-size: 1.5rem;
+        }
+        @include         portrait-tablet {
+            width: 90%;
+            font-size: 1.5rem;
+        }
+    }
+
+    h3{
+        font-family: Cormorant,Georgia,serif;
+    }
+
+    .body-image-big{
+        height: auto;
+        width: auto;
+    }
+
+    
+    .card-container{
+        width: 90%;
+        
+    }
+
+    .body-card{
+        // font-family: "Cormorant", Georgia, serif;
+        width: 100%;
+
+        
+        .col{
+            padding: 0px !important;
+        }
+    
+        .card-title{
+            font-size: 1.5rem;
+            font-family: Cinzel,Verdana,serif;
+            font-weight: bold;
+            text-transform: none !important;
+            line-height: normal !important;
+            word-break: normal !important;
+            @include phone {
+                margin-bottom: 0px;
+            }
+            @include         portrait-tablet {
+                margin-bottom: 0px;
+            }
+        }
+
+        .card-inner{
+            margin-top: 1%;
+
+            @include phone {
+                margin-top: 0%;
+            }
+            @include         portrait-tablet {
+                margin-top: 0%;
+            }
+        }
+
+        .document-title{
+            font-weight: bold;
+            color: #666;
+        }
+    
+        .card-subtitle{
+            font-size: 1rem;
+            font-style: italic;
+            padding-bottom: 0px !important;
+        }
+
+        .card-text{
+            font-size: 1rem;
+            padding-bottom: 0px !important;
+        }
+    
+        .open-button{
+            text-transform: none !important;
+        }
+
+        .card-content{
+            width: 100%;
+        }
+    }
+
+    
+}
+
+.unit-section{
+    
+    h1{
+        width: 90%;
+        font-weight: 400;
+        font-size: 2.5rem;
+        @include phone {
+            width: 90%;
+            font-size: 1.5rem;
+        }
+        @include         portrait-tablet {
+            width: 90%;
+            font-size: 1.5rem;
+        }
+    }
+
+    h3{
+        font-family: Cormorant,Georgia,serif;
+    }
+
+    .body-image-big{
+        height: auto;
+        width: auto;
+    }
+
+    
+    .card-container{
+        width: 90%;
+        
+    }
+
+    .body-card{
+        // font-family: "Cormorant", Georgia, serif;
+        width: 100%;
+
+        
+        .col{
+            padding: 0px !important;
+        }
+    
+        .card-title{
+            font-size: 2rem;
+            font-family: Cinzel,Verdana,serif;
+            font-weight: bold;
+            text-transform: none !important;
+            line-height: normal !important;
+            word-break: normal !important;
+            @include phone {
+                margin-bottom: 0px;
+            }
+            @include         portrait-tablet {
+                margin-bottom: 0px;
+            }
+        }
+
+        .card-inner{
+            margin-top: 1%;
+
+            @include phone {
+                margin-top: 0%;
+            }
+            @include         portrait-tablet {
+                margin-top: 0%;
+            }
+        }
+    
+        .card-textsub{
+            font-size: 1rem;
+            font-style: italic;
+            padding-bottom: 0px !important;
+        }
+
+
+        .card-text{
+            font-size: 1rem;
+            font-weight: bold;
+            padding-bottom: 0px !important;
+        }
+
+        .card-content{
+            width: 100%;
+        }
+    }
+
+    
+}
+
 .news-section{
     
     h1{
         width: 90%;
         font-weight: 400;
-        font-size: 2rem;
+        font-size: 3rem;
         @include phone {
             width: 90%;
             font-size: 1.5rem;
@@ -500,7 +681,7 @@ a{
         }
     
         .card-title{
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: bold;
             text-transform: none !important;
             line-height: normal !important;
@@ -530,7 +711,7 @@ a{
         }
     
         .card-subtitle{
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-style: italic;
             padding-bottom: 0px !important;
         }
@@ -712,7 +893,7 @@ a{
     h1{
         width: 90%;
         font-weight: 400;
-        font-size: 2rem;
+        font-size: 3rem;
         @include phone {
             width: 90%;
             font-size: 1.5rem;
@@ -734,6 +915,11 @@ a{
     .news-image-small{
         width: 60px;
         height: 60px;
+    }
+
+    .news-image-big{
+        height: auto;
+        width: auto;
     }
 
     .card-container{

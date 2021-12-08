@@ -4,24 +4,22 @@
     <!-- <SearchContainer
       :data="categoryList"
     /> -->
-    <section class="news-section grey lighten-4 mt-6">
+    <section class="news-section mt-6">
       <h1 class="text-center page-title mx-auto">
         Daftar Berita
       </h1>
-      <div class="d-flex flex-column mx-auto card-container mt-6">
-        <v-row no-gutters class="inner-contain">
+      <div class="d-flex flex-column mr-md-10 ml-md-5">
+        <div class="d-flex justify-space-between">
           <v-col
             v-for="(item, i) in dataList"
             :key="i"
-            cols="4"
-            class="card-column mx-10"
           >
             <NewsCard1
               :item="item"
               class="dflex mx-auto"
             />
           </v-col>
-        </v-row>
+        </div>
       </div>
     </section>
 

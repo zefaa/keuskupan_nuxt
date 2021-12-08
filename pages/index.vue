@@ -11,7 +11,7 @@
       <h1 class="mb-3 pt-5 mx-auto text-center">
         Berita Utama
       </h1>
-      <div class="d-flex flex-column mx-auto card-container">
+      <div class="d-flex flex-column mx-auto card-container py-5 mt-6 ">
         <div class="d-flex flex-column mx-auto card-container">
           <IndexMain
             v-for="(item, i) in newsMain"
@@ -19,89 +19,53 @@
             :item="item"
           />
         </div>
-        <!-- api -->
-        <!-- <IndexCard2
-            v-for="(item, i) in newsContent"
-            :key="i"
-            :item="item"
-          /> -->
-        <!-- <v-btn class="primary white--text mt-5 mb-15">
-            Tampilkan lebih banyak
-          </v-btn> -->
-
-        <!-- static -->
-        <v-row no-gutters class="inner-contain">
+        <div class="d-flex justify-space-between">
           <v-col
             v-for="(item, i) in newsContent"
             :key="i"
-            cols="4"
-            class="card-column mx-10"
           >
             <IndexCard2
               :item="item"
               class="dflex mx-auto"
             />
           </v-col>
-        </v-row>
+        </div>
       </div>
+      <!-- api -->
+      <!-- <IndexCard2
+            v-for="(item, i) in newsContent"
+            :key="i"
+            :item="item"
+          /> -->
+      <!-- <v-btn class="primary white--text mt-5 mb-15">
+            Tampilkan lebih banyak
+          </v-btn> -->
+
+      <!-- static -->
+      <!-- <div class="d-flex justify-space-around">
+         </div> -->
     </section>
     <!-- berita end -->
 
-    <!-- <section class="omk-section mt-15 mx-auto">
-      <div class="d-flex flex-column">
-        <v-img
-          height="100"
-          width="200"
-          :src="omk"
-          class="mx-auto omk-banner"
-        />
-        <v-card
-          v-for="(item, i) in omkContent"
-          :key="i"
-          class="news-card mx-auto mt-5"
-          :href="item.link"
-        >
-          <div
-            class="d-flex flex-md-row flex-sm-column"
-          >
-            <v-img
-              height="100"
-              width="200"
-              class="card-image"
-              :src="item.thumbnail"
-            />
-            <div class="d-flex flex-column align-self-center ml-md-3">
-              <p class="card-title mb-0">
-                {{ item.label }}
-              </p>
-
-              <p class="card-subtitle mb-0">
-                {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
-              </p>
-            </div>
-          </div>
-        </v-card>
-      </div>
-    </section> -->
-
     <!-- artikel start -->
     <section
-      class="article-section  mt-16"
+      class="news-section  mt-16"
     >
       <h1 class="mb-3 pt-5 mx-auto text-center">
         Artikel Utama
       </h1>
       <!-- static -->
 
-      <div class="d-flex flex-column mr-md-5 ml-md-5 card-container">
-        <!-- api -->
-        <!-- <v-card
+      <div class="d-flex flex-column mx-auto card-container py-5 mt-6 ">
+        <div class="d-flex flex-column mx-auto card-container">
+          <!-- api -->
+          <!-- <v-card
             v-for="(item, i) in articleContent"
             :key="i"
             :href="'/article/' + item.slug"
             class="news-card mx-auto mt-5"
           > -->
-        <!-- <div class="secondary d-flex label-container">
+          <!-- <div class="secondary d-flex label-container">
               <div class="d-flex label-inner flex-sm-shrink-0 ma-2">
                 <span
                   v-for="(item, j) in item.categories"
@@ -116,7 +80,7 @@
               </span>
             </div> -->
 
-        <!-- <div class="d-flex flex-row mt-2 ml-2">
+          <!-- <div class="d-flex flex-row mt-2 ml-2">
               <img
                 v-if="item.image !== undefined"
                 class="news-image-small"
@@ -138,27 +102,33 @@
               </div>
             </div> -->
 
-        <!-- static -->
-        <v-row no-gutters class="inner-contain">
+          <!-- static -->
+
+          <IndexMain
+            v-for="(item, i) in articleMain"
+            :key="i"
+            :item="item"
+          />
+        </div>
+        <div class="d-flex justify-space-between">
           <v-col
             v-for="(item, i) in articleContent"
             :key="i"
-            cols="4"
-            class="card-column mx-10"
           >
             <IndexCard2
               :item="item"
               class="dflex mx-auto"
             />
-            <!-- <v-btn
+
+          <!-- <v-btn
           text
           class="open-button primary--text d-flex ml-auto"
         >
           <i>Lihat</i>
         </v-btn> -->
-            <!-- </v-card> -->
+          <!-- </v-card> -->
           </v-col>
-        </v-row>
+        </div>
       </div>
     </section>
     <!-- artikel end -->
@@ -216,8 +186,9 @@
           <div class="d-flex flex-column mr-md-10 ml-md-5 card-container">
             <img src="@/assets/images/rehan.jpg" class="download-banner">
             <a
+              href="/jubileum/"
               class="primary--text text-bold d-flex ml-auto"
-            >Download</a>
+            >Selengkapnya</a>
           <!-- </div> -->
           </div>
         </div>
@@ -231,8 +202,9 @@
           <div class="d-flex flex-column mr-md-5 ml-md-5 card-container">
             <img src="@/assets/images/rehan.jpg" class="download-banner">
             <a
+
               class="primary--text text-bold d-flex ml-auto"
-            >Download</a>
+            >Selengkapnya</a>
           </div>
         </div>
       </div>
@@ -271,10 +243,19 @@ export default {
 
     newsMain: [
       {
+        label: 'Pastoral Difabel',
+        title: 'PEMENANG LOMBA VIDEO BISINDO 17AN TEMA "MERDEKA DALAM PANDEMI"',
+        url: require('@/assets/images/news.jpeg')
+      }
+    ],
+
+    articleMain: [
+      {
         label: 'Komisi Komunikasi Sosial',
-        title: 'Temu Tim Media Keuskupan Surabaya',
-        subtitle: 'Temu Tim Media Keuskupan Surabaya',
-        url: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+        title: 'KEUSKUPAN SURABAYA ‘SERENTAK MAJU!’ DALAM MUPAS 2019',
+        subtitle: 'Keuskupan Surabaya menyelenggarakan  MUPAS (Musyawarah Pastoral) di Rumah Pembinaan Sasana Krida Jatijejer, Trawas, Mojokerto.',
+        url: require('@/assets/images/mupas.jpeg')
+
       }
     ],
 

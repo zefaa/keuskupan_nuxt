@@ -1,11 +1,9 @@
 <template>
   <div class="main-container mx-auto">
     <h1 class="text-center page-title mx-auto">
-      {{ detailContent.title }}
+      asdfadsf
     </h1>
-    <section class="content-section mt-5">
-      <div class="post-content mx-auto" v-html="detailContent.content" />
-    </section>
+    <section class="content-section mt-5" />
   </div>
 </template>
 

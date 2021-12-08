@@ -7,17 +7,15 @@
       :data="categoryList"
     /> -->
 
-    <section class="news-section grey lighten-4 mt-6">
+    <section class="news-section  mt-6">
       <h1 class="text-center page-title mx-auto">
         Daftar Artikel
       </h1>
       <div class="d-flex flex-column mx-auto card-container mt-6">
-        <v-row no-gutters class="inner-contain">
+        <div class="d-flex justify-space-between">
           <v-col
             v-for="(item, i) in dataList"
             :key="i"
-            cols="4"
-            class="card-column mx-10"
           >
             <!--ambil data yang ada di dataList-->
             <NewsCard1
@@ -25,7 +23,7 @@
               class="dflex mx-auto"
             />
           </v-col>
-        </v-row>
+        </div>
       </div>
     </section>
 

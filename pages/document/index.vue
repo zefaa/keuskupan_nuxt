@@ -1,23 +1,21 @@
 <template>
   <div class="main-container mx-auto">
-    <section class="news-section grey lighten-4 mt-6">
+    <section class="news-section mt-6">
       <h1 class="text-center page-title mx-auto">
         Daftar Dokumen
       </h1>
       <div class="d-flex flex-column mx-auto card-container py-5 mt-6 ">
-        <v-row no-gutters class="inner-contain centered">
+        <div class="d-flex justify-space-between">
           <v-col
             v-for="(item, i) in dataList"
             :key="i"
-            cols="4"
-            class="card-column mx-12"
           >
-            <DocumentCard
+            <NewsCard1
               :item="item"
               class="dflex mx-auto"
             />
           </v-col>
-        </v-row>
+        </div>
       </div>
     </section>
     <v-pagination

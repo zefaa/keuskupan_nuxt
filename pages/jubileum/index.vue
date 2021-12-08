@@ -1,16 +1,14 @@
 <template>
   <div class="main-container mx-auto">
-    <section class="gallery-section grey lighten-4 mt-6">
+    <section class="gallery-section mt-6">
       <h1 class="text-center page-title mx-auto">
         Jubileum
       </h1>
       <div class="mx-auto card-container py-5 mt-6">
-        <v-row no-gutters class="inner-contain">
+        <div class="d-flex justify-space-between">
           <v-col
             v-for="(item, i) in dataList"
             :key="i"
-            cols="5"
-            class="card-column mx-10"
           >
             <v-img
               v-for="(item, i) in images"
@@ -28,7 +26,7 @@
               {{ item.title }}
             </v-card-title>
           </v-col>
-        </v-row>
+        </div>
       </div>
     </section>
     <v-pagination

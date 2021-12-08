@@ -431,6 +431,7 @@ export default {
       }
     ],
 
+    // list menu
     navItems: [
       {
         name: 'Profil',
@@ -438,35 +439,35 @@ export default {
         list: [
           {
             name: 'Uskup',
-            link: '/page/uskup'
+            link: '/profil/uskup'
           },
           {
             name: 'Perangkat Pastoral Keuskupan',
-            link: '/page/perangkat-pastoral-keuskupan'
+            link: '/profil/perangkat'
           },
           {
             name: 'Peta Keuskupan',
-            link: '/page/petakeuskupan'
+            link: '/profil/peta'
           },
-          {
-            name: 'Paroki',
-            link: '/page/paroki'
-          },
+          // {
+          //   name: 'Paroki',
+          //   link: '/page/paroki'
+          // },
           {
             name: 'Statistik',
-            link: '/page/statistik'
+            link: '/profil/statistik'
           },
           {
             name: 'Seminari',
-            link: '/page/seminari-rplru'
+            link: '/profil/seminari'
           },
           {
             name: 'Tarekat Hidup Bakti',
-            link: '/page/tarekat-hidup-bakti'
+            link: '/profil/tarekat-hidup-bakti'
           },
           {
             name: 'Kelompok Kategorial',
-            link: '/page/kelompok-kategorial'
+            link: '/profil/kelompok-kategorial'
           }
         ]
       },
@@ -477,19 +478,19 @@ export default {
         list: [
           {
             name: 'Perjalanan Mupas 2009 Menuju 2019',
-            link: '/page/dari-mupas-2009-menuju-mupas-2019-lxstd'
+            link: '/ardas/dari-mupas-2009-menuju-mupas-2019-lxstd'
           },
           {
             name: 'Arah Dasar 2020-2030',
-            link: '/page/arah-dasar-2020-2030'
+            link: '/ardas/arah-dasar-2020-2030'
           },
           {
             name: 'Arah Dasar 2010-2019',
-            link: '/page/ardas-2010-2019'
+            link: '/ardas/ardas-2010-2019'
           },
           {
             name: 'Sinode 1997',
-            link: '/page/hasil-sinode-keuskupan-surabaya-1996'
+            link: '/ardas/hasil-sinode-keuskupan-surabaya-1996'
           }
         ]
       },
@@ -499,43 +500,43 @@ export default {
         list: [
           {
             name: 'Unit Karya Pendidikan',
-            link: '/page/unit-karya-pendidikan'
+            link: '/unit/unit-karya-pendidikan'
           },
           {
             name: 'Unit Karya Sosial',
-            link: '/page/unit-karya-sosial'
+            link: '/unit/unit-karya-sosial'
           },
           {
             name: 'Unit Karya Kesehatan',
-            link: '/page/unit-karya-kesehatan'
+            link: '/unit/unit-karya-kesehatan'
           },
           {
             name: 'Unit Karya Rumah Bina',
-            link: '/page/unit-karya-rumah-bina'
+            link: '/unit/unit-karya-rumah-bina'
           },
           {
             name: 'Pastoral Mahasiswa',
-            link: '/page/pastoral-mahasiswa'
+            link: '/ardas/pastoral-mahasiswa'
           },
           {
             name: 'Pastoral Kaderisasi & Animasi Kristiani',
-            link: '/page/pastoral-kaderisasi-animasi-kristiani'
+            link: '/ardas/pastoral-kaderisasi-animasi-kristiani'
           },
           {
             name: 'SGPP/Child Protection',
-            link: '/page/sgpp-child-protection'
+            link: '/profil/sgpp-child-protection'
           },
           {
             name: 'JPIC',
-            link: '/page/JPIC'
+            link: '/profil/JPIC'
           },
           {
             name: 'KARINA',
-            link: '/page/karina'
+            link: '/profil/karina'
           },
           {
             name: 'LKD',
-            link: '/page/lkd'
+            link: '/profil/lkd'
           }
         ]
       },
@@ -545,23 +546,23 @@ export default {
         list: [
           {
             name: 'Sejarah Gereja Katolik Keuskupan Surabaya',
-            link: '/page/membaca-sejarah-aktual-keuskupan-surabaya'
+            link: '/ardas/membaca-sejarah-aktual-keuskupan-surabaya'
           },
           {
             name: 'Informasi Sekretariat Keuskupan',
-            link: '/department/sekretariat'
+            link: '/ardas/sekretariat'
           },
           {
             name: 'Agenda Keuskupan',
             link: ''
           },
           {
-            name: 'News/Berita',
-            link: ''
+            name: 'Berita',
+            link: '/news'
           },
           {
             name: 'Galeria',
-            link: ''
+            link: '/gallery/'
           }
         ]
       },
@@ -571,7 +572,7 @@ export default {
         list: [
           {
             name: 'Semua Dokumen',
-            link: ''
+            link: '/document/'
           },
           {
             name: 'Dokumen Konsili Vatikan II',
@@ -611,7 +612,7 @@ export default {
     this.navItems[4].list.push(
       {
         name: 'Semua Artikel',
-        link: ''
+        link: '/article/'
       }
     )
     const featuredNews = this.featuredNews

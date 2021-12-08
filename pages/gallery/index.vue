@@ -5,7 +5,7 @@
     <h1 class="text-center page-title mx-auto">
       Galeria
     </h1>
-    <section class="gallery-section grey lighten-4">
+    <section class="gallery-section ">
       <div class="mx-auto card-container py-5 mt-5">
         <v-row no-gutters class="inner-contain">
           <v-col
