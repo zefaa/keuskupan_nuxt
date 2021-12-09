@@ -11,7 +11,7 @@
       <div class="d-flex flex-column mr-md-10 ml-md-5">
         <div class="d-flex justify-space-between">
           <v-col
-            v-for="(item, i) in dataList"
+            v-for="(item, i) in historyList"
             :key="i"
           >
             <NewsCard1
@@ -25,9 +25,9 @@
 
     <v-pagination
       v-model="page"
-      :total-visible="6"
-      class="content-pagination mt-5 ml-auto"
-      @input="next"
+      :length="pages"
+      class="pagination mt-5 ml-auto"
+      @input="updatePage"
     />
   </div>
 
@@ -75,6 +75,8 @@
 export default {
   // static
   data: () => ({
+    page: 1,
+    pageSize: 2,
     dataList: [
       {
         label: 'Komisi Hak',
@@ -85,6 +87,16 @@ export default {
         label: 'Komisi Hak',
         title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
         subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
+      },
+      {
+        label: 'Komisi Kepemudaan',
+        title: 'Panduan Untuk Mengikuti Misa Live Streaming',
+        subtitle: 'Petunjuk Misa Online'
+      },
+      {
+        label: 'Komisi Liturgi',
+        title: 'Melindungi Keluarga Memulihkan Masyarakat',
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
       }
 
     ],
@@ -99,8 +111,43 @@ export default {
         disabled: true,
         href: ''
       }
-    ]
-  })
+    ],
+    listCount: 0,
+    historyList: []
+  }),
+
+  computed: {
+    pages () {
+      const _this = this
+      if (_this.pageSize == null || _this.listCount == null) { return 0 }
+      return Math.ceil(_this.listCount / _this.pageSize)
+    }
+  },
+
+  created () {
+    const _this = this
+    _this.initPage()
+    _this.updatePage(_this.page)
+  },
+
+  methods: {
+    initPage () {
+      const _this = this
+      _this.listCount = _this.dataList.length
+      if (_this.listCount < _this.pageSize) {
+        _this.historyList = _this.dataList
+      } else {
+        _this.historyList = _this.dataList.slice(0, _this.pageSize)
+      }
+    },
+    updatePage (pageIndex) {
+      const _this = this
+      const _start = (pageIndex - 1) * _this.pageSize
+      const _end = pageIndex * _this.pageSize
+      _this.historyList = _this.dataList.slice(_start, _end)
+      _this.page = pageIndex
+    }
+  }
 
   // api
   // data: () => ({
