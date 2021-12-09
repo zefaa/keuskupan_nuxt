@@ -47,6 +47,7 @@
           text
           plain
           class="open-button primary--text d-flex ml-auto mb-3"
+          href="/karya"
         >
           <i>Lihat</i>
         </v-btn>

@@ -29,6 +29,7 @@
           plain
           medium
           class="open-button primary--text d-md-flex ml-auto"
+          href="/karya"
         >
           <i>Lihat</i>
         </v-btn>

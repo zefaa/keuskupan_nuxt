@@ -11,7 +11,7 @@
     </div>
     <span class="white blue--text ml-auto px-3 py-1 ma-2 caption">
       <!-- {{ $moment(date).locale('id').format('DD MMMM YYYY') }} -->
-      {{ $moment(date).locale('id').format('DD MMMM YYYY') }}
+      {{ $moment().locale('id').format('DD MMMM YYYY') }}
       <!-- {{ convertDate(item.createdAt) }} -->
     </span>
   </div>
