@@ -478,19 +478,19 @@ export default {
         list: [
           {
             name: 'Perjalanan Mupas 2009 Menuju 2019',
-            link: '/ardas/dari-mupas-2009-menuju-mupas-2019-lxstd'
+            link: '/_page/dari-mupas-2009-menuju-mupas-2019-lxstd'
           },
           {
             name: 'Arah Dasar 2020-2030',
-            link: '/ardas/arah-dasar-2020-2030'
+            link: '/_page/arah-dasar-2020-2030'
           },
           {
             name: 'Arah Dasar 2010-2019',
-            link: '/ardas/ardas-2010-2019'
+            link: '/_page/ardas-2010-2019'
           },
           {
             name: 'Sinode 1997',
-            link: '/ardas/hasil-sinode-keuskupan-surabaya-1996'
+            link: '/_page/hasil-sinode-keuskupan-surabaya-1996'
           }
         ]
       },
@@ -500,27 +500,27 @@ export default {
         list: [
           {
             name: 'Unit Karya Pendidikan',
-            link: '/ardas/unit-karya-pendidikan'
+            link: '/_page/unit-karya-pendidikan'
           },
           {
             name: 'Unit Karya Sosial',
-            link: '/ardas/unit-karya-sosial'
+            link: '/_page/unit-karya-sosial'
           },
           {
             name: 'Unit Karya Kesehatan',
-            link: '/ardas/unit-karya-kesehatan'
+            link: '/_page/unit-karya-kesehatan'
           },
           {
             name: 'Unit Karya Rumah Bina',
-            link: '/ardas/unit-karya-rumah-bina'
+            link: '/_page/unit-karya-rumah-bina'
           },
           {
             name: 'Pastoral Mahasiswa',
-            link: '/karya/pastoral-mahasiswa'
+            link: '/page_/pastoral-mahasiswa'
           },
           {
             name: 'Pastoral Kaderisasi & Animasi Kristiani',
-            link: '/karya/pastoral-kaderisasi-animasi-kristiani'
+            link: '/page_/pastoral-kaderisasi-animasi-kristiani'
           },
           {
             name: 'SGPP/Child Protection',
@@ -528,15 +528,15 @@ export default {
           },
           {
             name: 'JPIC',
-            link: '/ardas/JPIC'
+            link: '/_page/JPIC'
           },
           {
             name: 'KARINA',
-            link: '/karya/karina'
+            link: '/page_/karina'
           },
           {
             name: 'LKD',
-            link: '/karya/lkd'
+            link: '/page_/lkd'
           }
         ]
       },
@@ -546,11 +546,11 @@ export default {
         list: [
           {
             name: 'Sejarah Gereja Katolik Keuskupan Surabaya',
-            link: '/ardas/membaca-sejarah-aktual-keuskupan-surabaya'
+            link: '/_page/membaca-sejarah-aktual-keuskupan-surabaya'
           },
           {
             name: 'Informasi Sekretariat Keuskupan',
-            link: '/ardas/sekretariat'
+            link: '/_page/sekretariat'
           },
           {
             name: 'Agenda Keuskupan',
@@ -585,8 +585,8 @@ export default {
       [1, 3],
       [0, 2, 4]
     ],
-    logo: require('~/assets/images/logo.png'),
-    logoMupas: require('~/assets/images/logo-mupas.png')
+    logo: require('~/assets/logo/logo.png'),
+    logoMupas: require('~/assets/logo/logo-mupas.png')
   }),
   computed: {
     ...mapState(['featuredDocument']),
