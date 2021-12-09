@@ -388,7 +388,7 @@ a{
     h1{
         width: 90%;
         font-weight: 400;
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         @include phone {
             width: 90%;
             font-size: 1.5rem;
@@ -408,6 +408,15 @@ a{
         width: auto;
     }
 
+    .body-image{
+        max-width: 100%;
+        vertical-align: middle;
+        height: 100%;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        
+    }
     
     .card-container{
         width: 90%;
@@ -449,10 +458,6 @@ a{
             }
         }
 
-        .document-title{
-            font-weight: bold;
-            color: #666;
-        }
     
         .card-subtitle{
             font-size: 1rem;
@@ -461,8 +466,23 @@ a{
         }
 
         .card-text{
-            font-size: 1rem;
+            font-size: 1.2rem;
             padding-bottom: 0px !important;
+
+            h1{
+                width: 90%;
+                font-weight: 400;
+                font-size: 1.8rem;
+                font-weight: bold;
+                @include phone {
+                    width: 90%;
+                    font-size: 1.5rem;
+                }
+                @include         portrait-tablet {
+                    width: 90%;
+                    font-size: 1.5rem;
+                }
+            }
         }
     
         .open-button{
@@ -498,8 +518,12 @@ a{
     }
 
     .body-image-big{
-        height: auto;
-        width: auto;
+        max-width: 100%;
+        vertical-align: middle;
+        height: 100%;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
     }
 
     
@@ -593,8 +617,11 @@ a{
     }
 
     .news-image-big{
+        max-width: 100%;
         height: auto;
-        width: auto;
+        vertical-align: middle;
+        display: inline-block;
+        
     }
 
     .news-image-small{

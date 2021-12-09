@@ -500,27 +500,27 @@ export default {
         list: [
           {
             name: 'Unit Karya Pendidikan',
-            link: '/unit/unit-karya-pendidikan'
+            link: '/ardas/unit-karya-pendidikan'
           },
           {
             name: 'Unit Karya Sosial',
-            link: '/unit/unit-karya-sosial'
+            link: '/ardas/unit-karya-sosial'
           },
           {
             name: 'Unit Karya Kesehatan',
-            link: '/unit/unit-karya-kesehatan'
+            link: '/ardas/unit-karya-kesehatan'
           },
           {
             name: 'Unit Karya Rumah Bina',
-            link: '/unit/unit-karya-rumah-bina'
+            link: '/ardas/unit-karya-rumah-bina'
           },
           {
             name: 'Pastoral Mahasiswa',
-            link: '/ardas/pastoral-mahasiswa'
+            link: '/karya/pastoral-mahasiswa'
           },
           {
             name: 'Pastoral Kaderisasi & Animasi Kristiani',
-            link: '/ardas/pastoral-kaderisasi-animasi-kristiani'
+            link: '/karya/pastoral-kaderisasi-animasi-kristiani'
           },
           {
             name: 'SGPP/Child Protection',
@@ -528,15 +528,15 @@ export default {
           },
           {
             name: 'JPIC',
-            link: '/profil/JPIC'
+            link: '/ardas/JPIC'
           },
           {
             name: 'KARINA',
-            link: '/profil/karina'
+            link: '/karya/karina'
           },
           {
             name: 'LKD',
-            link: '/profil/lkd'
+            link: '/karya/lkd'
           }
         ]
       },
@@ -655,7 +655,7 @@ export default {
 
   .background{
     /* background: url('@/assets/background/background_.jpeg'); */
-     box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.6);
+    box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.6);
     background-size: cover;
     height: 100%;
   }
