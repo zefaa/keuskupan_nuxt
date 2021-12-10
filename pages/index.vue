@@ -230,14 +230,16 @@ export default {
       {
         label: 'Komisi Hak',
         title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
-        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
-
+        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
+        url: require('@/assets/images/mupas.jpeg')
       },
 
       {
         label: 'Komisi Hak',
         title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
-        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
+        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
+        url: require('@/assets/images/mupas.jpeg')
+
       }
     ],
 
@@ -245,7 +247,8 @@ export default {
       {
         label: 'Pastoral Difabel',
         title: 'PEMENANG LOMBA VIDEO BISINDO 17AN TEMA "MERDEKA DALAM PANDEMI"',
-        url: require('@/assets/images/news.jpeg')
+        url: require('@/assets/images/news.jpeg'),
+        publishDate: '12 Desember 2021'
       }
     ],
 
@@ -254,7 +257,8 @@ export default {
         label: 'Komisi Komunikasi Sosial',
         title: 'KEUSKUPAN SURABAYA ‘SERENTAK MAJU!’ DALAM MUPAS 2019',
         subtitle: 'Keuskupan Surabaya menyelenggarakan  MUPAS (Musyawarah Pastoral) di Rumah Pembinaan Sasana Krida Jatijejer, Trawas, Mojokerto.',
-        url: require('@/assets/images/mupas.jpeg')
+        url: require('@/assets/images/mupas.jpeg'),
+        publishDate: '12 Desember 2021'
 
       }
     ],
@@ -263,13 +267,15 @@ export default {
       {
         label: 'Komisi Liturgi',
         title: 'Melindungi Keluarga Memulihkan Masyarakat',
-        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya',
+        url: require('@/assets/images/mupas.jpeg')
       },
 
       {
         label: 'Komisi Liturgi',
         title: 'Melindungi Keluarga Memulihkan Masyarakat',
-        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya',
+        url: require('@/assets/images/mupas.jpeg')
       }
     ]
   }),

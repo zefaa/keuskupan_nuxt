@@ -625,8 +625,8 @@ a{
     }
 
     .news-image-small{
-        width: 60px;
-        height: 60px;
+        width: 20%;
+        height: 30%;
     }
 
     .card-container{
@@ -940,13 +940,15 @@ a{
     }
 
     .news-image-small{
-        width: 60px;
-        height: 60px;
+        width: 20%;
+        height: 30%;
     }
 
     .news-image-big{
+        max-width: 100%;
         height: auto;
-        width: auto;
+        vertical-align: middle;
+        display: inline-block;
     }
 
     .card-container{

@@ -81,22 +81,26 @@ export default {
       {
         label: 'Komisi Hak',
         title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
-        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
+        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
+        url: require('@/assets/images/mupas.jpeg')
       },
       {
         label: 'Komisi Hak',
         title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
-        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021'
+        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
+        url: require('@/assets/images/mupas.jpeg')
       },
       {
         label: 'Komisi Kepemudaan',
         title: 'Panduan Untuk Mengikuti Misa Live Streaming',
-        subtitle: 'Petunjuk Misa Online'
+        subtitle: 'Petunjuk Misa Online',
+        url: require('@/assets/images/mupas.jpeg')
       },
       {
         label: 'Komisi Liturgi',
         title: 'Melindungi Keluarga Memulihkan Masyarakat',
-        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya',
+        url: require('@/assets/images/mupas.jpeg')
       }
 
     ],

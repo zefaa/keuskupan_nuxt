@@ -16,6 +16,10 @@
         class="news-image-small"
         :src="defaultThumbnail"
       > -->
+      <img
+        class="news-image-small mt-4"
+        :src="item.url"
+      >
       <div class="d-flex flex-column align-self-center ml-3 card-content">
         <h3 class="card-title ">
           {{ item.title }}

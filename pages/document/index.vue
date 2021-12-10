@@ -1,15 +1,23 @@
 <template>
+  <!-- static -->
   <div class="main-container mx-auto">
-    <section class="news-section mt-6">
+    <!-- static -->
+
+    <!-- <SearchContainer
+      :data="categoryList"
+    /> -->
+
+    <section class="news-section  mt-6">
       <h1 class="text-center page-title mx-auto">
         Daftar Dokumen
       </h1>
-      <div class="d-flex flex-column mx-auto card-container py-5 mt-6 ">
+      <div class="d-flex flex-column mx-auto card-container mt-6">
         <div class="d-flex justify-space-between">
           <v-col
-            v-for="(item, i) in dataList"
+            v-for="(item, i) in historyList"
             :key="i"
           >
+            <!--ambil data yang ada di dataList-->
             <NewsCard1
               :item="item"
               class="dflex mx-auto"
@@ -18,12 +26,12 @@
         </div>
       </div>
     </section>
+
     <v-pagination
       v-model="page"
       :length="pages"
-      :total-visible="6"
-      class="content-pagination mt-5 ml-auto"
-      @input="next"
+      class="pagination mt-5 ml-auto"
+      @input="updatePage"
     />
   </div>
 
@@ -68,6 +76,8 @@
 export default {
   // static
   data: () => ({
+    page: 1,
+    pageSize: 2,
     dataList: [
       {
         label: 'Dokumen Keuskupan',
@@ -76,6 +86,15 @@ export default {
       {
         label: 'Dokumen Keuskupan',
         title: 'Hasil Sinode Keuskupan Surabaya 1996'
+      },
+      {
+        label: 'Dokumen',
+        title: 'Sejarah Gereja Katolik Sakramen Maha Kudus'
+      },
+      {
+        label: 'Dokumen Keuskupan',
+        title: 'Mengembangkan Persekutuan (Communio) Para Imam dI Pastoran'
+
       }
 
     ],
@@ -90,8 +109,44 @@ export default {
         disabled: true,
         href: ''
       }
-    ]
-  })
+
+    ],
+    listCount: 0,
+    historyList: []
+  }),
+
+  computed: {
+    pages () {
+      const _this = this
+      if (_this.pageSize == null || _this.listCount == null) { return 0 }
+      return Math.ceil(_this.listCount / _this.pageSize)
+    }
+  },
+
+  created () {
+    const _this = this
+    _this.initPage()
+    _this.updatePage(_this.page)
+  },
+
+  methods: {
+    initPage () {
+      const _this = this
+      _this.listCount = _this.dataList.length
+      if (_this.listCount < _this.pageSize) {
+        _this.historyList = _this.dataList
+      } else {
+        _this.historyList = _this.dataList.slice(0, _this.pageSize)
+      }
+    },
+    updatePage (pageIndex) {
+      const _this = this
+      const _start = (pageIndex - 1) * _this.pageSize
+      const _end = pageIndex * _this.pageSize
+      _this.historyList = _this.dataList.slice(_start, _end)
+      _this.page = pageIndex
+    }
+  }
 
   // api
   // data: () => ({

@@ -29,11 +29,9 @@
     <div class="d-flex flex-column flex-grow-1">
       <label>Cari</label>
       <v-text-field
+
         label=""
         placeholder="Ketik untuk mencari"
-        outlined
-        dense
-        @change="searchQuery"
       />
     </div>
   </div>
@@ -41,7 +39,12 @@
 <script>
 export default {
   props: {
-    data: Array
+    item: {
+      type: Object,
+      default () {
+        return {}
+      }
+    }
   },
   data: () => ({
     ordering: [
@@ -63,6 +66,11 @@ export default {
       }
     ]
   }),
+  computed: {
+    filteredPosts () {
+      return this.dataList.filter(item => item.title.includes(this.search))
+    }
+  },
   methods: {
     changeCategory (state, value) {
       this.$store.commit('users/setCategory', state)
@@ -74,5 +82,6 @@ export default {
       this.$store.commit('users/setSearch', state)
     }
   }
+
 }
 </script>

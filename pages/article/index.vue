@@ -3,15 +3,17 @@
   <div class="main-container mx-auto">
     <!-- static -->
 
-    <!-- <SearchContainer
-      :data="categoryList"
-    /> -->
-
     <section class="news-section  mt-6">
       <h1 class="text-center page-title mx-auto">
         Daftar Artikel
       </h1>
+      <SearchContainer
+        v-for="(item, i) in filteredPosts"
+        :key="i"
+        v-model="search"
+      />
       <div class="d-flex flex-column mx-auto card-container mt-6">
+        <!-- <input v-model="search" type="text"> -->
         <div class="d-flex justify-space-between">
           <v-col
             v-for="(item, i) in historyList"
@@ -90,28 +92,34 @@ export default {
 
   // script
   data: () => ({
+    search: '',
     page: 1,
     pageSize: 2,
+
     dataList: [
       {
         label: 'Komisi Liturgi',
         title: 'Melindungi Keluarga Memulihkan Masyarakat',
-        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya',
+        url: require('@/assets/images/mupas.jpeg')
       },
       {
         label: 'Dokumen',
         title: 'Sejarah Gereja Katolik Sakramen Maha Kudus',
-        subtitle: 'Caritas Indonesia'
+        subtitle: 'Caritas Indonesia',
+        url: require('@/assets/images/mupas.jpeg')
       },
       {
         label: 'Komisi Kepemudaan',
         title: 'Panduan Untuk Mengikuti Misa Live Streaming',
-        subtitle: 'Petunjuk Misa Online'
+        subtitle: 'Petunjuk Misa Online',
+        url: require('@/assets/images/mupas.jpeg')
       },
       {
         label: 'Komisi Liturgi',
         title: 'Melindungi Keluarga Memulihkan Masyarakat',
-        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya'
+        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya',
+        url: require('@/assets/images/mupas.jpeg')
       }
     ],
 
@@ -139,6 +147,10 @@ export default {
       if (_this.pageSize == null || _this.listCount == null) { return 0 }
       return Math.ceil(_this.listCount / _this.pageSize)
     }
+
+    // filteredPosts () {
+    //   return this.dataList.filter(item => item.title.includes(this.search))
+    // }
   },
 
   created () {
@@ -163,6 +175,14 @@ export default {
       const _end = pageIndex * _this.pageSize
       _this.historyList = _this.dataList.slice(_start, _end)
       _this.page = pageIndex
+    },
+
+    getLabel (item) {
+      if (item.title) {
+        return (item.label)
+      } else {
+        return 'TBD'
+      }
     }
   }
 

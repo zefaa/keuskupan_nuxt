@@ -19,12 +19,11 @@
     </div>
 
     <div class="d-flex flex-row mt-2 mr-2">
-      <!-- <img
-        v-if="item.image !== undefined"
-        class="news-image-small"
-        :src="item.image.file.url"
-      >
       <img
+        class="news-image-small mx-2 mt-4"
+        :src="item.url"
+      >
+      <!--<img
         v-if="item.youtube !== undefined && item.image === undefined"
         class="news-image-small"
         :src="'https://img.youtube.com/vi/' + item.youtube + '/maxresdefault.jpg'"
