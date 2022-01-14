@@ -11,13 +11,43 @@
       <div class="d-flex flex-column mr-md-10 ml-md-5">
         <div class="d-flex justify-space-between">
           <v-col
-            v-for="(item, i) in historyList"
+            v-for="(item, i) in dataList"
             :key="i"
+            xs="12"
+            sm="12"
+            md="6"
+            lg="4"
+            :to="'/news/'+ dataList.id"
           >
-            <NewsCard1
-              :item="item"
-              class="dflex mx-auto"
-            />
+            <!-- <NewsCard1 :item="item" class="dflex mx-auto" /> -->
+            <v-card
+              class="news-card mx-auto mt-5 mb-5"
+            >
+              <!-- mengisi card dengan data dari item yang diberikan oleh pages yang menggunakan card ini  -->
+              <div class="d-flex flex-row ml-2 py-5 card-inner white primary--text px-3 py-1 caption">
+                <img
+                  class="news-image-small mt-4"
+                  :src="item.imageLink"
+                >
+                <div class="d-flex flex-column align-self-center ml-3 card-content">
+                  <h3 class="card-title ">
+                    {{ item.title }}
+                  </h3>
+
+                  <p class="card-subtitle mb-0 mt-2 caption grey--text lighten-4">
+                    {{ item.subtitle }}
+                  </p>
+                  <v-btn
+                    text
+                    plain
+                    medium
+                    class="open-button primary--text d-md-flex ml-auto"
+                  >
+                    <i>Lihat</i>
+                  </v-btn>
+                </div>
+              </div>
+            </v-card>
           </v-col>
         </div>
       </div>
@@ -32,7 +62,7 @@
   </div>
 
   <!-- api -->
-<!-- <div class="main-container mx-auto">
+  <!-- <div class="main-container mx-auto">
     <v-breadcrumbs
       :items="items"
     />
@@ -77,33 +107,7 @@ export default {
   data: () => ({
     page: 1,
     pageSize: 2,
-    dataList: [
-      {
-        label: 'Komisi Hak',
-        title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
-        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
-        url: require('@/assets/images/mupas.jpeg')
-      },
-      {
-        label: 'Komisi Hak',
-        title: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
-        subtitle: 'Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021',
-        url: require('@/assets/images/mupas.jpeg')
-      },
-      {
-        label: 'Komisi Kepemudaan',
-        title: 'Panduan Untuk Mengikuti Misa Live Streaming',
-        subtitle: 'Petunjuk Misa Online',
-        url: require('@/assets/images/mupas.jpeg')
-      },
-      {
-        label: 'Komisi Liturgi',
-        title: 'Melindungi Keluarga Memulihkan Masyarakat',
-        subtitle: 'Protokol New Normal Keluarga Katolik Keuskupan Surabaya',
-        url: require('@/assets/images/mupas.jpeg')
-      }
-
-    ],
+    dataList: [],
     items: [
       {
         text: 'Beranda',
@@ -115,42 +119,18 @@ export default {
         disabled: true,
         href: ''
       }
-    ],
-    listCount: 0,
-    historyList: []
+    ]
   }),
 
-  computed: {
-    pages () {
-      const _this = this
-      if (_this.pageSize == null || _this.listCount == null) { return 0 }
-      return Math.ceil(_this.listCount / _this.pageSize)
+  async fetch () {
+    let payload = this.$nuxt.context.payload
+    console.log('disini')
+    if (!payload) {
+      payload = await this.$axios.$post('/.netlify/functions/get-list', {
+        type: 'news'
+      })
     }
-  },
-
-  created () {
-    const _this = this
-    _this.initPage()
-    _this.updatePage(_this.page)
-  },
-
-  methods: {
-    initPage () {
-      const _this = this
-      _this.listCount = _this.dataList.length
-      if (_this.listCount < _this.pageSize) {
-        _this.historyList = _this.dataList
-      } else {
-        _this.historyList = _this.dataList.slice(0, _this.pageSize)
-      }
-    },
-    updatePage (pageIndex) {
-      const _this = this
-      const _start = (pageIndex - 1) * _this.pageSize
-      const _end = pageIndex * _this.pageSize
-      _this.historyList = _this.dataList.slice(_start, _end)
-      _this.page = pageIndex
-    }
+    this.dataList = payload
   }
 
   // api
@@ -169,19 +149,6 @@ export default {
   //     }
   //   ]
   // }),
-
-  // async fetch () {
-  //   console.log('masuk')
-  //   let payload = this.$nuxt.context.payload
-  //   console.log('disini')
-  //   if (!payload) {
-  //     payload = await this.$axios.$post('/.netlify/functions/get-list', {
-  //       type: 'news'
-  //     })
-  //   }
-  //   console.log(payload)
-  //   this.dataList = payload
-  // }
 
   // mounted () {
   //   const dataList = this.$store.state.users.tempItems.dataList
@@ -251,5 +218,4 @@ export default {
 //     }
 //   ]
 // }),
-
 </script>

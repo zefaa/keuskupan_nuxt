@@ -2,8 +2,10 @@
   <v-card
     class="news-card mx-auto mt-5 mb-5"
   >
-    <!-- :href="'/article/'+item.slug" -->
-    <LabelContainerCard :item="item" />
+    <LabelContainerCard
+      :item="item"
+      :href="'/article/'+item.slug"
+    />
     <!-- mengisi card dengan data dari item yang diberikan oleh pages yang menggunakan card ini  -->
     <div class="d-flex flex-row ml-2 py-5 card-inner white primary--text px-3 py-1 caption">
       <!-- <img

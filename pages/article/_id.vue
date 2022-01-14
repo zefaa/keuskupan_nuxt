@@ -46,7 +46,7 @@ export default {
   }),
 
   async fetch () {
-    console.log('masuk')
+    // console.log('masuk')
     let payload = this.$nuxt.context.payload
     if (!payload) {
       payload = await this.$axios.$post('/.netlify/functions/get-detail', {
@@ -57,7 +57,7 @@ export default {
     }
 
     this.detailContent = payload
-    console.log(payload)
+    // console.log(payload)
   }
 }
 
