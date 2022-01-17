@@ -22,7 +22,6 @@
             sm="12"
             md="6"
             lg="4"
-            :to="'/articles/'+ dataList.id"
           >
             <v-card
               class="news-card mx-auto mt-5 mb-5"
@@ -46,6 +45,7 @@
                     plain
                     medium
                     class="open-button primary--text d-md-flex ml-auto"
+                    :to="'/articles/'+ item.id"
                   >
                     <i>Lihat</i>
                   </v-btn>
@@ -57,12 +57,12 @@
       </div>
     </section>
 
-    <v-pagination
+    <!-- <v-pagination
       v-model="page"
       :length="pages"
       class="pagination mt-5 ml-auto"
       @input="updatePage"
-    />
+    /> -->
     <!-- {{ changeCategory(selectedCategory) }}
     {{ changeSort(selectedSort) }} Himbauan Protokol Kesehatan Dalam Perayaan Natal 2021
     {{ changeSearch(searchQuery) }} -->

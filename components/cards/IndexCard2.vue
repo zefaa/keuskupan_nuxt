@@ -21,18 +21,8 @@
     <div class="d-flex flex-row mt-2 mr-2">
       <img
         class="news-image-small mx-2 mt-4"
-        :src="item.url"
+        :src="item.imageLink"
       >
-      <!--<img
-        v-if="item.youtube !== undefined && item.image === undefined"
-        class="news-image-small"
-        :src="'https://img.youtube.com/vi/' + item.youtube + '/maxresdefault.jpg'"
-      >
-      <img
-        v-if="item.image === undefined && item.youtube === undefined"
-        class="news-image-small"
-        :src="defaultThumbnail"
-      > -->
       <div class="d-flex flex-column align-self-center ml-3 card-content">
         <p class="card-title mb-0">
           {{ item.title }}
@@ -46,7 +36,7 @@
           text
           plain
           class="open-button primary--text d-flex ml-auto mb-3"
-          href="/page_"
+          :href="'/news/' + item.slug"
         >
           <i>Lihat</i>
         </v-btn>

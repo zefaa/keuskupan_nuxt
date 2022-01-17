@@ -17,7 +17,7 @@
             sm="12"
             md="6"
             lg="4"
-            :to="'/news/'+ dataList.id"
+            :to="'/news/'+ item.slug"
           >
             <!-- <NewsCard1 :item="item" class="dflex mx-auto" /> -->
             <v-card
@@ -52,13 +52,6 @@
         </div>
       </div>
     </section>
-
-    <v-pagination
-      v-model="page"
-      :length="pages"
-      class="pagination mt-5 ml-auto"
-      @input="updatePage"
-    />
   </div>
 
   <!-- api -->
@@ -105,8 +98,6 @@
 export default {
   // static
   data: () => ({
-    page: 1,
-    pageSize: 2,
     dataList: [],
     items: [
       {

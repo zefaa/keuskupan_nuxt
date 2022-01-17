@@ -14,31 +14,15 @@
         <!-- </span> -->
       </div>
       <span class="white blue--text ml-auto px-3 py-1 ma-2 caption">
-        <!-- {{ $moment(date).locale('id').format('DD MMMM YYYY') }} -->
-        {{ item.publishDate }}
+        {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
       </span>
     </div>
 
     <div class="d-flex flex-row mt-2 mr-2">
-      <!-- <img
-        v-if="item.image !== undefined"
-        class="news-image-small"
-        :src="item.image.file.url"
-      >
-      <img
-        v-if="item.youtube !== undefined && item.image === undefined"
-        class="news-image-small"
-        :src="'https://img.youtube.com/vi/' + item.youtube + '/maxresdefault.jpg'"
-      >
-      <img
-        v-if="item.image === undefined && item.youtube === undefined"
-        class="news-image-small"
-        :src="defaultThumbnail"
-      > -->
       <div class="d-flex flex-column align-self-center ml-3  card-content">
         <img
           class="news-image-big mr-3"
-          :src="item.url"
+          :src="item.imageLink"
         >
         <p class="card-title mb-0">
           {{ item.title }}
@@ -52,7 +36,7 @@
           text
           plain
           class="open-button primary--text d-flex ml-auto mb-3"
-          href="/karya"
+          :to="'' + item.slug"
         >
           <i>Lihat</i>
         </v-btn>
@@ -62,20 +46,15 @@
 </template>
 <script>
 export default {
-  // api
-  // props: {
-  //   date: String,
-  //   item: {
-  //     type: Object,
-  //     default () {
-  //       return {}
-  //     }
-  //   }
-  // }
 
-  // static
   props:
   {
+    type: {
+      type: String,
+      default () {
+        return this.type
+      }
+    },
     item: {
       type: Object,
       default () {
@@ -83,15 +62,6 @@ export default {
       }
     }
   }
-  // data: () => ({
-  //   defaultThumbnail: require('~/assets/images/default-card-thumbnail.svg')
-  // })
-  // methods: {
-  //   convertDate (date) {
-  //     date = new Date(date)
-  //     const options = { year: 'numeric', month: 'long', day: 'numeric' }
-  //     return date.toLocaleDateString('id-ID', options)
-  //   }
-  // }
+
 }
 </script>
