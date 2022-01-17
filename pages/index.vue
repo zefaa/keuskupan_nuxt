@@ -37,7 +37,7 @@
       <div class="d-flex flex-column mx-auto card-container py-5 mt-6 ">
         <div class="d-flex flex-column mx-auto card-container">
           <IndexMain
-            v-for="(item, i) in newsMain"
+            v-for="(item, i) in articleMain"
             :key="i"
             :item="item"
             type="article"

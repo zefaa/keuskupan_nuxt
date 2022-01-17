@@ -404,8 +404,8 @@ a{
     }
 
     .body-image-big{
-        height: auto;
-        width: auto;
+        height: 270px;
+        width: 50%;
     }
 
     .body-image{
@@ -764,11 +764,12 @@ a{
 
 .label-container{
     // font-family: Montserrat,Helvetica,serif;
-    font-size: 0.8rem;
+    
     font-weight: bold;
     font-style: italic;
     font-family: Montserrat,Helvetica,serif;
     .label-inner{
+        font-size: 2rem; 
         flex-direction: row !important;
         @include phone {
             flex-direction: column !important;
@@ -779,6 +780,7 @@ a{
     }
 
     .caption{
+        
         margin-right: 8px;
         @include phone {
             margin-right: 0px;
@@ -1041,6 +1043,7 @@ a{
 
 .content-section{
     .post-content{
+        font-size: 1.5rem;
         width: 85%;
         word-break: break-word;
         padding: 1rem;

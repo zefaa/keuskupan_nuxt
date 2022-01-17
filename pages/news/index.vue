@@ -42,7 +42,7 @@
                   </h3>
 
                   <p class="card-subtitle mb-0 mt-2 caption grey--text lighten-4">
-                    {{ item.content }}
+                    {{ item.excerpt }}
                   </p>
                   <v-btn
                     text
