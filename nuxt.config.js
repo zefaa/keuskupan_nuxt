@@ -4,7 +4,20 @@ const axios = require('axios')
 dotenv.config()
 
 const useLocal = process.env.USE_LOCAL
-
+async function getPayload (url, callback) {
+  return await axios
+    .get(url, {
+      headers: {
+        Id: process.env.APP_ID,
+        Secret: process.env.APP_SECRET,
+        Partner: process.env.PARTNER
+      }
+    })
+    .then((res) => {
+      return res.data
+    })
+    .catch(callback)
+}
 const setting = {
   head: {
     titleTemplate: 'Keuskupan Surabaya',
@@ -105,95 +118,31 @@ const setting = {
   target: 'static',
   generate: {
     async routes (callback) {
-      let cimUrl = 'http://localhost:3005/cim/'
       let imaviUrl = 'http://localhost:3005/imavi/'
       if (useLocal === 'false') {
-        cimUrl = 'https://api.imavi.org/cim/'
         imaviUrl = 'https://api.imavi.org/imavi/'
       }
-      const allArticles = await axios.get(imaviUrl + 'articles/get-all', {
-        headers: {
-          Id: process.env.APP_ID,
-          Secret: process.env.APP_SECRET,
-          Partner: process.env.PARTNER
-        }
-      }).then((res) => {
-        return res.data
-      }).catch(callback)
-
-      const allNews = await axios.get(imaviUrl + 'news/get-all', {
-        headers: {
-          Id: process.env.APP_ID,
-          Secret: process.env.APP_SECRET,
-          Partner: process.env.PARTNER
-        }
-      }).then((res) => {
-        return res.data
-      }).catch(callback)
+      const allArticles = await getPayload(imaviUrl + 'articles/get-all', callback)
+      const allNews = await getPayload(imaviUrl + 'news/get-all', callback)
 
       const routeList =
       [
         {
-          route: '/articles/list',
+          route: '/articles/',
           payload: allArticles
         },
         {
-          route: '/news/list',
+          route: '/news/',
           payload: allNews
+        },
+        {
+          route: '/',
+          payload: {
+            allArticles,
+            allNews
+          }
         }
       ]
-
-      const ujianSingle = await axios.get(cimUrl + 'ujians/view/616634a20ed367297d87e26b', {
-        headers: {
-          Id: process.env.APP_ID,
-          Secret: process.env.APP_SECRET
-        }
-      }).then((res) => {
-        const payload = res.data
-        return {
-          route: '/member/ujians/do',
-          payload
-        }
-      }).catch(callback)
-      routeList.push(ujianSingle)
-
-      const coursesAll = await axios.get(cimUrl + 'courses/get-all', {
-        headers: {
-          Id: process.env.APP_ID,
-          Secret: process.env.APP_SECRET,
-          Partner: process.env.PARTNER
-        }
-      }).then((res) => {
-        const payload = res.data
-        const innerRoutes = [{
-          route: '/courses/list',
-          payload
-        }]
-        payload.forEach((subElement) => {
-          innerRoutes.push({
-            route: '/courses/' + subElement.slug,
-            payload: subElement
-          })
-        })
-        return innerRoutes
-      }).catch(callback)
-      coursesAll.forEach((element) => {
-        routeList.push(element)
-      })
-
-      allArticles.forEach((element) => {
-        routeList.push({
-          route: '/articles/' + element.slug,
-          payload: element
-        })
-      })
-
-      allNews.forEach((element) => {
-        routeList.push({
-          route: '/news/' + element.slug,
-          payload: element
-        })
-      })
       callback(null, routeList)
     }
 

@@ -23,7 +23,7 @@
         </p>
 
         <p class="card-subtitle mb-0 grey--text lighten-4">
-          {{ item.content }}
+          {{ item.excerpt }}
         </p>
 
         <v-btn

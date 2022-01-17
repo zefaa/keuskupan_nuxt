@@ -427,7 +427,7 @@ export default {
     articles: [
       {
         name: 'Semua Artikel',
-        link: '/article'
+        link: '/article/'
       }
     ],
 
@@ -570,14 +570,7 @@ export default {
         name: 'Dokumen',
         alt: 'Downloads',
         list: [
-          {
-            name: 'Semua Dokumen',
-            link: '/document/'
-          },
-          {
-            name: 'Dokumen Konsili Vatikan II',
-            link: ''
-          }
+
         ]
       }
     ],

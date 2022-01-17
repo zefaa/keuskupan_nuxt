@@ -14,7 +14,7 @@
         <!-- </span> -->
       </div>
       <span class="white blue--text ml-auto px-3 py-1 ma-2 caption">
-        {{ $moment().locale('id').format('DD MMMM YYYY') }}
+        {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
       </span>
     </div>
 
@@ -36,7 +36,7 @@
           text
           plain
           class="open-button primary--text d-flex ml-auto mb-3"
-          :href="'/news/' + item.slug"
+          :href="'/'+type+'/' + item.slug"
         >
           <i>Lihat</i>
         </v-btn>

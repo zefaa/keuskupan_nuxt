@@ -197,20 +197,20 @@ export default {
   }),
 
   async fetch () {
-    let newsMain = this.$nuxt.context.payload
-    let articleMain = this.$nuxt.context.payload
+    let payload = this.$nuxt.context.payload
 
-    if (!newsMain) {
-      newsMain = await this.$axios.$post('/.netlify/functions/get-list', {
-        type: 'news'
-      })
-      articleMain = await this.$axios.$post('/.netlify/functions/get-list', {
+    if (!payload) {
+      payload = {}
+      payload.allArticles = await this.$axios.$post('/.netlify/functions/get-list', {
         type: 'articles'
+      })
+      payload.allNews = await this.$axios.$post('/.netlify/functions/get-list', {
+        type: 'news'
       })
     }
 
-    this.newsMain = newsMain
-    this.articleMain = articleMain
+    this.newsMain = payload.allNews
+    this.articleMain = payload.allArticles
   }
 }
 
