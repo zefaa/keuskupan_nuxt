@@ -17,12 +17,19 @@
             sm="12"
             md="6"
             lg="4"
-            :to="'/news/'+ item.slug"
           >
             <!-- <NewsCard1 :item="item" class="dflex mx-auto" /> -->
             <v-card
               class="news-card mx-auto mt-5 mb-5"
             >
+              <div class="primary d-flex label-container">
+                <div class="d-flex label-inner flex-sm-shrink-0 ma-2 white primary--text px-3 py-1 caption">
+                  {{ item.author }}
+                </div>
+                <span class="white blue--text ml-auto px-3 py-1 ma-2 caption">
+                  {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
+                </span>
+              </div>
               <!-- mengisi card dengan data dari item yang diberikan oleh pages yang menggunakan card ini  -->
               <div class="d-flex flex-row ml-2 py-5 card-inner white primary--text px-3 py-1 caption">
                 <img
@@ -35,13 +42,14 @@
                   </h3>
 
                   <p class="card-subtitle mb-0 mt-2 caption grey--text lighten-4">
-                    {{ item.subtitle }}
+                    {{ item.content }}
                   </p>
                   <v-btn
                     text
                     plain
                     medium
                     class="open-button primary--text d-md-flex ml-auto"
+                    :to="'/news/'+ item.slug"
                   >
                     <i>Lihat</i>
                   </v-btn>

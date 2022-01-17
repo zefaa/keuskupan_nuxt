@@ -5,13 +5,7 @@
     <!-- :href="'/news/' + item.slug" -->
     <div class="primary d-flex label-container">
       <div class="d-flex label-inner flex-sm-shrink-0 ma-2 white primary--text px-3 py-1 caption">
-        <!-- <span
-          v-for="(item, i) in item.categories"
-          :key="i"
-          class="white primary--text px-3 py-1 caption"
-        > -->
-        {{ item.label }}
-        <!-- </span> -->
+        {{ item.author }}
       </div>
       <span class="white blue--text ml-auto px-3 py-1 ma-2 caption">
         {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
@@ -29,14 +23,14 @@
         </p>
 
         <p class="card-subtitle mb-0 grey--text lighten-4">
-          {{ item.subtitle }}
+          {{ item.content }}
         </p>
 
         <v-btn
           text
           plain
           class="open-button primary--text d-flex ml-auto mb-3"
-          :to="'' + item.slug"
+          :to="'/' +type +'/' + item.slug"
         >
           <i>Lihat</i>
         </v-btn>

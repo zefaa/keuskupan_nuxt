@@ -15,16 +15,19 @@
         </div>
       </div>
 
-      <v-btn
-        class="primary white--text mt-5 mb-15"
-      >
-        Tampilkan lebih banyak
-      </v-btn>
+      <div class="text-center">
+        <v-btn
+          class="primary white--text mt-5 mb-15"
+          :to="'/news'"
+        >
+          Tampilkan lebih banyak
+        </v-btn>
+      </div>
     </section>
     <!-- berita end -->
 
     <!-- artikel start -->
-    <!-- <section
+    <section
       class="news-section  mt-16"
     >
       <h1 class="mb-3 pt-5 mx-auto text-center">
@@ -32,6 +35,27 @@
       </h1>
 
       <div class="d-flex flex-column mx-auto card-container py-5 mt-6 ">
+        <div class="d-flex flex-column mx-auto card-container">
+          <IndexMain
+            v-for="(item, i) in newsMain"
+            :key="i"
+            :item="item"
+            type="article"
+          />
+        </div>
+      </div>
+
+      <div class="text-center">
+        <v-btn
+          class="primary white--text mt-5 mb-15"
+          :to="'/article'"
+        >
+          Tampilkan lebih banyak
+        </v-btn>
+      </div>
+    </section>
+
+    <!--<div class="d-flex flex-column mx-auto card-container py-5 mt-6 ">
         <div class="d-flex flex-column mx-auto card-container">
           <v-card
             v-for="(item, i) in articleContent"
@@ -168,9 +192,7 @@
 export default {
   data: () => ({
     newsMain: [],
-    articleMain: [],
-    newsContent: [],
-    articleContent: []
+    articleMain: []
 
   }),
 

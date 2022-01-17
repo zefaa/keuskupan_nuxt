@@ -7,32 +7,15 @@
     <LabelContainer :item="newsDetail" />
     <section class="image-section">
       <v-img
-        v-if="newsDetail.image"
+
         width="270"
         height="270"
         class="mx-auto news-image"
-        :src="newsDetail.image.file.url"
+        :src="newsDetail.imageLink"
       />
     </section>
     <section class="content-section mt-5">
       <div class="post-content mx-auto" v-html="newsDetail.content" />
-    </section>
-    <section v-if="newsDetail.youtube" class="section-post-video">
-      <v-responsive
-        class="ml-auto mr-auto mx-16 text-center"
-        :aspect-ratio="16 / 9"
-        max-width="540"
-        max-height="240"
-      >
-        <iframe
-          id="testimony-embed"
-          class="youtube-embed"
-          :src="'https://www.youtube.com/embed/' + newsDetail.youtube"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        />
-      </v-responsive>
     </section>
     <ShareSection :item="newsDetail" />
   </div>

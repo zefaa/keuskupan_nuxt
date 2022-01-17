@@ -7,11 +7,10 @@
     <LabelContainer :item="detailContent" />
     <section class="image-section">
       <v-img
-        v-if="detailContent.image"
         width="270"
         height="270"
         class="mx-auto news-image"
-        :src="detailContent.image.file.url"
+        :src="detailContent.imageLink"
       />
     </section>
     <section class="content-section mt-5">
@@ -51,13 +50,10 @@ export default {
     if (!payload) {
       payload = await this.$axios.$post('/.netlify/functions/get-detail', {
         type: this.type,
-        // code: 'id'
         code: this.$nuxt.context.params.id
       })
     }
-
     this.detailContent = payload
-    // console.log(payload)
   }
 }
 
