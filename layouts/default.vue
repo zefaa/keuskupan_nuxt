@@ -499,6 +499,10 @@ export default {
         alt: 'Pastoral Ministries',
         list: [
           {
+            name: 'Komisi-komisi',
+            link: 'pastorals'
+          },
+          {
             name: 'Unit Karya Pendidikan',
             link: '/_page/unit-karya-pendidikan'
           },

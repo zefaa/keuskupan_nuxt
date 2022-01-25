@@ -1,5 +1,22 @@
 <template>
   <div class="main-container mx-auto">
+    <section class="slideshow mt-8">
+      <v-carousel
+        class="v-carousel"
+        cycle
+        height="400"
+
+        hide-delimiter-background
+        :show-arrows="true"
+      >
+        <v-carousel-item
+          v-for="(item,i) in slideItems"
+          :key="i"
+          class="v-carousel_item"
+          :src="item.src"
+        />
+      </v-carousel>
+    </section>
     <section class="news-section  mt-16">
       <h1 class="mb-3 pt-5 mx-auto text-center">
         Berita Utama
@@ -155,14 +172,14 @@
 
     <!-- static -->
     <!-- jubi rehan start -->
-    <!-- <section class="download-section  mt-16">
+    <section class="download-section  mt-16">
       <div class="d-flex jubi-rehan-column mx-10">
         <div class="d-flex flex-column mr-md-10 ml-md-5">
           <h1 class="mb-3 pt-5 mx-auto text-center">
             Jubileum
           </h1>
           <div class="d-flex flex-column mr-md-10 ml-md-5 card-container">
-            <img src="@/assets/images/rehan.jpg" class="download-banner">
+            <img src="@/assets/images/jubileum.jpg" class="download-banner">
             <a
               href="/jubileum/"
               class="primary--text text-bold d-flex ml-auto"
@@ -177,13 +194,13 @@
           <div class="d-flex flex-column mr-md-5 ml-md-5 card-container">
             <img src="@/assets/images/rehan.jpg" class="download-banner">
             <a
-
+              href="/jubileum/"
               class="primary--text text-bold d-flex ml-auto"
             >Selengkapnya</a>
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
     <!-- jubi rehan end -->
   </div>
 </template>
@@ -192,7 +209,15 @@
 export default {
   data: () => ({
     newsMain: [],
-    articleMain: []
+    articleMain: [],
+    slideItems: [
+      {
+        src: require('../assets/images/mupas.jpeg')
+      },
+      {
+        src: require('../assets/images/cathedral.jpeg')
+      }
+    ]
 
   }),
 
@@ -208,9 +233,8 @@ export default {
         type: 'news'
       })
     }
-
-    this.newsMain = payload.allNews
     this.articleMain = payload.allArticles
+    this.newsMain = payload.allNews
   }
 }
 

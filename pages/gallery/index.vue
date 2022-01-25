@@ -5,14 +5,16 @@
     <h1 class="text-center page-title mx-auto">
       Galeria
     </h1>
-    <section class="gallery-section ">
-      <div class="mx-auto card-container py-5 mt-5">
-        <v-row no-gutters class="inner-contain">
+    <section class="news-section ">
+      <div class="d-flex flex-column mr-md-10 ml-md-5 card-container">
+        <div class="d-flex justify-space-between">
           <v-col
             v-for="(item, i) in dataList"
             :key="i"
-            cols="4"
-            class="card-column mx-10"
+            xs="12"
+            sm="12"
+            md="6"
+            lg="4"
           >
             <v-img
               v-for="(item, i) in images"
@@ -30,15 +32,15 @@
               {{ item.title }}
             </v-card-title>
           </v-col>
-        </v-row>
+        </div>
       </div>
     </section>
-    <v-pagination
+    <!-- <v-pagination
       v-model="page"
       :total-visible="6"
       class="content-pagination mt-5 ml-auto"
       @input="next"
-    />
+    /> -->
   </div>
 
   <!-- api -->

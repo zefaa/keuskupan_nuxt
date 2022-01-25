@@ -18,7 +18,6 @@
             md="6"
             lg="4"
           >
-            <!-- <NewsCard1 :item="item" class="dflex mx-auto" /> -->
             <v-card
               class="news-card mx-auto mt-5 mb-5"
             >
@@ -30,7 +29,7 @@
                   {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
                 </span>
               </div>
-              <!-- mengisi card dengan data dari item yang diberikan oleh pages yang menggunakan card ini  -->
+
               <div class="d-flex flex-row ml-2 py-5 card-inner white primary--text px-3 py-1 caption">
                 <img
                   class="news-image-small mt-4"
@@ -106,24 +105,12 @@
 export default {
   // static
   data: () => ({
-    dataList: [],
-    items: [
-      {
-        text: 'Beranda',
-        disabled: false,
-        href: '/'
-      },
-      {
-        text: 'News',
-        disabled: true,
-        href: ''
-      }
-    ]
+    dataList: []
   }),
 
   async fetch () {
     let payload = this.$nuxt.context.payload
-    console.log('disini')
+    console.log(payload)
     if (!payload) {
       payload = await this.$axios.$post('/.netlify/functions/get-list', {
         type: 'news'
