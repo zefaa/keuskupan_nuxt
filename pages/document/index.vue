@@ -13,26 +13,54 @@
       </h1>
       <div class="d-flex flex-column mx-auto card-container mt-6">
         <div class="d-flex justify-space-between">
-          <v-col
-            v-for="(item, i) in historyList"
-            :key="i"
-          >
-            <!--ambil data yang ada di dataList-->
-            <NewsCard1
-              :item="item"
-              class="dflex mx-auto"
-            />
-          </v-col>
+          <v-row>
+            <v-col
+              v-for="(item, i) in dataList"
+              :key="i"
+              xs="12"
+              sm="12"
+              md="6"
+              lg="4"
+            >
+              <v-card
+                class="news-card mx-auto mt-5 mb-5"
+              >
+                <div class="primary d-flex label-container">
+                  <span class="white blue--text ml-auto px-3 py-1 ma-2 caption">
+                    {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
+                  </span>
+                </div>
+                <!-- mengisi card dengan data dari item yang diberikan oleh pages yang menggunakan card ini  -->
+                <div class="d-flex flex-row ml-2 py-5 card-inner white primary--text px-3 py-1 caption">
+                  <img
+                    class="news-image-small mt-4"
+                    :src="item.imageLink"
+                  >
+                  <div class="d-flex flex-column align-self-center ml-3 card-content">
+                    <h3 class="card-title ">
+                      {{ item.title }}
+                    </h3>
+
+                    <p class="card-subtitle mb-0 mt-2 caption grey--text lighten-4">
+                      {{ item.excerpt }}
+                    </p>
+                    <v-btn
+                      text
+                      plain
+                      medium
+                      class="open-button primary--text d-md-flex ml-auto"
+                      :to="'/document/'+ item.slug"
+                    >
+                      <i>Lihat</i>
+                    </v-btn>
+                  </div>
+                </div>
+              </v-card>
+            </v-col>
+          </v-row>
         </div>
       </div>
     </section>
-
-    <v-pagination
-      v-model="page"
-      :length="pages"
-      class="pagination mt-5 ml-auto"
-      @input="updatePage"
-    />
   </div>
 
   <!-- api -->
@@ -70,179 +98,23 @@
 </template>
 
 <script>
-// import { createClient } from '~/plugins/contentful.js'
-
-// const client = createClient()
 export default {
-  // static
+
   data: () => ({
-    page: 1,
-    pageSize: 2,
-    dataList: [
-      {
-        label: 'Dokumen Keuskupan',
-        title: 'Hasil Sinode Keuskupan Surabaya 1996'
-      },
-      {
-        label: 'Dokumen Keuskupan',
-        title: 'Hasil Sinode Keuskupan Surabaya 1996'
-      },
-      {
-        label: 'Dokumen',
-        title: 'Sejarah Gereja Katolik Sakramen Maha Kudus'
-      },
-      {
-        label: 'Dokumen Keuskupan',
-        title: 'Mengembangkan Persekutuan (Communio) Para Imam dI Pastoran'
+    dataList: []
 
-      }
-
-    ],
-    items: [
-      {
-        text: 'Beranda',
-        disabled: false,
-        href: '/'
-      },
-      {
-        text: 'Dokumen',
-        disabled: true,
-        href: ''
-      }
-
-    ],
-    listCount: 0,
-    historyList: []
   }),
 
-  computed: {
-    pages () {
-      const _this = this
-      if (_this.pageSize == null || _this.listCount == null) { return 0 }
-      return Math.ceil(_this.listCount / _this.pageSize)
-    }
-  },
+  async fetch () {
+    let payload = this.$nuxt.context.payload
 
-  created () {
-    const _this = this
-    _this.initPage()
-    _this.updatePage(_this.page)
-  },
-
-  methods: {
-    initPage () {
-      const _this = this
-      _this.listCount = _this.dataList.length
-      if (_this.listCount < _this.pageSize) {
-        _this.historyList = _this.dataList
-      } else {
-        _this.historyList = _this.dataList.slice(0, _this.pageSize)
-      }
-    },
-    updatePage (pageIndex) {
-      const _this = this
-      const _start = (pageIndex - 1) * _this.pageSize
-      const _end = pageIndex * _this.pageSize
-      _this.historyList = _this.dataList.slice(_start, _end)
-      _this.page = pageIndex
+    if (!payload) {
+      console.log('disini')
+      payload = await this.$axios.$post('/.netlify/functions/get-list', {
+        type: 'documents'
+      })
     }
+    this.dataList = payload
   }
-
-  // api
-  // data: () => ({
-  //   dataList: [],
-  //   items: [
-  //     {
-  //       text: 'Beranda',
-  //       disabled: false,
-  //       href: '/'
-  //     },
-  //     {
-  //       text: 'Dokumen',
-  //       disabled: true,
-  //       href: ''
-  //     }
-  //   ]
-  // }),
-
-  // async fetch () {
-  //   let payload = this.$nuxt.context.payload
-  //   if (!payload) {
-  //     payload = await this.$axios.$post('/.netlify/functions/get-list', {
-  //       type: 'documents'
-  //     })
-  //   }
-  //   this.dataList = payload
-  // }
-
-  // methods: {
-  //   next (page) {
-  //     this.page = page
-  //     this.dataList = []
-  //     this.fillPages()
-  //   },
-  //   fillPages () {
-  //     const startIndex = (this.page - 1) * this.pageSize
-  //     const endIndex = Math.min(startIndex + this.pageSize - 1, this.mainList.length - 1)
-  //     for (let index = startIndex; index <= endIndex; index++) {
-  //       const element = this.mainList[index]
-  //       this.dataList.push(element)
-  //     }
-  //   }
-  // }
 }
-
-// async asyncData ({ store, env, params }) {
-//   try {
-//     // TODO ambil semua artikelnya lalu filter di client
-//     // aman harusnya meski di static
-//     const dataList = await client.getEntries({
-//       content_type: 'document'
-//     })
-//     const categoryList = await client.getEntries({
-//       content_type: 'category',
-//       'fields.parent.sys.contentType.sys.id': 'category',
-//       'fields.parent.fields.slug': 'category-document',
-//       order: 'fields.slug'
-//     })
-//     store.commit('users/setTemp', {
-//       dataList: dataList.items
-//     })
-//     return {
-//       // dataList: dataList.items,
-//       categoryList: categoryList.items
-//     }
-//   } catch (e) {
-//     // eslint-disable-next-line
-//     console.error(e)
-//   }
-// },
-// data: () => ({
-//   pages: 0,
-//   page: 1,
-//   pageSize: 5,
-//   mainList: [],
-//   dataList: [],
-//   items: [
-//     {
-//       text: 'Beranda',
-//       disabled: false,
-//       href: '/'
-//     },
-//     {
-//       text: 'Dokumen',
-//       disabled: true,
-//       href: ''
-//     }
-//   ]
-// }),
-// mounted () {
-//   const dataList = this.$store.state.users.tempItems.dataList
-//   dataList.forEach((element) => {
-//     this.mainList.push(element)
-//   })
-//   this.pages = Math.ceil(this.mainList.length / this.pageSize)
-//   this.fillPages()
-// },
-
 </script>

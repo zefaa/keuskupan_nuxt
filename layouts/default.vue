@@ -574,7 +574,66 @@ export default {
         name: 'Dokumen',
         alt: 'Downloads',
         list: [
-
+          {
+            name: 'Semua Dokumen',
+            link: '/document'
+          },
+          {
+            name: 'Dokumen Konsili Vatikan II',
+            link: '/'
+          },
+          {
+            name: 'Kitab Hukum Kanonik 1983',
+            link: '/'
+          },
+          {
+            name: 'katekismus gereja katolik',
+            link: '/'
+          },
+          {
+            name: 'kompendium katekismus gereja katolik',
+            link: '/'
+          },
+          {
+            name: 'kompendium ajaran sosial gereja',
+            link: '/'
+          },
+          {
+            name: 'dokumen kepausan',
+            link: '/'
+          },
+          {
+            name: 'ketentuan pastoral regio jawa',
+            link: '/'
+          },
+          {
+            name: 'dokumen tingkat kwi ',
+            link: '/'
+          },
+          {
+            name: 'dokumen keuskupan',
+            link: '/'
+          },
+          {
+            name: 'buku pendalaman',
+            link: '/'
+          },
+          {
+            name: 'sambutan uskup',
+            link: '/'
+          },
+          {
+            name: 'bahan app',
+            link: '/'
+          },
+          {
+            name: 'seri dokuemen gerejawi',
+            link: '/'
+          },
+          {
+            name: 'covid 19',
+            link: '/'
+          }
         ]
       }
     ],

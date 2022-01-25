@@ -223,7 +223,7 @@ export default {
 
   async fetch () {
     let payload = this.$nuxt.context.payload
-
+    console.log(payload)
     if (!payload) {
       payload = {}
       payload.allArticles = await this.$axios.$post('/.netlify/functions/get-list', {

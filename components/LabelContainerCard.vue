@@ -1,43 +1,14 @@
 <template>
-  <div class="primary d-flex label-container ">
-    <div class="d-flex flex-column justify-between label-inner flex-sm-shrink-0 ma-2 white primary--text px-3 py-1 caption">
-      <!-- <span
-        v-for="(item, i) in item.categories"
-        :key="i"
-        class="primary white--text font-italic px-3 py-1 caption"
-      > -->
-      {{ item.label }}
-      <!-- </span> -->
-    </div>
-    <span class="white blue--text ml-auto px-3 py-1 ma-2 caption">
-      <!-- {{ $moment(date).locale('id').format('DD MMMM YYYY') }} -->
-      {{ $moment(item.publishDate).locale('id').format('DD MMMM YYYY') }}
-      <!-- {{ convertDate(item.createdAt) }} -->
+  <div class="d-flex label-container mt-5 mx-auto w-80">
+    <span class="ml-auto red--text darken-2 align-self-center mr-5 caption">
+      {{ $moment(item.publishDate).format('DD MMMM YYYY') }}
     </span>
   </div>
 </template>
 <script>
 export default {
-  // api
-  // props: {
-  //   item: {
-  //     type: Object,
-  //     default () {
-  //       return {}
-  //     }
-  //   }
-  // },
-  // methods: {
-  //   convertDate (date) {
-  //     date = new Date(date)
-  //     const options = { year: 'numeric', month: 'long', day: 'numeric' }
-  //     return date.toLocaleDateString('id-ID', options)
-  //   }
-  // }
+  props: {
 
-  // static
-  props:
-  {
     item: {
       type: Object,
       default () {
@@ -45,5 +16,6 @@ export default {
       }
     }
   }
+
 }
 </script>

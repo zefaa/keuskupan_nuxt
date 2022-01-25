@@ -4,9 +4,11 @@ const settings = require('./credential-settings')
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 const handler = async (event) => {
   try {
+    console.log('masuk')
     const data = JSON.parse(event.body)
     const requestUrl = settings.wrapUrl(data.type + '/get-all')
-
+    console.log('request')
+    console.log(requestUrl)
     axios.defaults.headers.common.Id = process.env.APP_ID
     axios.defaults.headers.common.Secret = process.env.APP_SECRET
     axios.defaults.headers.common.Partner = process.env.PARTNER

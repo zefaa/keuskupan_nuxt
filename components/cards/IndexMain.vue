@@ -15,7 +15,7 @@
     <div class="d-flex flex-row mt-2 mr-2">
       <div class="d-flex flex-column align-self-center ml-3  card-content">
         <img
-          class="news-image-big mr-3"
+          class="news-image-small mr-3"
           :src="item.imageLink"
         >
         <p class="card-title mb-0">
